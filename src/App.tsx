@@ -130,9 +130,10 @@ function App() {
                 href={siteContent.brand.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 items-center gap-2 rounded-lg border border-white/15 bg-white/[0.04] px-3 text-xs font-semibold text-white transition hover:border-cyan/50 hover:bg-cyan/10"
+                aria-label="Open LinkedIn profile"
+                className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg border border-white/15 bg-white/[0.04] px-3 text-xs font-semibold text-white transition hover:border-cyan/50 hover:bg-cyan/10"
               >
-                LinkedIn
+                <span className="hidden sm:inline">LinkedIn</span>
                 <ExternalLink className="size-3.5" />
               </a>
             </header>

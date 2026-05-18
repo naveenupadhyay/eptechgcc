@@ -26,7 +26,7 @@ export function Slide({
 
   return (
     <motion.article
-      className={`grid h-dvh place-items-start overflow-y-auto px-4 pb-20 sm:px-6 md:px-10 ${
+      className={`grid h-dvh place-items-start overflow-y-auto overscroll-contain px-4 pb-20 sm:px-6 md:px-10 ${
         isTeamSlide
           ? "pt-28 md:pt-32"
           : "pt-24 md:place-items-center md:overflow-hidden md:pb-24 md:pt-28"
@@ -161,16 +161,16 @@ function HeroVisual() {
         <div className="relative my-4 grid items-center gap-4 sm:my-6 md:grid-cols-[0.9fr_1.1fr]">
           <FounderSignal />
           <div className="relative h-20 sm:h-28">
-          <div className="absolute left-[14%] right-[14%] top-1/2 h-px bg-gradient-to-r from-electric via-cyan to-teal" />
-          {[0, 1, 2, 3, 4].map((dot) => (
-            <motion.span
-              key={dot}
-              className="absolute top-1/2 size-2 -translate-y-1/2 rounded-full bg-cyan shadow-glow"
-              initial={{ left: "16%", opacity: 0 }}
-              animate={{ left: "82%", opacity: [0, 1, 1, 0] }}
-              transition={{ duration: 3.4, repeat: Infinity, delay: dot * 0.42, ease: "easeInOut" }}
-            />
-          ))}
+            <div className="absolute left-[14%] right-[14%] top-1/2 h-px bg-gradient-to-r from-electric via-cyan to-teal" />
+            {[0, 1, 2, 3, 4].map((dot) => (
+              <motion.span
+                key={dot}
+                className="absolute top-1/2 size-2 -translate-y-1/2 rounded-full bg-cyan shadow-glow"
+                initial={{ left: "16%", opacity: 0 }}
+                animate={{ left: "82%", opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 3.4, repeat: Infinity, delay: dot * 0.42, ease: "easeInOut" }}
+              />
+            ))}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -188,11 +188,11 @@ function HeroVisual() {
 function FounderSignal() {
   return (
     <div className="rounded-lg border border-cyan/20 bg-black/30 p-3 shadow-glow backdrop-blur sm:p-4">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 sm:gap-4">
         <img
           src={siteContent.brand.portrait}
           alt="Naveen Upadhyay"
-          className="size-20 shrink-0 rounded-lg border border-cyan/25 object-cover sm:size-24"
+          className="size-16 shrink-0 rounded-lg border border-cyan/25 object-cover sm:size-24"
         />
         <div className="min-w-0">
           <div className="text-xs uppercase tracking-[0.18em] text-cyan">Led by Naveen Upadhyay</div>
@@ -231,7 +231,7 @@ function AboutProfile() {
 
 function ProfilePanel() {
   return (
-    <div className="max-h-[66vh] overflow-y-auto rounded-lg border border-white/12 bg-white/[0.045] p-5 shadow-premium backdrop-blur md:p-6">
+    <div className="rounded-lg border border-white/12 bg-white/[0.045] p-4 shadow-premium backdrop-blur md:max-h-[66vh] md:overflow-y-auto md:p-6">
       <div className="grid gap-5 sm:grid-cols-[150px_minmax(0,1fr)]">
         <img
           src={siteContent.brand.portrait}
@@ -320,28 +320,28 @@ function TeamPanel({
   }>;
 }) {
   return (
-    <div className="grid max-h-[58vh] gap-4 overflow-y-auto pr-1 lg:grid-cols-2 lg:gap-5">
+    <div className="grid gap-4 pr-1 lg:max-h-[60vh] lg:grid-cols-2 lg:gap-5 lg:overflow-y-auto">
       {team.map((member, index) => (
         <article
           key={member.name}
-          className="min-h-[180px] rounded-lg border border-white/12 bg-white/[0.055] p-6 shadow-premium backdrop-blur transition hover:border-cyan/35 hover:bg-cyan/[0.07] md:p-7"
+          className="rounded-lg border border-white/12 bg-white/[0.055] p-4 shadow-premium backdrop-blur transition hover:border-cyan/35 hover:bg-cyan/[0.07] sm:p-5 md:min-h-[180px] md:p-7"
         >
-          <div className="flex items-start gap-5">
+          <div className="flex items-start gap-4 md:gap-5">
             {member.image ? (
               <img
                 src={member.image}
                 alt={member.name}
-                className="size-24 shrink-0 rounded-lg border border-cyan/25 object-cover shadow-glow md:size-28"
+                className="size-20 shrink-0 rounded-lg border border-cyan/25 object-cover shadow-glow sm:size-24 md:size-28"
               />
             ) : (
-              <div className="grid size-24 shrink-0 place-items-center rounded-lg border border-cyan/25 bg-cyan/10 text-2xl font-semibold text-cyan md:size-28">
+              <div className="grid size-20 shrink-0 place-items-center rounded-lg border border-cyan/25 bg-cyan/10 text-xl font-semibold text-cyan sm:size-24 md:size-28 md:text-2xl">
                 {member.initials}
               </div>
             )}
             <div className="min-w-0">
               <div className="text-xs uppercase tracking-[0.18em] text-cyan">0{index + 1}</div>
               <div className="mt-2 flex items-start justify-between gap-3">
-                <h3 className="text-2xl font-semibold text-white">{member.name}</h3>
+                <h3 className="text-xl font-semibold text-white md:text-2xl">{member.name}</h3>
                 {member.linkedin && (
                   <a
                     href={member.linkedin}
@@ -355,7 +355,7 @@ function TeamPanel({
                 )}
               </div>
               <div className="mt-2 text-base font-semibold text-cyan">{member.role}</div>
-              <p className="mt-4 text-sm leading-6 text-slate-400 md:text-base md:leading-7">{member.description}</p>
+              <p className="mt-3 text-sm leading-6 text-slate-400 md:mt-4 md:text-base md:leading-7">{member.description}</p>
             </div>
           </div>
         </article>
