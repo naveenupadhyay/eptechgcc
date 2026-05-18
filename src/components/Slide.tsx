@@ -311,7 +311,7 @@ function TeamPanel({
   }>;
 }) {
   return (
-    <div className="grid gap-3">
+    <div className="grid gap-3 lg:grid-cols-2">
       {team.map((member, index) => (
         <article
           key={member.name}

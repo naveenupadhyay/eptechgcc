@@ -454,6 +454,14 @@ export const siteContent = {
           initials: "NK",
           image: "/nisha.jpg",
           linkedin: "https://www.linkedin.com/in/nisha-kotwal/"
+        },
+        {
+          name: "Vishesh Mundra",
+          role: "AI Evangelist",
+          description: "Supports AI adoption, education, and evangelism across AI-native workflows and operating practices.",
+          initials: "VM",
+          image: "/vishesh.jpg",
+          linkedin: "https://www.linkedin.com/in/visheshh-mundra-231518254/"
         }
       ]
     },
