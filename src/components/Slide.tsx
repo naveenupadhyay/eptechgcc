@@ -22,18 +22,27 @@ export function Slide({
   onNavigate: (id: string) => void;
 }) {
   const Icon = "icon" in slide && slide.icon ? iconMap[slide.icon] : null;
+  const isTeamSlide = slide.id === "team";
 
   return (
     <motion.article
-      className="grid h-dvh place-items-start overflow-y-auto px-4 pb-20 pt-24 sm:px-6 md:px-10 md:place-items-center md:overflow-hidden md:pb-24 md:pt-28"
+      className={`grid h-dvh place-items-start overflow-y-auto px-4 pb-20 sm:px-6 md:px-10 ${
+        isTeamSlide
+          ? "pt-28 md:pt-32"
+          : "pt-24 md:place-items-center md:overflow-hidden md:pb-24 md:pt-28"
+      }`}
       initial={{ opacity: 0, y: 38, filter: "blur(12px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       exit={{ opacity: 0, y: -34, filter: "blur(12px)" }}
       transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       aria-labelledby={`${slide.id}-title`}
     >
-      <div className="mx-auto grid w-full max-w-7xl gap-5 md:gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1.05fr)] lg:items-center">
-        <section className="max-w-3xl">
+      <div
+        className={`mx-auto grid w-full max-w-7xl gap-5 md:gap-8 ${
+          isTeamSlide ? "lg:max-w-6xl" : "lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1.05fr)] lg:items-center"
+        }`}
+      >
+        <section className={isTeamSlide ? "max-w-4xl" : "max-w-3xl"}>
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan/20 bg-cyan/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan">
             <span className="size-1.5 rounded-full bg-cyan" />
             {slide.kicker}
@@ -311,28 +320,28 @@ function TeamPanel({
   }>;
 }) {
   return (
-    <div className="grid gap-3 lg:grid-cols-2">
+    <div className="grid max-h-[58vh] gap-4 overflow-y-auto pr-1 lg:grid-cols-2 lg:gap-5">
       {team.map((member, index) => (
         <article
           key={member.name}
-          className="rounded-lg border border-white/12 bg-white/[0.045] p-5 shadow-premium backdrop-blur transition hover:border-cyan/35 hover:bg-cyan/[0.07]"
+          className="min-h-[180px] rounded-lg border border-white/12 bg-white/[0.055] p-6 shadow-premium backdrop-blur transition hover:border-cyan/35 hover:bg-cyan/[0.07] md:p-7"
         >
-          <div className="flex items-start gap-4">
+          <div className="flex items-start gap-5">
             {member.image ? (
               <img
                 src={member.image}
                 alt={member.name}
-                className="size-16 shrink-0 rounded-lg border border-cyan/25 object-cover shadow-glow"
+                className="size-24 shrink-0 rounded-lg border border-cyan/25 object-cover shadow-glow md:size-28"
               />
             ) : (
-              <div className="grid size-16 shrink-0 place-items-center rounded-lg border border-cyan/25 bg-cyan/10 text-lg font-semibold text-cyan">
+              <div className="grid size-24 shrink-0 place-items-center rounded-lg border border-cyan/25 bg-cyan/10 text-2xl font-semibold text-cyan md:size-28">
                 {member.initials}
               </div>
             )}
             <div className="min-w-0">
               <div className="text-xs uppercase tracking-[0.18em] text-cyan">0{index + 1}</div>
               <div className="mt-2 flex items-start justify-between gap-3">
-                <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+                <h3 className="text-2xl font-semibold text-white">{member.name}</h3>
                 {member.linkedin && (
                   <a
                     href={member.linkedin}
@@ -345,8 +354,8 @@ function TeamPanel({
                   </a>
                 )}
               </div>
-              <div className="mt-1 text-sm font-semibold text-cyan">{member.role}</div>
-              <p className="mt-3 text-sm leading-6 text-slate-400">{member.description}</p>
+              <div className="mt-2 text-base font-semibold text-cyan">{member.role}</div>
+              <p className="mt-4 text-sm leading-6 text-slate-400 md:text-base md:leading-7">{member.description}</p>
             </div>
           </div>
         </article>
