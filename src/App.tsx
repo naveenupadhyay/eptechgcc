@@ -15,11 +15,16 @@ const INTRO_KEY = "eleventyfirstparallel_intro_complete";
 function App() {
   const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 767px)").matches;
+  });
   const [introComplete, setIntroComplete] = useState(() => {
     if (typeof window === "undefined") return false;
     return window.sessionStorage.getItem(INTRO_KEY) === "true";
   });
   const touchStartY = useRef<number | null>(null);
+  const mobileScrollRef = useRef<HTMLDivElement | null>(null);
   const slides = siteContent.slides;
 
   const activeSlide = slides[activeIndex];
@@ -29,8 +34,11 @@ function App() {
     (index: number) => {
       const clamped = Math.max(0, Math.min(slides.length - 1, index));
       setActiveIndex(clamped);
+      if (isMobile) {
+        document.getElementById(slides[clamped].id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     },
-    [slides.length]
+    [isMobile, slides]
   );
 
   const goToId = useCallback(
@@ -48,7 +56,7 @@ function App() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (!introComplete) return;
+      if (!introComplete || isMobile) return;
       if (event.key === "ArrowDown" || event.key === "PageDown" || event.key === " ") {
         event.preventDefault();
         goToSlide(activeIndex + 1);
@@ -63,7 +71,44 @@ function App() {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [activeIndex, goToSlide, introComplete, slides.length]);
+  }, [activeIndex, goToSlide, introComplete, isMobile, slides.length]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setIsMobile(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile || !introComplete) return;
+
+    const container = mobileScrollRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const mostVisible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!mostVisible?.target.id) return;
+        const index = sectionIds.indexOf(mostVisible.target.id);
+        if (index >= 0) setActiveIndex(index);
+      },
+      {
+        root: container,
+        threshold: [0.2, 0.35, 0.5, 0.65]
+      }
+    );
+
+    slides.forEach((slide) => {
+      const element = document.getElementById(slide.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [introComplete, isMobile, sectionIds, slides]);
 
   const onWheel = useCallback(
     (event: React.WheelEvent<HTMLElement>) => {
@@ -104,9 +149,9 @@ function App() {
             initial={{ opacity: 0, filter: "blur(16px)", scale: 1.02 }}
             animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
             transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1] }}
-            onWheel={onWheel}
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
+            onWheel={isMobile ? undefined : onWheel}
+            onTouchStart={isMobile ? undefined : onTouchStart}
+            onTouchEnd={isMobile ? undefined : onTouchEnd}
             aria-live="polite"
           >
             <ProgressBar current={activeIndex + 1} total={slides.length} />
@@ -138,17 +183,34 @@ function App() {
               </a>
             </header>
 
-            <AnimatePresence mode="wait" initial={false}>
-              <Slide
-                key={activeSlide.id}
-                slide={activeSlide}
-                index={activeIndex}
-                total={slides.length}
-                onNavigate={goToId}
-              />
-            </AnimatePresence>
+            {isMobile ? (
+              <div ref={mobileScrollRef} className="h-full overflow-y-auto overscroll-contain scroll-smooth">
+                {slides.map((slide, index) => (
+                  <Slide
+                    key={slide.id}
+                    slide={slide}
+                    index={index}
+                    total={slides.length}
+                    onNavigate={goToId}
+                    mode="stacked"
+                  />
+                ))}
+              </div>
+            ) : (
+              <>
+                <AnimatePresence mode="wait" initial={false}>
+                  <Slide
+                    key={activeSlide.id}
+                    slide={activeSlide}
+                    index={activeIndex}
+                    total={slides.length}
+                    onNavigate={goToId}
+                  />
+                </AnimatePresence>
 
-            <NavigationDots slides={slides} activeIndex={activeIndex} onSelect={goToSlide} />
+                <NavigationDots slides={slides} activeIndex={activeIndex} onSelect={goToSlide} />
+              </>
+            )}
 
             <div className="absolute bottom-5 left-1/2 z-30 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/25 px-2 py-1 backdrop-blur md:flex">
               <CTAButton variant="ghost" size="icon" onClick={() => goToSlide(activeIndex - 1)} ariaLabel="Previous slide">

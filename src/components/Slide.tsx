@@ -14,27 +14,35 @@ export function Slide({
   slide,
   index,
   total,
-  onNavigate
+  onNavigate,
+  mode = "slideshow"
 }: {
   slide: AnySlide;
   index: number;
   total: number;
   onNavigate: (id: string) => void;
+  mode?: "slideshow" | "stacked";
 }) {
   const Icon = "icon" in slide && slide.icon ? iconMap[slide.icon] : null;
   const isTeamSlide = slide.id === "team";
+  const isStacked = mode === "stacked";
 
   return (
     <motion.article
-      className={`grid h-dvh place-items-start overflow-y-auto overscroll-contain px-4 pb-20 sm:px-6 md:px-10 ${
-        isTeamSlide
-          ? "pt-28 md:pt-32"
-          : "pt-24 md:place-items-center md:overflow-hidden md:pb-24 md:pt-28"
+      id={isStacked ? slide.id : undefined}
+      className={`grid place-items-start px-4 sm:px-6 md:px-10 ${
+        isStacked
+          ? "min-h-dvh scroll-mt-20 overflow-visible pb-14 pt-24"
+          : `h-dvh overflow-y-auto overscroll-contain pb-20 ${
+              isTeamSlide
+                ? "pt-28 md:pt-32"
+                : "pt-24 md:place-items-center md:overflow-hidden md:pb-24 md:pt-28"
+            }`
       }`}
-      initial={{ opacity: 0, y: 38, filter: "blur(12px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      exit={{ opacity: 0, y: -34, filter: "blur(12px)" }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      initial={isStacked ? { opacity: 1 } : { opacity: 0, y: 38, filter: "blur(12px)" }}
+      animate={isStacked ? { opacity: 1 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
+      exit={isStacked ? undefined : { opacity: 0, y: -34, filter: "blur(12px)" }}
+      transition={isStacked ? undefined : { duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       aria-labelledby={`${slide.id}-title`}
     >
       <div
@@ -142,9 +150,11 @@ export function Slide({
         </section>
       </div>
 
-      <div className="absolute bottom-5 left-4 z-20 text-xs uppercase tracking-[0.18em] text-slate-500 md:left-8">
-        {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-      </div>
+      {!isStacked && (
+        <div className="absolute bottom-5 left-4 z-20 text-xs uppercase tracking-[0.18em] text-slate-500 md:left-8">
+          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        </div>
+      )}
     </motion.article>
   );
 }
