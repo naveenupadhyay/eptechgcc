@@ -12,7 +12,10 @@ export function NavigationDots({
   onSelect: (index: number) => void;
 }) {
   return (
-    <nav className="absolute right-3 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-2 md:flex" aria-label="Slide navigation">
+    <nav
+      className="absolute bottom-6 left-1/2 z-30 hidden max-w-[58vw] -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-2 backdrop-blur md:flex"
+      aria-label="Slide navigation"
+    >
       {slides.map((slide, index) => (
         <button
           key={slide.id}
@@ -24,7 +27,7 @@ export function NavigationDots({
           aria-label={`Go to ${slide.title}`}
           aria-current={activeIndex === index ? "step" : undefined}
         >
-          <span className="pointer-events-none absolute right-5 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-white/10 bg-black/70 px-2 py-1 text-xs text-slate-200 backdrop-blur group-hover:block">
+          <span className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md border border-white/10 bg-black/70 px-2 py-1 text-xs text-slate-200 backdrop-blur group-hover:block">
             {slide.title}
           </span>
         </button>

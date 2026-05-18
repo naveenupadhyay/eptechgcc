@@ -1,6 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowUp, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { IntroAnimation } from "./components/IntroAnimation";
 import { NavigationDots } from "./components/NavigationDots";
 import { ProgressBar } from "./components/ProgressBar";
@@ -57,11 +57,11 @@ function App() {
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (!introComplete || isMobile) return;
-      if (event.key === "ArrowDown" || event.key === "PageDown" || event.key === " ") {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown" || event.key === "PageDown" || event.key === " ") {
         event.preventDefault();
         goToSlide(activeIndex + 1);
       }
-      if (event.key === "ArrowUp" || event.key === "PageUp") {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp" || event.key === "PageUp") {
         event.preventDefault();
         goToSlide(activeIndex - 1);
       }
@@ -212,15 +212,15 @@ function App() {
               </>
             )}
 
-            <div className="absolute bottom-5 left-1/2 z-30 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/25 px-2 py-1 backdrop-blur md:flex">
+            <div className="absolute bottom-5 left-8 z-30 hidden items-center gap-2 rounded-full border border-white/10 bg-black/25 px-2 py-1 backdrop-blur md:flex">
               <CTAButton variant="ghost" size="icon" onClick={() => goToSlide(activeIndex - 1)} ariaLabel="Previous slide">
-                <ArrowUp className="size-4" />
+                <ArrowLeft className="size-4" />
               </CTAButton>
               <span className="px-2 text-xs tabular-nums text-slate-400">
                 {String(activeIndex + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
               </span>
               <CTAButton variant="ghost" size="icon" onClick={() => goToSlide(activeIndex + 1)} ariaLabel="Next slide">
-                <ArrowDown className="size-4" />
+                <ArrowRight className="size-4" />
               </CTAButton>
             </div>
           </motion.section>
