@@ -128,6 +128,7 @@ export function Slide({
               ))}
             </div>
           )}
+          {"team" in slide && slide.team && <TeamPanel team={slide.team} />}
           {slide.id === "cta" && <FinalPanel />}
         </section>
       </div>
@@ -293,6 +294,63 @@ function ListPanel({ items, Icon }: { items: readonly string[]; Icon: React.Comp
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function TeamPanel({
+  team
+}: {
+  team: ReadonlyArray<{
+    readonly name: string;
+    readonly role: string;
+    readonly description: string;
+    readonly initials: string;
+    readonly image?: string;
+    readonly linkedin?: string;
+  }>;
+}) {
+  return (
+    <div className="grid gap-3">
+      {team.map((member, index) => (
+        <article
+          key={member.name}
+          className="rounded-lg border border-white/12 bg-white/[0.045] p-5 shadow-premium backdrop-blur transition hover:border-cyan/35 hover:bg-cyan/[0.07]"
+        >
+          <div className="flex items-start gap-4">
+            {member.image ? (
+              <img
+                src={member.image}
+                alt={member.name}
+                className="size-16 shrink-0 rounded-lg border border-cyan/25 object-cover shadow-glow"
+              />
+            ) : (
+              <div className="grid size-16 shrink-0 place-items-center rounded-lg border border-cyan/25 bg-cyan/10 text-lg font-semibold text-cyan">
+                {member.initials}
+              </div>
+            )}
+            <div className="min-w-0">
+              <div className="text-xs uppercase tracking-[0.18em] text-cyan">0{index + 1}</div>
+              <div className="mt-2 flex items-start justify-between gap-3">
+                <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="grid size-8 shrink-0 place-items-center rounded-md border border-cyan/25 bg-cyan/10 text-cyan transition hover:border-cyan hover:bg-cyan/20 hover:text-white"
+                    aria-label={`Open ${member.name} LinkedIn profile`}
+                  >
+                    <ExternalLink className="size-3.5" />
+                  </a>
+                )}
+              </div>
+              <div className="mt-1 text-sm font-semibold text-cyan">{member.role}</div>
+              <p className="mt-3 text-sm leading-6 text-slate-400">{member.description}</p>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }

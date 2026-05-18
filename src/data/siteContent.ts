@@ -425,6 +425,39 @@ export const siteContent = {
       icon: "Fingerprint"
     },
     {
+      id: "team",
+      kicker: "Team",
+      title: "The People Behind EleventyfirstParallel AI",
+      body:
+        "A compact senior team combining founder-level product and engineering leadership, strategic guidance, and people operations for India-based execution.",
+      team: [
+        {
+          name: "Naveen Upadhyay",
+          role: "Founder and CEO",
+          description: "Operator, CPTO, and India GCC builder leading the product, engineering, AI-native operations, and client strategy.",
+          initials: "NU",
+          image: "/nav.jpg",
+          linkedin: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true"
+        },
+        {
+          name: "Kamal Tripathi",
+          role: "Strategic Advisor",
+          description: "Advises on strategic direction, operating model maturity, and long-term GCC value creation.",
+          initials: "KT",
+          image: "/kamal.jpg",
+          linkedin: "https://www.linkedin.com/in/kamal-tripathi-459a825/"
+        },
+        {
+          name: "Nisha Kotwal",
+          role: "HR and People Operations",
+          description: "Leads people operations, hiring coordination, talent experience, and India team operating rhythm.",
+          initials: "NK",
+          image: "/nisha.jpg",
+          linkedin: "https://www.linkedin.com/in/nisha-kotwal/"
+        }
+      ]
+    },
+    {
       id: "cta",
       kicker: "Start building",
       title: "Ready to Build Your India GCC?",
