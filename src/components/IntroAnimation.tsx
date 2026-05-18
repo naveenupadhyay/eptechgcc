@@ -4,6 +4,8 @@ import gsap from "gsap";
 import { siteContent, iconMap } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
 
+const INTRO_PHASE_MS = 3750;
+
 export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
   const [phase, setPhase] = useState(0);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -28,7 +30,7 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
       gsap.to(".flow-light", { xPercent: 170, opacity: 0, duration: 3.4, repeat: -1, ease: "power2.inOut", stagger: 0.28 });
     }, rootRef);
 
-    const timers = phases.map((_, index) => window.setTimeout(() => setPhase(index + 1), (index + 1) * 2500));
+    const timers = phases.map((_, index) => window.setTimeout(() => setPhase(index + 1), (index + 1) * INTRO_PHASE_MS));
     return () => {
       timers.forEach(window.clearTimeout);
       ctx.revert();
