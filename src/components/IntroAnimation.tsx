@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { siteContent, iconMap } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
 
-const INTRO_PHASE_MS = 3750;
+const INTRO_PHASE_MS = 4500;
 
 export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
   const [phase, setPhase] = useState(0);
