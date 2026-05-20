@@ -103,8 +103,8 @@ export const siteContent = {
     enterLabel: "Enter Site",
     sequences: [
       {
-        eyebrow: "US startup pressure",
-        headline: "US startups need speed.",
+        eyebrow: "Global startup pressure",
+        headline: "Global startups need speed.",
         subline: "Talent. Scale. AI leverage."
       },
       {
