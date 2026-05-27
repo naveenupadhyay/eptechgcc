@@ -6,6 +6,7 @@ import { NavigationDots } from "./components/NavigationDots";
 import { ProgressBar } from "./components/ProgressBar";
 import { Slide } from "./components/Slide";
 import { CTAButton } from "./components/CTAButton";
+import { CapabilitiesPage } from "./components/CapabilitiesPage";
 import { siteContent } from "./data/siteContent";
 
 const NetworkScene = lazy(() => import("./components/NetworkScene"));
@@ -13,6 +14,7 @@ const NetworkScene = lazy(() => import("./components/NetworkScene"));
 const INTRO_KEY = "eleventyfirstparallel_intro_complete";
 
 function App() {
+  const pathname = typeof window === "undefined" ? "/" : window.location.pathname.replace(/\/$/, "") || "/";
   const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(() => {
@@ -128,6 +130,10 @@ function App() {
     if (Math.abs(diff) > 48) diff > 0 ? goToSlide(activeIndex + 1) : goToSlide(activeIndex - 1);
     touchStartY.current = null;
   };
+
+  if (pathname === siteContent.capabilitiesPage.path) {
+    return <CapabilitiesPage />;
+  }
 
   return (
     <main className="relative h-dvh overflow-hidden bg-ink text-white">

@@ -193,6 +193,185 @@ export const siteContent = {
       }
     ]
   },
+  capabilitiesPage: {
+    path: "/capabilities",
+    kicker: "Eptech capability stack",
+    title: "AI Product Engineering Capabilities Built Across Finance, Legal, Conversational AI, and Education",
+    subtitle:
+      "Over the last three and a half years, Eptech has built production-grade AI systems across document intelligence, agentic automation, voice and chat agents, claims workflows, legal AI, and education support tools.",
+    positioning:
+      "This is the delivery foundation behind EleventyfirstParallel AI: not generic staffing, but battle-tested AI product engineering capability that can become the execution core of an India-based GCC.",
+    ctas: [
+      { label: "Discuss a GCC Buildout", href: "mailto:naveen@eleventyfirstparallel.in" },
+      {
+        label: "Book a 20-min Call",
+        href: "https://calendly.com/naveen-eleventyfirstparallel/ai-product-development-discussion"
+      }
+    ],
+    proofMetrics: [
+      { value: "3.5 yrs", label: "AI product engineering depth" },
+      { value: "4", label: "domain verticals delivered" },
+      { value: "Agentic", label: "RAG, workflows, and automation" },
+      { value: "Voice + Chat", label: "multi-channel conversational AI" }
+    ],
+    domains: [
+      {
+        name: "Finance, Audit & Tax Automation",
+        summary:
+          "Document-heavy finance workflows require more than OCR. Eptech has built semantic document intelligence, audit and taxation automation, API integrations, and agentic RAG systems that reason across complex evidence, filings, claims, and process rules.",
+        icon: "FileCheck2",
+        capabilities: [
+          "Semantic parsing of complex financial, audit, tax, claims, and supporting documents",
+          "Advanced document ingestion using libraries such as Unstructured, enriched with custom extraction and normalization logic",
+          "Agentic RAG pipelines for evidence discovery, context retrieval, review assistance, and decision support",
+          "Third-party API and MCP server integrations for workflow orchestration and external system actions",
+          "Claims processing automation across document validation, evidence extraction, workflow routing, and status intelligence"
+        ],
+        outcomes: [
+          "Reduced manual review effort across document-heavy processes",
+          "Improved consistency in audit, taxation, and claims workflows",
+          "Created reusable document intelligence components for future finance products"
+        ]
+      },
+      {
+        name: "Conversational AI & Voice Automation",
+        summary:
+          "Eptech has built voice and chat agents that can operate over telephony, WhatsApp, websites, and other digital endpoints, with workflow control designed around real SOPs instead of open-ended chatbot behavior.",
+        icon: "Workflow",
+        capabilities: [
+          "Voice agents and chat agents deployable across telephony, WhatsApp, web, and custom endpoints",
+          "Conversation orchestration using LangChain and LangGraph for deterministic and agentic flows",
+          "LiveKit-based telephony integration, SIP trunking, and real-time voice experiences",
+          "SOP-driven conversation design for sales, support, operations, and process automation",
+          "Experiments and integrations with voice infrastructure such as Pipecat and related real-time agent frameworks"
+        ],
+        outcomes: [
+          "Moved conversations from static scripts to AI-assisted operating workflows",
+          "Enabled multi-channel deployment without rebuilding the core agent logic",
+          "Created reusable patterns for contact center automation and AI operations"
+        ]
+      },
+      {
+        name: "Legal AI & Contract Intelligence",
+        summary:
+          "Eptech has built legal AI capabilities across alternate dispute resolution and contract lifecycle workflows, including machine learning models and contract management at scale for a British client through Vayliv.",
+        icon: "Scale",
+        capabilities: [
+          "Machine learning models supporting alternate dispute resolution workflows",
+          "Contract management at scale, including extraction, classification, review assistance, and workflow routing",
+          "Document intelligence for legal clauses, obligations, metadata, risk signals, and operational follow-up",
+          "Implementation experience for Vayliv serving a British client in contract-heavy workflows"
+        ],
+        outcomes: [
+          "Supported legal teams with faster review and structured contract intelligence",
+          "Turned unstructured legal documents into workflow-ready data",
+          "Created reusable legal AI patterns for future legaltech and compliance products"
+        ]
+      },
+      {
+        name: "Education AI & Teacher Productivity",
+        summary:
+          "Eptech has also built practical AI tools for educators, helping teachers plan better classes, create lesson plans, and support individualized education planning for students.",
+        icon: "BrainCircuit",
+        capabilities: [
+          "AI-assisted lesson planning for classroom preparation and structured teaching flows",
+          "Support tools for individualized education programs and personalized learning needs",
+          "Teacher productivity workflows that convert curriculum goals into usable classroom assets",
+          "Education-focused AI experiences designed for clarity, trust, and day-to-day usability"
+        ],
+        outcomes: [
+          "Reduced preparation load for teachers",
+          "Improved structure and personalization in classroom planning",
+          "Built domain patterns relevant for edtech, tutoring, and learning operations"
+        ]
+      }
+    ],
+    platformCapabilities: [
+      {
+        title: "Semantic Document Intelligence",
+        description:
+          "Beyond default parsing: structure-aware extraction, chunking, metadata enrichment, retrieval preparation, and domain-specific interpretation."
+      },
+      {
+        title: "Agentic RAG & Workflow Automation",
+        description:
+          "Retrieval, reasoning, tool use, API calls, MCP integrations, workflow state, human review, and auditable outputs in one operating loop."
+      },
+      {
+        title: "Multi-Channel Conversational AI",
+        description:
+          "Voice, chat, WhatsApp, web, telephony, and custom endpoints powered by SOP-aware orchestration and real-time infrastructure."
+      },
+      {
+        title: "AI-Native Product Engineering",
+        description:
+          "Reusable engineering patterns across LLM apps, workflow engines, backend services, integrations, evaluation loops, and delivery governance."
+      }
+    ],
+    architecture: {
+      kicker: "Core product stack",
+      title: "One Reusable AI Stack, Many Enterprise Products",
+      summary:
+        "Eptech’s advantage is a repeatable architecture: the same core layers can power finance automation, legal AI, claims processing, voice agents, education tools, and future GCC product pods.",
+      layers: [
+        {
+          title: "Experience Channels",
+          description: "Web apps, WhatsApp, telephony, voice agents, chat agents, internal consoles, and client-facing workflow portals.",
+          nodes: ["Web", "WhatsApp", "Voice", "Telephony", "Ops Console"]
+        },
+        {
+          title: "Agent & Workflow Orchestration",
+          description: "LangGraph, LangChain, SOP-driven flows, state machines, escalation paths, and human-in-the-loop review.",
+          nodes: ["LangGraph", "LangChain", "SOP Flows", "Human Review", "Evaluations"]
+        },
+        {
+          title: "Knowledge & Document Intelligence",
+          description: "Semantic parsing, Unstructured-based ingestion, chunking, metadata enrichment, vector retrieval, and agentic RAG.",
+          nodes: ["Unstructured", "Semantic Parsing", "Vector Search", "Agentic RAG", "Evidence Packs"]
+        },
+        {
+          title: "Tooling & Integration Layer",
+          description: "MCP servers, third-party APIs, CRMs, ERPs, tax systems, contract repositories, claims systems, and telephony infrastructure.",
+          nodes: ["MCP", "APIs", "LiveKit", "SIP", "External Systems"]
+        },
+        {
+          title: "Governance, Security & Delivery",
+          description: "Audit trails, role-based access, data controls, monitoring, QA, delivery cadence, reporting, and product analytics.",
+          nodes: ["Audit Trail", "RBAC", "Monitoring", "QA", "KPIs"]
+        }
+      ],
+      products: [
+        "Audit & Tax Automation",
+        "Claims Processing",
+        "Legal Contract Intelligence",
+        "Voice & Chat Agents",
+        "Education Planning Tools",
+        "Enterprise Workflow Automation"
+      ],
+      flow: [
+        { label: "Documents + Conversations + APIs", detail: "Inputs from files, calls, chats, forms, systems, and workflow events" },
+        { label: "Semantic Understanding", detail: "Domain-aware parsing, extraction, retrieval, and context assembly" },
+        { label: "Agentic Execution", detail: "Reasoning, tool calls, workflow state, SOP control, and escalation" },
+        { label: "Business Outcome", detail: "Audit support, claim resolution, contract operations, customer conversations, or teacher productivity" }
+      ]
+    },
+    stack: [
+      "LangChain",
+      "LangGraph",
+      "LiveKit",
+      "SIP trunking",
+      "Unstructured",
+      "Agentic RAG",
+      "MCP servers",
+      "Third-party APIs",
+      "LLM workflows",
+      "Voice agents",
+      "Chat agents",
+      "Workflow automation"
+    ],
+    operatingMessage:
+      "For founders evaluating India, this matters because a GCC is only valuable when it has a serious product and AI engineering spine. Eptech brings that spine: domain understanding, reusable AI components, delivery discipline, and the ability to convert ambiguous workflows into shipped systems."
+  },
   slides: [
     {
       id: "hero",
