@@ -9,15 +9,15 @@ export default {
       },
       colors: {
         ink: "#02040a",
-        panel: "#07111f",
+        panel: "#090713",
         line: "rgba(148, 163, 184, 0.2)",
-        cyan: "#67e8f9",
-        electric: "#3b82f6",
-        teal: "#14b8a6"
+        cyan: "#a855f7",
+        electric: "#6d28d9",
+        teal: "#c084fc"
       },
       boxShadow: {
         premium: "0 24px 80px rgba(0, 0, 0, 0.45)",
-        glow: "0 0 60px rgba(34, 211, 238, 0.22)"
+        glow: "0 0 70px rgba(109, 40, 217, 0.30)"
       }
     }
   },

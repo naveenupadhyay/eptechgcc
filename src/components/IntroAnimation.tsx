@@ -52,7 +52,7 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
       </button>
 
       <div className="intro-grid absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:72px_72px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(34,211,238,0.18),transparent_30%),radial-gradient(circle_at_76%_54%,rgba(20,184,166,0.16),transparent_26%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(168,85,247,0.18),transparent_30%),radial-gradient(circle_at_76%_54%,rgba(217,70,239,0.16),transparent_26%)]" />
 
       {particles.map((particle) => (
         <motion.span
@@ -151,10 +151,10 @@ function IntroPanel({ phase }: { phase: number }) {
 
   return (
     <div className="relative min-h-[320px] rounded-lg border border-white/12 bg-white/[0.035] p-5 shadow-premium backdrop-blur">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_26%_32%,rgba(59,130,246,0.24),transparent_25%),radial-gradient(circle_at_74%_60%,rgba(103,232,249,0.22),transparent_28%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_26%_32%,rgba(124,58,237,0.24),transparent_25%),radial-gradient(circle_at_74%_60%,rgba(196,181,253,0.22),transparent_28%)]" />
       <div className="relative flex h-full min-h-[280px] items-center justify-center">
         <div className="size-48 rounded-full border border-cyan/25 shadow-glow md:size-64">
-          <div className="h-full rounded-full border border-white/10 bg-[conic-gradient(from_180deg,rgba(103,232,249,0.08),rgba(59,130,246,0.28),rgba(20,184,166,0.12),rgba(103,232,249,0.08))]" />
+          <div className="h-full rounded-full border border-white/10 bg-[conic-gradient(from_180deg,rgba(196,181,253,0.08),rgba(124,58,237,0.28),rgba(217,70,239,0.12),rgba(196,181,253,0.08))]" />
         </div>
         <div className="absolute left-8 top-8 rounded-md border border-white/10 bg-black/30 px-3 py-2 text-xs uppercase tracking-[0.18em] text-slate-300">
           US pressure

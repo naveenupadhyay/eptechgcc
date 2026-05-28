@@ -137,7 +137,7 @@ function App() {
 
   return (
     <main className="relative h-dvh overflow-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(34,211,238,0.15),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.14),transparent_30%),linear-gradient(180deg,#02040a_0%,#06111d_48%,#02040a_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(109,40,217,0.12),transparent_30%),linear-gradient(180deg,#030207_0%,#05030b_48%,#02040a_100%)]" />
 
       {introComplete && !prefersReducedMotion && (
         <Suspense fallback={null}>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, ExternalLink } from "lucide-react";
 import { iconMap } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
+import { LogoMarquee } from "./LogoMarquee";
 import { MetricCard } from "./MetricCard";
 import { ModelComparisonCard } from "./ModelComparisonCard";
 import { PillarCard } from "./PillarCard";
@@ -86,6 +87,12 @@ export function Slide({
             </div>
           )}
 
+          {slide.id === "hero" && (
+            <div className="mt-6 max-w-2xl md:mt-8">
+              <LogoMarquee compact />
+            </div>
+          )}
+
           {slide.id === "about" && <AboutProfile />}
           {"credibility" in slide && slide.credibility && (
             <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-400">{slide.credibility}</p>
@@ -162,7 +169,7 @@ export function Slide({
 function HeroVisual() {
   return (
     <div className="relative min-h-[230px] overflow-hidden rounded-lg border border-white/12 bg-white/[0.035] p-4 shadow-premium backdrop-blur sm:min-h-[320px] md:min-h-[520px] md:p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(103,232,249,0.22),transparent_28%),radial-gradient(circle_at_20%_68%,rgba(59,130,246,0.20),transparent_26%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(196,181,253,0.22),transparent_28%),radial-gradient(circle_at_20%_68%,rgba(124,58,237,0.20),transparent_26%)]" />
       <div className="relative flex h-full min-h-[200px] flex-col justify-between sm:min-h-[280px] md:min-h-[480px]">
         <div className="flex items-center justify-between">
           <MapNode label="US HQ" align="left" />

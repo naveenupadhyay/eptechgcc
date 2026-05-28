@@ -98,6 +98,29 @@ export const siteContent = {
     linkedin: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true",
     portrait: "/nav.jpg"
   },
+  logoCloud: {
+    title: "Experience across companies founders recognize",
+    groups: [
+      {
+        label: "Eptech client and build relationships",
+        logos: [
+          { name: "Boutiqaat", domain: "boutiqaat.com", logoUrl: "https://logo.clearbit.com/boutiqaat.com" },
+          { name: "BYJU'S", domain: "byjus.com", logoUrl: "https://logo.clearbit.com/byjus.com" },
+          { name: "eyewa", domain: "eyewa.com", logoUrl: "https://logo.clearbit.com/eyewa.com" },
+          { name: "Aistra", domain: "aistra.com", logoUrl: "https://logo.clearbit.com/aistra.com" }
+        ]
+      },
+      {
+        label: "Naveen's operator track record",
+        logos: [
+          { name: "Paytm", domain: "paytm.com", logoUrl: "https://logo.clearbit.com/paytm.com" },
+          { name: "Walmart", domain: "walmart.com", logoUrl: "https://logo.clearbit.com/walmart.com" },
+          { name: "JPMorgan Chase", domain: "jpmorganchase.com", logoUrl: "https://logo.clearbit.com/jpmorganchase.com" },
+          { name: "Alibaba", domain: "alibaba.com", logoUrl: "https://logo.clearbit.com/alibaba.com" }
+        ]
+      }
+    ]
+  },
   intro: {
     skipLabel: "Skip Intro",
     enterLabel: "Enter Site",
