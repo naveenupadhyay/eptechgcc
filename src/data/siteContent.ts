@@ -104,18 +104,18 @@ export const siteContent = {
       {
         label: "Eptech client and build relationships",
         logos: [
-          { name: "Boutiqaat", domain: "boutiqaat.com", logoUrl: "https://logo.clearbit.com/boutiqaat.com" },
-          { name: "BYJU'S", domain: "byjus.com", logoUrl: "https://logo.clearbit.com/byjus.com" },
-          { name: "eyewa", domain: "eyewa.com", logoUrl: "https://logo.clearbit.com/eyewa.com" },
-          { name: "Aistra", domain: "aistra.com", logoUrl: "https://logo.clearbit.com/aistra.com" }
+          { name: "Boutiqaat", domain: "boutiqaat.com", logoUrl: "/logos/boutiqaat.jpg" },
+          { name: "BYJU'S", domain: "byjus.com", logoUrl: "/logos/byjus.jpg" },
+          { name: "eyewa", domain: "eyewa.com", logoUrl: "/logos/eyewa.jpg" },
+          { name: "Aistra Labs", domain: "aistra.com", logoUrl: "/logos/aistra-labs.jpg" }
         ]
       },
       {
         label: "Naveen's operator track record",
         logos: [
-          { name: "Paytm", domain: "paytm.com", logoUrl: "https://logo.clearbit.com/paytm.com" },
-          { name: "Walmart", domain: "walmart.com", logoUrl: "https://logo.clearbit.com/walmart.com" },
-          { name: "JPMorgan Chase", domain: "jpmorganchase.com", logoUrl: "https://logo.clearbit.com/jpmorganchase.com" },
+          { name: "Paytm", domain: "paytm.com", logoUrl: "/logos/paytm.jpg" },
+          { name: "Walmart", domain: "walmart.com", logoUrl: "/logos/walmart.jpg" },
+          { name: "JPMorgan Chase", domain: "jpmorganchase.com", logoUrl: "/logos/jpmorgan.jpg" },
           { name: "Alibaba", domain: "alibaba.com", logoUrl: "https://logo.clearbit.com/alibaba.com" }
         ]
       }

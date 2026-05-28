@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { siteContent, iconMap } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
+import { LogoMarquee } from "./LogoMarquee";
 
 const INTRO_PHASE_MS = 4500;
 
@@ -68,6 +69,10 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
         {[0, 1, 2, 3].map((item) => (
           <span key={item} className="flow-light absolute -top-1 left-0 size-2 rounded-full bg-white shadow-glow" />
         ))}
+      </div>
+
+      <div className="absolute bottom-4 left-4 right-4 z-20 mx-auto max-w-5xl md:bottom-6">
+        <LogoMarquee intro />
       </div>
 
       <motion.div
