@@ -7,6 +7,7 @@ import { ProgressBar } from "./components/ProgressBar";
 import { Slide } from "./components/Slide";
 import { CTAButton } from "./components/CTAButton";
 import { CapabilitiesPage } from "./components/CapabilitiesPage";
+import { CaseStudiesPage } from "./components/CaseStudiesPage";
 import { StackPage } from "./components/StackPage";
 import { siteContent } from "./data/siteContent";
 
@@ -138,6 +139,10 @@ function App() {
 
   if (pathname === "/stack") {
     return <StackPage />;
+  }
+
+  if (pathname === "/case-studies") {
+    return <CaseStudiesPage />;
   }
 
   return (
