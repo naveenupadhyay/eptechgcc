@@ -7,6 +7,7 @@ import { ProgressBar } from "./components/ProgressBar";
 import { Slide } from "./components/Slide";
 import { CTAButton } from "./components/CTAButton";
 import { CapabilitiesPage } from "./components/CapabilitiesPage";
+import { StackPage } from "./components/StackPage";
 import { siteContent } from "./data/siteContent";
 
 const NetworkScene = lazy(() => import("./components/NetworkScene"));
@@ -133,6 +134,10 @@ function App() {
 
   if (pathname === siteContent.capabilitiesPage.path) {
     return <CapabilitiesPage />;
+  }
+
+  if (pathname === "/stack") {
+    return <StackPage />;
   }
 
   return (

@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recommended Stack for Agentic LLM Applications</title>
+  <style>
+    :root {
+      --bg: #f6f7f4;
+      --ink: #17201a;
+      --muted: #5b655f;
+      --line: #cfd7ce;
+      --panel: #ffffff;
+      --edge: #d8ded7;
+      --blue: #2457d6;
+      --green: #11845b;
+      --amber: #a85f00;
+      --red: #b53636;
+      --violet: #7352c7;
+      --teal: #0b7285;
+      --shadow: 0 18px 45px rgba(23, 32, 26, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.86), rgba(246,247,244,0.92)),
+        radial-gradient(circle at top left, rgba(36,87,214,0.10), transparent 28rem),
+        radial-gradient(circle at bottom right, rgba(17,132,91,0.12), transparent 28rem);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 34px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      gap: 28px;
+      align-items: end;
+      padding: 18px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 920px;
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .rule {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--edge);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .rule strong {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+    }
+
+    .rule span {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .layer {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      min-height: 108px;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--edge);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(23, 32, 26, 0.06);
+    }
+
+    .layer-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      padding: 22px;
+      color: white;
+      background: var(--tone, var(--ink));
+    }
+
+    .layer-title h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .layer-title p {
+      margin: 0;
+      font-size: 13px;
+      opacity: 0.84;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      align-content: center;
+      padding: 18px;
+      background: rgba(255,255,255,0.78);
+    }
+
+    .product {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--edge);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .product img,
+    .logo-fallback {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border-radius: 8px;
+      object-fit: contain;
+      background: #f0f2ef;
+      padding: 5px;
+    }
+
+    .logo-fallback {
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 12px;
+      color: white;
+      background: var(--tone, var(--ink));
+      padding: 0;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border-radius: 8px;
+      background: #f0f2ef;
+    }
+
+    .brand-mark.openai {
+      display: grid;
+      place-items: center;
+      color: #111;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .brand-mark.openai::before {
+      content: "◎";
+    }
+
+    .brand-mark.slack {
+      background: #fff;
+    }
+
+    .brand-mark.slack span,
+    .brand-mark.ms span {
+      position: absolute;
+      display: block;
+    }
+
+    .brand-mark.slack span:nth-child(1) {
+      width: 7px;
+      height: 18px;
+      left: 8px;
+      top: 5px;
+      border-radius: 4px;
+      background: #36c5f0;
+    }
+
+    .brand-mark.slack span:nth-child(2) {
+      width: 18px;
+      height: 7px;
+      left: 11px;
+      top: 8px;
+      border-radius: 4px;
+      background: #2eb67d;
+    }
+
+    .brand-mark.slack span:nth-child(3) {
+      width: 7px;
+      height: 18px;
+      right: 8px;
+      bottom: 5px;
+      border-radius: 4px;
+      background: #ecb22e;
+    }
+
+    .brand-mark.slack span:nth-child(4) {
+      width: 18px;
+      height: 7px;
+      left: 5px;
+      bottom: 8px;
+      border-radius: 4px;
+      background: #e01e5a;
+    }
+
+    .brand-mark.telephony {
+      display: grid;
+      place-items: center;
+      background: #f22f46;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .brand-mark.telephony::before {
+      content: "☎";
+      transform: translateY(-1px);
+    }
+
+    .brand-mark.ms {
+      background: #fff;
+      padding: 5px;
+    }
+
+    .brand-mark.ms span {
+      width: 10px;
+      height: 10px;
+    }
+
+    .brand-mark.ms span:nth-child(1) {
+      left: 6px;
+      top: 6px;
+      background: #f25022;
+    }
+
+    .brand-mark.ms span:nth-child(2) {
+      right: 6px;
+      top: 6px;
+      background: #7fba00;
+    }
+
+    .brand-mark.ms span:nth-child(3) {
+      left: 6px;
+      bottom: 6px;
+      background: #00a4ef;
+    }
+
+    .brand-mark.ms span:nth-child(4) {
+      right: 6px;
+      bottom: 6px;
+      background: #ffb900;
+    }
+
+    .product b {
+      display: block;
+      font-size: 15px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .product small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .note {
+      padding: 18px;
+      border: 1px solid var(--edge);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.82);
+    }
+
+    .note h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 18px;
+      border: 1px solid var(--edge);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .flow span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--tone, var(--ink));
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .flow i {
+      align-self: center;
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        padding: 20px;
+      }
+
+      .hero,
+      .layer,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .layer-title {
+        min-height: 104px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <h1>Agentic LLM Application Stack</h1>
+        <p class="subtitle">A practical architecture for text, voice, workflows, agents, retrieval, MCP plugins, monitoring, and production controls.</p>
+      </div>
+      <div class="rule">
+        <strong>Design rule</strong>
+        <span>Use workflows for reliable paths, agents for ambiguous paths, MCP for interoperability, RAG for context, and evals for trust.</span>
+      </div>
+    </section>
+
+    <section class="stack" aria-label="LLM application stack">
+      <article class="layer" style="--tone: var(--blue)">
+        <div class="layer-title">
+          <h2>User Surfaces</h2>
+          <p>Where people talk, type, click, call, and review.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://nextjs.org/"><img alt="Next.js" src="https://cdn.simpleicons.org/nextdotjs/000000"><span><b>Next.js</b><small>Web app and dashboard</small></span></a>
+          <a class="product" href="https://react.dev/"><img alt="React" src="https://cdn.simpleicons.org/react/149ECA"><span><b>React</b><small>Interactive UI</small></span></a>
+          <a class="product" href="https://slack.com/"><span class="brand-mark slack" aria-label="Slack"><span></span><span></span><span></span><span></span></span><span><b>Slack</b><small>Team chat surface</small></span></a>
+          <a class="product" href="https://www.twilio.com/"><span class="brand-mark telephony" aria-label="Telephony"></span><span><b>Telephony Providers</b><small>Twilio, Vonage, Telnyx, Plivo</small></span></a>
+          <a class="product" href="https://web.dev/webrtc/"><span class="logo-fallback">RTC</span><span><b>WebRTC</b><small>Realtime voice/video</small></span></a>
+        </div>
+      </article>
+
+      <article class="layer" style="--tone: var(--green)">
+        <div class="layer-title">
+          <h2>Agent Runtime</h2>
+          <p>Planning, tool calls, state, handoffs, streaming, and guardrails.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://openai.github.io/openai-agents-python/"><img alt="OpenAI" src="/stack-assets/openai.svg"><span><b>OpenAI Agents SDK</b><small>Tools, handoffs, voice, tracing</small></span></a>
+          <a class="product" href="https://docs.anthropic.com/en/docs/claude-code/sdk"><img alt="Anthropic" src="https://cdn.simpleicons.org/anthropic/191919"><span><b>Claude Code SDK</b><small>Anthropic agent harness</small></span></a>
+          <a class="product" href="https://google.github.io/adk-docs/"><img alt="Google" src="https://cdn.simpleicons.org/google/4285F4"><span><b>Google ADK</b><small>Gemini-first agent framework</small></span></a>
+          <a class="product" href="https://langchain-ai.github.io/langgraph/"><span class="logo-fallback" style="--tone:#1f7a4d">LG</span><span><b>LangGraph</b><small>Durable graph agents</small></span></a>
+          <a class="product" href="https://docs.llamaindex.ai/"><span class="logo-fallback" style="--tone:#7048e8">LI</span><span><b>LlamaIndex</b><small>Data/RAG-heavy agents</small></span></a>
+          <a class="product" href="https://microsoft.github.io/autogen/"><span class="brand-mark ms" aria-label="Microsoft"><span></span><span></span><span></span><span></span></span><span><b>AutoGen</b><small>Multi-agent collaboration</small></span></a>
+        </div>
+      </article>
+
+      <article class="layer" style="--tone: var(--violet)">
+        <div class="layer-title">
+          <h2>Models</h2>
+          <p>Reasoning, generation, embeddings, vision, and realtime audio.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://platform.openai.com/docs/"><img alt="OpenAI" src="/stack-assets/openai.svg"><span><b>OpenAI</b><small>Reasoning, realtime, tools</small></span></a>
+          <a class="product" href="https://docs.anthropic.com/"><img alt="Anthropic" src="https://cdn.simpleicons.org/anthropic/191919"><span><b>Claude</b><small>Reasoning and long context</small></span></a>
+          <a class="product" href="https://ai.google.dev/"><img alt="Google" src="https://cdn.simpleicons.org/google/4285F4"><span><b>Gemini</b><small>Multimodal models</small></span></a>
+          <a class="product" href="https://mistral.ai/"><span class="logo-fallback" style="--tone:#ff7000">M</span><span><b>Mistral</b><small>Open and hosted models</small></span></a>
+          <a class="product" href="https://www.llama.com/"><img alt="Meta" src="https://cdn.simpleicons.org/meta/0467DF"><span><b>Llama by Meta</b><small>Open-weight model family</small></span></a>
+          <a class="product" href="https://qwenlm.github.io/"><img alt="Qwen" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Qwen_Logo.svg"><span><b>Qwen</b><small>Open-source model family</small></span></a>
+          <a class="product" href="https://scikit-learn.org/"><span class="logo-fallback" style="--tone:#0b7285">ML</span><span><b>Predictive ML</b><small>Decision trees, XGBoost, LightGBM, sklearn</small></span></a>
+        </div>
+      </article>
+
+      <article class="layer" style="--tone: #415a77">
+        <div class="layer-title">
+          <h2>Document Ingestion</h2>
+          <p>PDF parsing, OCR, layout understanding, tables, forms, and scanned-document extraction.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://platform.openai.com/docs/guides/vision"><span class="logo-fallback" style="--tone:#17201a">VLM</span><span><b>LLM-based OCR</b><small>Vision models for messy PDFs and scans</small></span></a>
+          <a class="product" href="https://unstructured.io/"><span class="logo-fallback" style="--tone:#111827">UN</span><span><b>Unstructured</b><small>PDF, HTML, DOCX partitioning</small></span></a>
+          <a class="product" href="https://github.com/VikParuchuri/marker"><span class="logo-fallback" style="--tone:#2457d6">MK</span><span><b>Marker</b><small>PDF to markdown/JSON</small></span></a>
+          <a class="product" href="https://docs.llamaindex.ai/"><span class="logo-fallback" style="--tone:#7048e8">LI</span><span><b>LlamaParse</b><small>Structured document parsing</small></span></a>
+          <a class="product" href="https://tesseract-ocr.github.io/"><span class="logo-fallback" style="--tone:#0b7285">OCR</span><span><b>Traditional OCR</b><small>Tesseract, Textract, Document AI</small></span></a>
+        </div>
+      </article>
+
+      <article class="layer" style="--tone: var(--amber)">
+        <div class="layer-title">
+          <h2>Tools And MCP</h2>
+          <p>Internal actions, external plugins, permissions, and auditability.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://modelcontextprotocol.io/"><span class="logo-fallback" style="--tone:#111827">MCP</span><span><b>MCP</b><small>Standard tool protocol</small></span></a>
+          <a class="product" href="https://github.com/modelcontextprotocol/servers"><img alt="GitHub" src="https://cdn.simpleicons.org/github/181717"><span><b>MCP Servers</b><small>GitHub, files, DBs, SaaS</small></span></a>
+          <a class="product" href="https://auth0.com/"><img alt="Auth0" src="https://cdn.simpleicons.org/auth0/EB5424"><span><b>Auth0 / OIDC</b><small>Identity and scopes</small></span></a>
+          <a class="product" href="https://www.cloudflare.com/"><img alt="Cloudflare" src="https://cdn.simpleicons.org/cloudflare/F38020"><span><b>Policy Edge</b><small>Access, rate limits, secrets</small></span></a>
+          <a class="product" href="https://www.firecrawl.dev/"><span class="logo-fallback" style="--tone:#b53636">FC</span><span><b>Browser/Web Tools</b><small>Crawl, search, inspect</small></span></a>
+        </div>
+      </article>
+
+      <article class="layer" style="--tone: #6f4e37">
+        <div class="layer-title">
+          <h2>Skills</h2>
+          <p>Packaged domain playbooks that combine prompts, tools, code, policy, and workflow know-how.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://platform.openai.com/docs/assistants/tools"><span class="logo-fallback" style="--tone:#17201a">SK</span><span><b>Reusable Skills</b><small>Instructions, examples, scripts, assets</small></span></a>
+          <a class="product" href="https://modelcontextprotocol.io/"><span class="logo-fallback" style="--tone:#111827">MCP</span><span><b>Tool Skills</b><small>Wrap MCP tools into task playbooks</small></span></a>
+          <a class="product" href="https://docs.anthropic.com/en/docs/claude-code/slash-commands"><img alt="Anthropic" src="https://cdn.simpleicons.org/anthropic/191919"><span><b>Agent Commands</b><small>Repeatable agent procedures</small></span></a>
+          <a class="product" href="https://github.com/"><img alt="GitHub" src="https://cdn.simpleicons.org/github/181717"><span><b>Code Skills</b><small>Local scripts, templates, validators</small></span></a>
+          <a class="product" href="https://www.langchain.com/"><span class="logo-fallback" style="--tone:#1f7a4d">WF</span><span><b>Workflow Skills</b><small>Legal, finance, ops, support flows</small></span></a>
+        </div>
+      </article>
+
+      <article class="layer" style="--tone: var(--teal)">
+        <div class="layer-title">
+          <h2>Knowledge</h2>
+          <p>Documents, metadata, vectors, search, memory, and graphs.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://www.postgresql.org/"><img alt="Postgres" src="https://cdn.simpleicons.org/postgresql/4169E1"><span><b>Postgres + pgvector</b><small>System of record and vectors</small></span></a>
+          <a class="product" href="https://www.elastic.co/elasticsearch"><img alt="Elasticsearch" src="https://cdn.simpleicons.org/elasticsearch/005571"><span><b>Elasticsearch</b><small>Hybrid keyword search</small></span></a>
+          <a class="product" href="https://qdrant.tech/"><span class="logo-fallback" style="--tone:#dc244c">Q</span><span><b>Qdrant</b><small>Vector database</small></span></a>
+          <a class="product" href="https://www.pinecone.io/"><span class="logo-fallback" style="--tone:#0b7285">P</span><span><b>Pinecone</b><small>Managed vector search</small></span></a>
+          <a class="product" href="https://neo4j.com/"><img alt="Neo4j" src="https://cdn.simpleicons.org/neo4j/4581C3"><span><b>Neo4j</b><small>Knowledge graph</small></span></a>
+        </div>
+      </article>
+
+      <article class="layer" style="--tone: var(--red)">
+        <div class="layer-title">
+          <h2>Production Core</h2>
+          <p>APIs, workflows, queues, storage, tracing, evals, and review loops.</p>
+        </div>
+        <div class="products">
+          <a class="product" href="https://fastapi.tiangolo.com/"><span class="logo-fallback" style="--tone:#009688">API</span><span><b>FastAPI / NestJS</b><small>Backend API layer</small></span></a>
+          <a class="product" href="https://temporal.io/"><img alt="Temporal" src="https://cdn.simpleicons.org/temporal/000000"><span><b>Temporal</b><small>Durable workflows</small></span></a>
+          <a class="product" href="https://redis.io/"><img alt="Redis" src="https://cdn.simpleicons.org/redis/DC382D"><span><b>Redis</b><small>Cache, sessions, queues</small></span></a>
+          <a class="product" href="https://opentelemetry.io/"><img alt="OpenTelemetry" src="https://cdn.simpleicons.org/opentelemetry/000000"><span><b>OpenTelemetry</b><small>Distributed traces</small></span></a>
+          <a class="product" href="https://langfuse.com/"><span class="logo-fallback" style="--tone:#111827">LF</span><span><b>Langfuse / Phoenix</b><small>LLM observability and evals</small></span></a>
+          <a class="product" href="https://mlflow.org/"><span class="logo-fallback" style="--tone:#2457d6">MG</span><span><b>Model Governance</b><small>Calibration, drift, explainability, audit</small></span></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="flow" aria-label="Execution flow">
+      <span style="--tone:var(--blue)">User input</span><i>-></i>
+      <span style="--tone:var(--green)">Router</span><i>-></i>
+      <span style="--tone:var(--amber)">Workflow or Agent</span><i>-></i>
+      <span style="--tone:#415a77">PDF / OCR</span><i>-></i>
+      <span style="--tone:#6f4e37">Skill</span><i>-></i>
+      <span style="--tone:var(--teal)">RAG / Memory</span><i>-></i>
+      <span style="--tone:var(--amber)">MCP / Tools</span><i>-></i>
+      <span style="--tone:var(--violet)">Model response</span><i>-></i>
+      <span style="--tone:var(--red)">Guardrails / Evals / Trace</span>
+    </section>
+
+    <section class="split" aria-label="Agent runtime guidance">
+      <div class="note">
+        <h3>Vendor SDKs</h3>
+        <p>OpenAI Agents SDK, Claude Code SDK, and Google ADK are strongest when you want tight alignment with each vendor's model, tool, voice, and deployment ecosystem.</p>
+      </div>
+      <div class="note">
+        <h3>Open Source</h3>
+        <p>LangGraph is the default for explicit graph control. LlamaIndex is excellent when the agent is mainly over data. AutoGen fits multi-agent experimentation.</p>
+      </div>
+      <div class="note">
+        <h3>Architecture Bias</h3>
+        <p>Keep first-party business logic deterministic. Put agents at the uncertain edges: planning, research, triage, tool selection, synthesis, and exception handling.</p>
+      </div>
+    </section>
+
+    <footer>
+      Logos are loaded from Simple Icons/CDN where available; fallback marks are used for tools without a stable CDN logo.
+    </footer>
+  </main>
+</body>
+</html>
