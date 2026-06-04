@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EPTech F&A AI Transformation Pitch</title>
+    <style>
+      :root {
+        --ink: #181a1f;
+        --muted: #5d6470;
+        --line: #d9ded6;
+        --paper: #fbfaf6;
+        --panel: #ffffff;
+        --sage: #dff3e8;
+        --sage-strong: #1e8a66;
+        --blue: #256c9f;
+        --blue-soft: #e7f0f8;
+        --gold: #b57b22;
+        --gold-soft: #f5ead7;
+        --rose: #9f4057;
+        --shadow: 0 18px 48px rgba(24, 26, 31, 0.12);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.45;
+        overflow-x: hidden;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .page {
+        min-height: 100vh;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 16px clamp(18px, 4vw, 56px);
+        border-bottom: 1px solid rgba(24, 26, 31, 0.08);
+        background: rgba(251, 250, 246, 0.94);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .brand strong {
+        font-size: 0.86rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav a,
+      .print-button {
+        min-height: 38px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        padding: 9px 12px;
+        color: var(--ink);
+        background: transparent;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .nav a:hover,
+      .print-button:hover {
+        border-color: var(--line);
+        background: var(--panel);
+      }
+
+      .print-button {
+        border-color: var(--ink);
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .print-button:hover {
+        background: #2b2e35;
+        color: #fff;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+        gap: clamp(28px, 5vw, 72px);
+        align-items: center;
+        padding: clamp(48px, 8vw, 96px) clamp(18px, 5vw, 72px) 48px;
+        background:
+          linear-gradient(115deg, rgba(223, 243, 232, 0.74), transparent 45%),
+          linear-gradient(180deg, #fffdf8, var(--paper));
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--sage-strong);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.04;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 920px;
+        font-size: clamp(2.55rem, 6vw, 5.8rem);
+      }
+
+      h2 {
+        font-size: clamp(1.75rem, 3vw, 3rem);
+      }
+
+      h3 {
+        font-size: 1.08rem;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin: 24px 0 0;
+        color: #3f454d;
+        font-size: clamp(1.02rem, 1.5vw, 1.3rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--ink);
+        border-radius: 7px;
+        padding: 11px 16px;
+        color: var(--ink);
+        background: transparent;
+        font-weight: 760;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .hero-panel {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .metric {
+        min-height: 112px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcfa;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: clamp(1.6rem, 3vw, 2.25rem);
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .section {
+        padding: 66px clamp(18px, 5vw, 72px);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .section-header p {
+        max-width: 700px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .band {
+        background: #fff;
+        border-block: 1px solid rgba(24, 26, 31, 0.08);
+      }
+
+      .problem-grid,
+      .workflow-grid,
+      .pilot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .problem,
+      .workflow,
+      .pilot {
+        min-height: 180px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .problem {
+        background: #fffdf8;
+      }
+
+      .problem b,
+      .workflow b,
+      .pilot b {
+        display: block;
+        margin-bottom: 9px;
+        font-size: 1.02rem;
+      }
+
+      .problem p,
+      .workflow p,
+      .pilot p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .workflow {
+        display: grid;
+        gap: 16px;
+        min-height: 260px;
+      }
+
+      .workflow-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .tag {
+        align-self: start;
+        border-radius: 999px;
+        padding: 5px 9px;
+        color: var(--sage-strong);
+        background: var(--sage);
+        font-size: 0.74rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .tag.blue {
+        color: var(--blue);
+        background: var(--blue-soft);
+      }
+
+      .tag.gold {
+        color: var(--gold);
+        background: var(--gold-soft);
+      }
+
+      .impact {
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+        color: var(--ink);
+        font-weight: 760;
+      }
+
+      .calculator-wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .calculator,
+      .results-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .calculator {
+        padding: 22px;
+      }
+
+      .preset-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 18px 0 20px;
+      }
+
+      .preset {
+        min-height: 48px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .preset.active {
+        border-color: var(--sage-strong);
+        background: var(--sage);
+        color: #0f4e3d;
+        font-weight: 800;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .field label {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--muted);
+        font-weight: 720;
+      }
+
+      .field output {
+        color: var(--ink);
+        font-variant-numeric: tabular-nums;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--sage-strong);
+      }
+
+      .results-panel {
+        overflow: hidden;
+      }
+
+      .results-head {
+        padding: 24px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .results-head p {
+        margin: 8px 0 0;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .results-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .result {
+        min-height: 132px;
+        padding: 22px;
+        border-top: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+      }
+
+      .result:nth-child(even) {
+        border-right: 0;
+      }
+
+      .result strong {
+        display: block;
+        color: var(--sage-strong);
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .result span {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+      }
+
+      .note {
+        margin: 0;
+        padding: 18px 22px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--panel);
+      }
+
+      .step {
+        min-height: 174px;
+        padding: 20px;
+        border-right: 1px solid var(--line);
+      }
+
+      .step:last-child {
+        border-right: 0;
+      }
+
+      .step span {
+        color: var(--sage-strong);
+        font-weight: 850;
+      }
+
+      .step p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .cta {
+        padding: clamp(42px, 7vw, 80px) clamp(18px, 5vw, 72px);
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .cta-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .cta p {
+        max-width: 760px;
+        margin: 14px 0 0;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .cta .button {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .calculator-wrap,
+        .cta-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .problem-grid,
+        .workflow-grid,
+        .pilot-grid,
+        .timeline {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .step:nth-child(2) {
+          border-right: 0;
+        }
+
+        .step:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav {
+          position: static;
+          align-items: start;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-only {
+          display: inline-flex;
+        }
+
+        .hero {
+          overflow: hidden;
+          padding-top: 52px;
+        }
+
+        .hero > *,
+        .section > *,
+        .cta-inner {
+          width: 100%;
+          max-width: 342px;
+        }
+
+        h1 {
+          max-width: 100%;
+          font-size: 1.9rem;
+        }
+
+        .lead {
+          max-width: 100%;
+          font-size: 1rem;
+        }
+
+        .hero-panel,
+        .calculator,
+        .results-panel {
+          min-width: 0;
+          width: 100%;
+        }
+
+        .hero-actions .button {
+          flex: 1 1 100%;
+          width: 100%;
+        }
+
+        .metric-grid,
+        .problem-grid,
+        .workflow-grid,
+        .pilot-grid,
+        .timeline,
+        .results-grid,
+        .preset-row {
+          grid-template-columns: 1fr;
+        }
+
+        .result,
+        .step {
+          border-right: 0;
+        }
+
+        .step {
+          border-bottom: 1px solid var(--line);
+        }
+
+        .step:last-child {
+          border-bottom: 0;
+        }
+
+        .section-header {
+          display: block;
+        }
+
+        .section-header p {
+          margin-top: 12px;
+        }
+      }
+
+      @media print {
+        @page {
+          margin: 0.55in;
+          size: letter;
+        }
+
+        :root {
+          --shadow: none;
+        }
+
+        body {
+          background: #fff;
+          color: #111;
+          font-size: 10.5pt;
+        }
+
+        .nav,
+        .hero-actions,
+        .mobile-only,
+        .print-button {
+          display: none !important;
+        }
+
+        .hero,
+        .section,
+        .cta {
+          padding: 0;
+          background: #fff;
+          color: #111;
+        }
+
+        .hero {
+          display: block;
+          page-break-after: always;
+        }
+
+        h1 {
+          font-size: 39pt;
+        }
+
+        h2 {
+          font-size: 22pt;
+        }
+
+        h3 {
+          font-size: 12pt;
+        }
+
+        .lead {
+          font-size: 12pt;
+        }
+
+        .hero-panel,
+        .calculator,
+        .results-panel,
+        .problem,
+        .workflow,
+        .pilot,
+        .timeline {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+
+        .section {
+          margin-top: 26pt;
+          page-break-inside: avoid;
+        }
+
+        .problem-grid,
+        .workflow-grid,
+        .pilot-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .calculator-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        input[type="range"],
+        .preset-row {
+          display: none;
+        }
+
+        .field {
+          padding: 6pt 0;
+        }
+
+        .cta {
+          margin-top: 24pt;
+          padding: 18pt;
+          border: 1px solid #111;
+        }
+
+        .cta p {
+          color: #333;
+        }
+
+        .cta .button {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav">
+        <div class="brand">
+          <strong>EPTech</strong>
+          <span>F&A AI Transformation</span>
+        </div>
+        <div class="nav-links" aria-label="Pitch navigation">
+          <a href="#workflows">Workflows</a>
+          <a href="#roi">ROI</a>
+          <a href="#pilots">Pilots</a>
+          <a href="#diagnostic">Diagnostic</a>
+          <button class="print-button" type="button" onclick="window.print()">Print PDF</button>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">AI agents for finance and accounting</p>
+          <h1>Move F&A teams beyond spreadsheets without replacing the ERP.</h1>
+          <p class="lead">
+            EPTech builds practical AI agents that automate invoice processing,
+            month-end close, reconciliations, FP&A reporting, CFO dashboards,
+            and audit evidence workflows while keeping finance leaders in control.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#roi">Estimate ROI</a>
+            <a class="button" href="#workflows">View use cases</a>
+            <button class="button mobile-only" type="button" onclick="window.print()">Print PDF</button>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Target outcomes">
+          <p class="eyebrow">Practical impact targets</p>
+          <div class="metric-grid">
+            <div class="metric">
+              <strong>30-60%</strong>
+              <span>reduction in manual effort for a selected workflow</span>
+            </div>
+            <div class="metric">
+              <strong>20-50%</strong>
+              <span>reduction in cycle time for close, approvals, or reporting</span>
+            </div>
+            <div class="metric">
+              <strong>4-8 wks</strong>
+              <span>typical pilot window after workflow selection</span>
+            </div>
+            <div class="metric">
+              <strong>0 ERP</strong>
+              <span>replacement required for the first implementation</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section band">
+        <div class="section-header">
+          <h2>The finance bottleneck</h2>
+          <p>
+            Mid-market and smaller companies often grow faster than their finance
+            operating model. The result is manual work that quietly absorbs
+            expensive team capacity every month.
+          </p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem">
+            <b>Close depends on spreadsheets</b>
+            <p>Trackers, reconciliations, variance notes, and support files are updated manually across teams.</p>
+          </article>
+          <article class="problem">
+            <b>Reporting arrives late</b>
+            <p>FP&A spends days assembling data instead of explaining what changed and what to do next.</p>
+          </article>
+          <article class="problem">
+            <b>Approvals stall</b>
+            <p>Invoices, accrual inputs, and evidence requests get stuck in inboxes and chat threads.</p>
+          </article>
+          <article class="problem">
+            <b>Audit support is recreated</b>
+            <p>Evidence lives across ERP exports, emails, shared drives, tickets, and spreadsheets.</p>
+          </article>
+          <article class="problem">
+            <b>Exceptions are late</b>
+            <p>Duplicate invoices, unusual entries, and missing documentation are often found after review cycles begin.</p>
+          </article>
+          <article class="problem">
+            <b>Leadership waits</b>
+            <p>CFOs and operators wait for answers because trusted data is trapped inside manual pipelines.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflows" class="section">
+        <div class="section-header">
+          <h2>Workflows EPTech can cover</h2>
+          <p>
+            We start with one high-value workflow, prove measurable ROI, then
+            expand into adjacent F&A processes.
+          </p>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow">
+            <div class="workflow-top">
+              <b>AP invoice intake and coding</b>
+              <span class="tag">Accounting</span>
+            </div>
+            <p>Read invoices, match vendors and POs, suggest GL coding, route approvals, and flag exceptions.</p>
+            <div class="impact">40-70% less manual handling time</div>
+          </article>
+          <article class="workflow">
+            <div class="workflow-top">
+              <b>Month-end close and reconciliations</b>
+              <span class="tag gold">Close</span>
+            </div>
+            <p>Track tasks, collect support, match transactions, draft variance explanations, and surface blockers.</p>
+            <div class="impact">20-50% faster coordination and review</div>
+          </article>
+          <article class="workflow">
+            <div class="workflow-top">
+              <b>FP&A reporting and commentary</b>
+              <span class="tag blue">Finance</span>
+            </div>
+            <p>Generate recurring management packs, KPI tables, variance narratives, and source-linked commentary.</p>
+            <div class="impact">30-70% less reporting assembly time</div>
+          </article>
+          <article class="workflow">
+            <div class="workflow-top">
+              <b>Internal audit and compliance</b>
+              <span class="tag">Audit</span>
+            </div>
+            <p>Request evidence, map controls, perform first-pass support review, and draft workpapers or findings.</p>
+            <div class="impact">30-60% less documentation effort</div>
+          </article>
+          <article class="workflow">
+            <div class="workflow-top">
+              <b>AR cash application and collections</b>
+              <span class="tag blue">Working capital</span>
+            </div>
+            <p>Match remittances, identify unapplied cash, prioritize collections, and draft follow-up messages.</p>
+            <div class="impact">30-60% less cash application effort</div>
+          </article>
+          <article class="workflow">
+            <div class="workflow-top">
+              <b>CFO dashboards and board reporting</b>
+              <span class="tag gold">Executive</span>
+            </div>
+            <p>Connect governed metrics to a live executive view and reduce recurring ad hoc reporting requests.</p>
+            <div class="impact">Faster answers with stronger traceability</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="roi" class="section band">
+        <div class="section-header">
+          <h2>ROI calculator</h2>
+          <p>
+            Estimate annual capacity created from one targeted workflow. Use the
+            presets for small or mid-sized firms, then adjust the assumptions.
+          </p>
+        </div>
+        <div class="calculator-wrap">
+          <form class="calculator" aria-label="ROI assumptions">
+            <h3>Assumptions</h3>
+            <div class="preset-row">
+              <button class="preset active" type="button" data-preset="small">Small firm</button>
+              <button class="preset" type="button" data-preset="mid">Mid-sized firm</button>
+            </div>
+
+            <div class="field">
+              <label for="teamSize">People in workflow <output id="teamSizeOut">3</output></label>
+              <input id="teamSize" min="1" max="30" value="3" type="range" />
+            </div>
+            <div class="field">
+              <label for="manualShare">Time spent on manual work <output id="manualShareOut">35%</output></label>
+              <input id="manualShare" min="10" max="80" value="35" type="range" />
+            </div>
+            <div class="field">
+              <label for="hourlyCost">Fully loaded hourly cost <output id="hourlyCostOut">$65</output></label>
+              <input id="hourlyCost" min="35" max="175" value="65" step="5" type="range" />
+            </div>
+            <div class="field">
+              <label for="automationLift">Manual effort reduced <output id="automationLiftOut">40%</output></label>
+              <input id="automationLift" min="15" max="75" value="40" type="range" />
+            </div>
+            <div class="field">
+              <label for="weeks">Working weeks per year <output id="weeksOut">48</output></label>
+              <input id="weeks" min="40" max="52" value="48" type="range" />
+            </div>
+          </form>
+
+          <aside class="results-panel" aria-label="ROI results">
+            <div class="results-head">
+              <h3 id="scenarioTitle">Small firm workflow estimate</h3>
+              <p id="scenarioText">Best for small finance teams automating one recurring F&A workflow.</p>
+            </div>
+            <div class="results-grid">
+              <div class="result">
+                <strong id="manualHours">2,016</strong>
+                <span>manual hours currently spent per year</span>
+              </div>
+              <div class="result">
+                <strong id="hoursSaved">806</strong>
+                <span>annual hours saved after automation</span>
+              </div>
+              <div class="result">
+                <strong id="costSaved">$52K</strong>
+                <span>annual capacity value created</span>
+              </div>
+              <div class="result">
+                <strong id="monthsSaved">5.0</strong>
+                <span>person-months of capacity returned</span>
+              </div>
+            </div>
+            <p class="note">
+              This is a directional planning estimate. Final ROI depends on
+              transaction volume, system access, data quality, control design,
+              and how much of the workflow is suitable for automation.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="pilots" class="section">
+        <div class="section-header">
+          <h2>Pilot options</h2>
+          <p>
+            The best first pilot is narrow enough to ship quickly and important
+            enough that the CFO or controller can feel the difference.
+          </p>
+        </div>
+        <div class="pilot-grid">
+          <article class="pilot">
+            <b>Close and reconciliation agent</b>
+            <p>4-6 weeks. Automates close tracking, support collection, reconciliation prep, variance drafts, and controller visibility.</p>
+          </article>
+          <article class="pilot">
+            <b>AP invoice and approval agent</b>
+            <p>4-8 weeks. Automates invoice extraction, vendor matching, coding suggestions, approval routing, and exception queues.</p>
+          </article>
+          <article class="pilot">
+            <b>FP&A reporting agent</b>
+            <p>4-6 weeks. Automates recurring reporting packs, KPI tables, variance commentary, and source-linked management views.</p>
+          </article>
+          <article class="pilot">
+            <b>Internal audit evidence agent</b>
+            <p>6-8 weeks. Automates evidence requests, control mapping, first-pass testing support, and workpaper drafts.</p>
+          </article>
+          <article class="pilot">
+            <b>AR and cash application agent</b>
+            <p>4-8 weeks. Automates remittance matching, unapplied cash queues, collections prioritization, and follow-up drafts.</p>
+          </article>
+          <article class="pilot">
+            <b>CFO dashboard prototype</b>
+            <p>3-6 weeks. Creates governed executive visibility from existing ERP, spreadsheet, and operating data sources.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section band">
+        <div class="section-header">
+          <h2>Implementation path</h2>
+          <p>
+            EPTech keeps the first engagement practical: diagnose the workflow,
+            build the pilot, measure ROI, then expand only where value is proven.
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <span>01</span>
+            <h3>Diagnostic</h3>
+            <p>Map workflows, systems, pain points, control gates, and measurable success criteria.</p>
+          </div>
+          <div class="step">
+            <span>02</span>
+            <h3>Pilot design</h3>
+            <p>Select one use case, define data access, review steps, exception rules, and ROI baseline.</p>
+          </div>
+          <div class="step">
+            <span>03</span>
+            <h3>Agent build</h3>
+            <p>Connect to existing tools, automate the repeatable work, and preserve human approval points.</p>
+          </div>
+          <div class="step">
+            <span>04</span>
+            <h3>Scale</h3>
+            <p>Measure savings, strengthen governance, and expand into adjacent workflows.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="diagnostic" class="cta">
+        <div class="cta-inner">
+          <div>
+            <p class="eyebrow">Client-facing offer</p>
+            <h2>Start with a 2-hour F&A AI diagnostic.</h2>
+            <p>
+              EPTech will map current finance workflows, identify the top 3
+              automation opportunities, estimate time and cost impact, and
+              recommend the fastest pilot to prove ROI.
+            </p>
+          </div>
+          <a class="button" href="#roi">Run the estimate</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const presets = {
+        small: {
+          label: "Small firm workflow estimate",
+          text: "Best for small finance teams automating one recurring F&A workflow.",
+          teamSize: 3,
+          manualShare: 35,
+          hourlyCost: 65,
+          automationLift: 40,
+          weeks: 48
+        },
+        mid: {
+          label: "Mid-sized firm workflow estimate",
+          text: "Best for larger finance teams with higher transaction volume and more recurring reporting.",
+          teamSize: 9,
+          manualShare: 45,
+          hourlyCost: 85,
+          automationLift: 45,
+          weeks: 48
+        }
+      };
+
+      const ids = ["teamSize", "manualShare", "hourlyCost", "automationLift", "weeks"];
+      const els = Object.fromEntries(ids.map((id) => [id, document.getElementById(id)]));
+      const out = {
+        teamSize: document.getElementById("teamSizeOut"),
+        manualShare: document.getElementById("manualShareOut"),
+        hourlyCost: document.getElementById("hourlyCostOut"),
+        automationLift: document.getElementById("automationLiftOut"),
+        weeks: document.getElementById("weeksOut")
+      };
+
+      const money = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0
+      });
+      const number = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
+
+      function compactMoney(value) {
+        if (value >= 1000000) return `$${(value / 1000000).toFixed(1)}M`;
+        if (value >= 1000) return `$${Math.round(value / 1000)}K`;
+        return money.format(value);
+      }
+
+      function updateOutputs() {
+        out.teamSize.value = els.teamSize.value;
+        out.manualShare.value = `${els.manualShare.value}%`;
+        out.hourlyCost.value = money.format(Number(els.hourlyCost.value));
+        out.automationLift.value = `${els.automationLift.value}%`;
+        out.weeks.value = els.weeks.value;
+      }
+
+      function calculate() {
+        const teamSize = Number(els.teamSize.value);
+        const manualShare = Number(els.manualShare.value) / 100;
+        const hourlyCost = Number(els.hourlyCost.value);
+        const automationLift = Number(els.automationLift.value) / 100;
+        const weeks = Number(els.weeks.value);
+
+        const annualHours = teamSize * 40 * weeks;
+        const manualHours = annualHours * manualShare;
+        const hoursSaved = manualHours * automationLift;
+        const costSaved = hoursSaved * hourlyCost;
+        const monthsSaved = hoursSaved / 160;
+
+        updateOutputs();
+        document.getElementById("manualHours").textContent = number.format(manualHours);
+        document.getElementById("hoursSaved").textContent = number.format(hoursSaved);
+        document.getElementById("costSaved").textContent = compactMoney(costSaved);
+        document.getElementById("monthsSaved").textContent = monthsSaved.toFixed(1);
+      }
+
+      function applyPreset(name) {
+        const preset = presets[name];
+        ids.forEach((id) => {
+          els[id].value = preset[id];
+        });
+        document.getElementById("scenarioTitle").textContent = preset.label;
+        document.getElementById("scenarioText").textContent = preset.text;
+        document.querySelectorAll(".preset").forEach((button) => {
+          button.classList.toggle("active", button.dataset.preset === name);
+        });
+        calculate();
+      }
+
+      document.querySelectorAll(".preset").forEach((button) => {
+        button.addEventListener("click", () => applyPreset(button.dataset.preset));
+      });
+
+      ids.forEach((id) => {
+        els[id].addEventListener("input", () => {
+          document.querySelectorAll(".preset").forEach((button) => button.classList.remove("active"));
+          document.getElementById("scenarioTitle").textContent = "Custom workflow estimate";
+          document.getElementById("scenarioText").textContent = "Adjusted assumptions based on the selected workflow and firm profile.";
+          calculate();
+        });
+      });
+
+      calculate();
+    </script>
+  </body>
+</html>

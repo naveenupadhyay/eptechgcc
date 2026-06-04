@@ -8,6 +8,7 @@ import { Slide } from "./components/Slide";
 import { CTAButton } from "./components/CTAButton";
 import { CapabilitiesPage } from "./components/CapabilitiesPage";
 import { CaseStudiesPage } from "./components/CaseStudiesPage";
+import { FinanceAIPage } from "./components/FinanceAIPage";
 import { StackPage } from "./components/StackPage";
 import { siteContent } from "./data/siteContent";
 
@@ -135,6 +136,10 @@ function App() {
 
   if (pathname === siteContent.capabilitiesPage.path) {
     return <CapabilitiesPage />;
+  }
+
+  if (pathname === siteContent.financeAIPage.path) {
+    return <FinanceAIPage />;
   }
 
   if (pathname === "/stack") {

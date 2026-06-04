@@ -229,6 +229,10 @@ export const siteContent = {
       {
         label: "Book a 20-min Call",
         href: "https://calendly.com/naveen-eleventyfirstparallel/ai-product-development-discussion"
+      },
+      {
+        label: "View F&A AI Pitch",
+        href: "/finance-ai"
       }
     ],
     proofMetrics: [
@@ -395,6 +399,163 @@ export const siteContent = {
     operatingMessage:
       "For founders evaluating India, this matters because a GCC is only valuable when it has a serious product and AI engineering spine. Eptech brings that spine: domain understanding, reusable AI components, delivery discipline, and the ability to convert ambiguous workflows into shipped systems."
   },
+  financeAIPage: {
+    path: "/finance-ai",
+    kicker: "EPTech F&A AI transformation",
+    title: "AI Agents for Finance and Accounting Operations",
+    subtitle:
+      "EPTech helps finance and accounting teams move from spreadsheet-heavy execution to AI-assisted workflows that are faster, more controlled, and easier to scale.",
+    positioning:
+      "No rip-and-replace ERP program. No generic AI demo. We build practical automation layers around the finance team's existing systems, controls, policies, and approval workflows.",
+    assets: {
+      pdf: "/fa-ai-pitch/EPTech_FA_AI_Pitch.pdf",
+      sourceHtml: "/fa-ai-pitch/fa-ai-pitch.html",
+      referralEmail: "/fa-ai-pitch/EPTech_FA_AI_Referral_Email.md"
+    },
+    ctas: [
+      { label: "Book a 2-hour Diagnostic", href: "https://calendly.com/naveen-eleventyfirstparallel/ai-product-development-discussion" },
+      { label: "Download PDF", href: "/fa-ai-pitch/EPTech_FA_AI_Pitch.pdf" },
+      { label: "Email Naveen", href: "mailto:naveen@eleventyfirstparallel.in" }
+    ],
+    proofMetrics: [
+      { value: "30-60%", label: "targeted manual effort reduction" },
+      { value: "20-50%", label: "targeted cycle-time reduction" },
+      { value: "4-8 wks", label: "typical pilot window" },
+      { value: "Human-led", label: "approval, judgment, and control" }
+    ],
+    frictions: [
+      "Invoices scattered across inboxes, portals, and shared drives",
+      "Month-end close dependent on trackers, reconciliations, and follow-up emails",
+      "FP&A teams spending days assembling data instead of analyzing performance",
+      "Audit evidence spread across ERP exports, emails, documents, and tickets",
+      "CFO dashboards arriving late because data pipelines are not trusted",
+      "Exceptions found after the fact instead of flagged while the business can act"
+    ],
+    approach: [
+      {
+        title: "Diagnose",
+        description:
+          "Map the current F&A workflow, identify repeated manual work, and quantify where an AI agent can produce measurable value quickly.",
+        icon: "Target" as IconName
+      },
+      {
+        title: "Build",
+        description:
+          "Create custom AI agents and workflow automation connected to ERP, accounting systems, spreadsheets, documents, email, Slack, Teams, and approval tools.",
+        icon: "Workflow" as IconName
+      },
+      {
+        title: "Transform",
+        description:
+          "Once the first workflow proves ROI, expand into adjacent workflows so finance shifts toward exception-based review, live visibility, and cleaner audit trails.",
+        icon: "Rocket" as IconName
+      }
+    ],
+    workflows: [
+      {
+        name: "AP Invoice Intelligence",
+        pain: "Manual capture, coding errors, approval delays",
+        build: "Read invoices, match vendors and POs, suggest GL coding, route approvals, and flag exceptions",
+        impact: "40-70% reduction in manual AP handling time",
+        icon: "FileCheck2" as IconName
+      },
+      {
+        name: "Month-End Close Command Center",
+        pain: "Spreadsheet trackers, unclear owners, late bottlenecks",
+        build: "Track close tasks, dependencies, owner reminders, evidence links, and controller dashboards",
+        impact: "20-50% reduction in close coordination effort",
+        icon: "ClipboardCheck" as IconName
+      },
+      {
+        name: "Account Reconciliations",
+        pain: "Manual matching and repeated variance explanations",
+        build: "Match transactions, identify anomalies, draft explanations, and store support",
+        impact: "30-60% reduction in reconciliation prep time",
+        icon: "BadgeCheck" as IconName
+      },
+      {
+        name: "FP&A Reporting Packs",
+        pain: "Analysts spend days pulling and formatting data",
+        build: "Generate management reporting packs, KPI tables, variance commentary, and source-linked narratives",
+        impact: "30-70% reduction in reporting assembly time",
+        icon: "LineChart" as IconName
+      },
+      {
+        name: "Internal Audit Testing",
+        pain: "Evidence gathering and workpaper drafting are manual",
+        build: "Request evidence, map controls, run first-pass testing, and draft findings for human review",
+        impact: "30-60% reduction in audit documentation effort",
+        icon: "ShieldCheck" as IconName
+      },
+      {
+        name: "CFO and Board Dashboards",
+        pain: "Late, static reporting with limited drill-down",
+        build: "Governed metrics, real-time dashboard workflows, and board-pack automation",
+        impact: "Faster executive visibility and fewer ad hoc requests",
+        icon: "BarChart3" as IconName
+      }
+    ],
+    useCases: [
+      {
+        title: "Month-end close acceleration",
+        bestFit: "Close takes 5-10 business days, status is managed in spreadsheets, and leadership wants faster financial reporting.",
+        outcome: "Reduce close coordination effort by 20-50% and recurring reconciliation prep by 30-60%."
+      },
+      {
+        title: "AP automation and invoice intelligence",
+        bestFit: "High invoice volume, manual coding and approvals, duplicate invoice risk, and fragmented intake channels.",
+        outcome: "Reduce manual AP handling time by 40-70% and approval cycle time by 20-40%."
+      },
+      {
+        title: "FP&A reporting and variance commentary",
+        bestFit: "Reporting packs take multiple days, actuals are manually reconciled to forecasts, and commentary quality varies.",
+        outcome: "Reduce reporting assembly by 30-70% and first-draft commentary effort by 40-60%."
+      },
+      {
+        title: "Internal audit and compliance agent",
+        bestFit: "Audit teams spend significant time collecting evidence, preparing workpapers, and documenting first-pass findings.",
+        outcome: "Reduce audit documentation effort by 30-60% while improving traceability and review consistency."
+      }
+    ],
+    pilots: [
+      {
+        name: "Close and Reconciliation Agent",
+        duration: "4-6 weeks",
+        scope: ["Close checklist and owner tracking", "Reconciliation support", "Variance explanation drafts", "Evidence links and audit trail"]
+      },
+      {
+        name: "AP Invoice and Approval Agent",
+        duration: "4-8 weeks",
+        scope: ["Invoice extraction", "Vendor and PO matching", "GL coding suggestions", "Exception detection", "Approval routing"]
+      },
+      {
+        name: "FP&A Reporting Agent",
+        duration: "4-6 weeks",
+        scope: ["Actuals, budget, and forecast ingestion", "KPI and variance tables", "Commentary drafts", "CFO dashboard prototype"]
+      },
+      {
+        name: "Internal Audit Evidence Agent",
+        duration: "6-8 weeks",
+        scope: ["Control mapping", "Evidence request tracking", "Sample support review", "Workpaper and finding draft support"]
+      }
+    ],
+    governance: [
+      "Role-based access controls",
+      "Data minimization",
+      "Human approval gates",
+      "Source-linked outputs",
+      "Audit logs",
+      "Exception queues",
+      "Segregation-of-duties awareness",
+      "Client-specific policies and thresholds"
+    ],
+    diagnostic: {
+      title: "Start with a 2-hour F&A AI diagnostic",
+      description:
+        "We map current finance workflows, identify the top three automation opportunities, estimate likely effort and cycle-time impact, and recommend the fastest pilot to prove ROI.",
+      deliverables: ["Workflow map", "Automation opportunity shortlist", "ROI hypothesis", "Pilot recommendation"]
+    }
+  },
   slides: [
     {
       id: "hero",
@@ -405,7 +566,8 @@ export const siteContent = {
       ctas: [
         { label: "See Naveen's Track Record", target: "operator" },
         { label: "Explore the GCC Model", target: "framework", variant: "secondary" },
-        { label: "View Aistra Case Study", target: "aistra", variant: "secondary" }
+        { label: "View Aistra Case Study", target: "aistra", variant: "secondary" },
+        { label: "F&A AI Pitch", href: "/finance-ai", variant: "secondary" }
       ]
     },
     {
