@@ -16,7 +16,5 @@
   <path d="M150 470 C410 265 660 520 1055 255" fill="none" stroke="#14b8a6" stroke-width="3" stroke-opacity="0.42"/>
   <rect x="88" y="86" width="232" height="232" rx="44" fill="#ffffff" fill-opacity="0.06" stroke="#67e8f9" stroke-opacity="0.38"/>
   <image href="/ep.avif" x="118" y="116" width="172" height="172" preserveAspectRatio="xMidYMid meet"/>
-  <text x="88" y="392" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="60" font-weight="700">EleventyfirstParallel AI</text>
-  <text x="90" y="454" fill="#67e8f9" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Build Your AI-Native GCC in India</text>
-  <text x="92" y="508" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="27">AI-native global execution infrastructure for ambitious US startups</text>
+  <text x="88" y="420" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="700">EleventyfirstParallel AI</text>
 </svg>
