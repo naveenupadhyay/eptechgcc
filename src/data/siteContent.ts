@@ -556,6 +556,61 @@ export const siteContent = {
       deliverables: ["Workflow map", "Automation opportunity shortlist", "ROI hypothesis", "Pilot recommendation"]
     }
   },
+  aiNativeEngineeringPage: {
+    path: "/ai-native-engineering",
+    kicker: "AI-native engineering teams",
+    title: "One AI Engineering Stack, Two Adoption Paths",
+    subtitle:
+      "The same AI stack adapts to two very different realities: adding an AI execution layer to a large existing engineering organization, or designing a new startup engineering operating model from day zero.",
+    banner: "/ai-native-engineering-banner.svg",
+    stackLink: "/stack",
+    cards: [
+      {
+        label: "Large existing engineering org",
+        title: "AI layer on top of complex engineering reality",
+        summary:
+          "A mature engineering organization already has hundreds of tools, repositories, dashboards, runbooks, approval flows, platform services, security rules, and undocumented tribal knowledge. AI-native engineering here should not force disruption. It should become an intelligent execution layer that makes the existing system easier to understand, operate, govern, and improve.",
+        stackFit:
+          "The stack is integration-heavy: experience channels connect through Slack, Teams, Jira, GitHub, GitLab, Confluence, internal portals, observability tools, CI/CD, cloud platforms, data warehouses, security tools, and internal APIs. Agentic RAG compresses documentation, tickets, logs, code, and architecture decisions into usable context.",
+        bestPilots: [
+          "Engineering knowledge assistant across repos, docs, tickets, and architecture decisions",
+          "Incident response copilot that summarizes logs, traces, recent deploys, ownership, and runbooks",
+          "PR and release readiness agent for quality, security, test coverage, and architecture drift",
+          "Legacy system understanding agent for onboarding, migration, and dependency analysis",
+          "Support-to-engineering triage agent that connects customer issues to code, owners, and fixes"
+        ],
+        outcomes: [
+          "Lower coordination tax",
+          "Faster onboarding",
+          "Reduced investigation time",
+          "Better delivery visibility",
+          "Governed AI adoption without breaking existing workflows"
+        ]
+      },
+      {
+        label: "New startup",
+        title: "AI-native engineering operating model from day zero",
+        summary:
+          "A new startup has the advantage of low legacy drag. Instead of bolting AI onto chaos later, the team can design product development, engineering, QA, support feedback, architecture documentation, and delivery governance around AI-native workflows from the beginning.",
+        stackFit:
+          "The stack is cleaner and lighter: GitHub, Linear or Jira, Slack, Notion or Confluence, analytics, cloud, support, CRM, and founder dashboards. Every customer conversation, product decision, roadmap item, bug, and architecture choice can become structured organizational memory from the start.",
+        bestPilots: [
+          "Product spec to engineering task generation",
+          "AI-assisted coding, test generation, and regression checks",
+          "Customer feedback to roadmap and sprint intelligence",
+          "Founder dashboard across product velocity, bugs, support themes, and delivery risk",
+          "Lightweight architecture documentation and evaluation loops"
+        ],
+        outcomes: [
+          "Faster shipping",
+          "Smaller but higher-leverage teams",
+          "Cleaner product memory",
+          "Founder-level visibility",
+          "Less operational debt as the company scales"
+        ]
+      }
+    ]
+  },
   slides: [
     {
       id: "hero",
@@ -567,6 +622,7 @@ export const siteContent = {
         { label: "See Naveen's Track Record", target: "operator" },
         { label: "Explore the GCC Model", target: "framework", variant: "secondary" },
         { label: "View Aistra Case Study", target: "aistra", variant: "secondary" },
+        { label: "AI-Native Engineering", href: "/ai-native-engineering", variant: "secondary" },
         { label: "F&A AI Pitch", href: "/finance-ai", variant: "secondary" }
       ]
     },

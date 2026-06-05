@@ -6,6 +6,7 @@ import { NavigationDots } from "./components/NavigationDots";
 import { ProgressBar } from "./components/ProgressBar";
 import { Slide } from "./components/Slide";
 import { CTAButton } from "./components/CTAButton";
+import { AINativeEngineeringPage } from "./components/AINativeEngineeringPage";
 import { CapabilitiesPage } from "./components/CapabilitiesPage";
 import { CaseStudiesPage } from "./components/CaseStudiesPage";
 import { FinanceAIPage } from "./components/FinanceAIPage";
@@ -140,6 +141,10 @@ function App() {
 
   if (pathname === siteContent.financeAIPage.path) {
     return <FinanceAIPage />;
+  }
+
+  if (pathname === siteContent.aiNativeEngineeringPage.path) {
+    return <AINativeEngineeringPage />;
   }
 
   if (pathname === "/stack") {

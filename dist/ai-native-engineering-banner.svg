@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05030B"/>
+      <stop offset="0.48" stop-color="#090014"/>
+      <stop offset="1" stop-color="#02040A"/>
+    </linearGradient>
+    <linearGradient id="purpleCard" x1="192" y1="154" x2="1380" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E1065"/>
+      <stop offset="0.48" stop-color="#5B21B6"/>
+      <stop offset="1" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <linearGradient id="line" x1="300" y1="450" x2="1300" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A855F7" stop-opacity="0.08"/>
+      <stop offset="0.5" stop-color="#F5F3FF" stop-opacity="0.86"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0.08"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(372 236) rotate(45) scale(520)">
+      <stop stop-color="#7C3AED" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1188 280) rotate(135) scale(510)">
+      <stop stop-color="#22D3EE" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="38" flood-color="#2E1065" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glowA)"/>
+  <rect width="1600" height="900" fill="url(#glowB)"/>
+  <path d="M0 128H1600M0 272H1600M0 416H1600M0 560H1600M0 704H1600M224 0V900M448 0V900M672 0V900M896 0V900M1120 0V900M1344 0V900" stroke="white" stroke-opacity="0.045"/>
+
+  <rect x="90" y="96" width="1420" height="708" rx="48" fill="url(#purpleCard)" fill-opacity="0.18" stroke="#DDD6FE" stroke-opacity="0.22" filter="url(#shadow)"/>
+  <rect x="118" y="126" width="1364" height="648" rx="38" fill="#03020A" fill-opacity="0.58" stroke="white" stroke-opacity="0.12"/>
+
+  <text x="150" y="194" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6">AI-NATIVE ENGINEERING TEAMS</text>
+  <text x="150" y="258" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="760">One Stack. Two Adoption Paths.</text>
+  <text x="150" y="306" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="24">A governed AI execution layer for existing engineering complexity, or a clean operating model for new startups.</text>
+
+  <rect x="150" y="356" width="470" height="350" rx="30" fill="#080511" fill-opacity="0.92" stroke="#C4B5FD" stroke-opacity="0.45"/>
+  <rect x="180" y="390" width="64" height="64" rx="18" fill="#A855F7" fill-opacity="0.22" stroke="#DDD6FE" stroke-opacity="0.42"/>
+  <rect x="196" y="414" width="10" height="24" rx="3" fill="#F5F3FF"/>
+  <rect x="212" y="402" width="10" height="36" rx="3" fill="#C4B5FD"/>
+  <rect x="228" y="424" width="10" height="14" rx="3" fill="#A78BFA"/>
+  <text x="266" y="416" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="780">Existing Org</text>
+  <text x="268" y="446" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.5">AI LAYER ON COMPLEXITY</text>
+  <text x="180" y="500" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="740">Overlay on complexity</text>
+  <text x="180" y="542" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="19">Hundreds of tools, repos, docs, dashboards,</text>
+  <text x="180" y="570" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="19">approvals, and legacy systems.</text>
+
+  <g opacity="0.96">
+    <rect x="180" y="612" width="96" height="54" rx="14" fill="#111827" stroke="#A78BFA" stroke-opacity="0.58"/>
+    <rect x="296" y="612" width="96" height="54" rx="14" fill="#111827" stroke="#A78BFA" stroke-opacity="0.58"/>
+    <rect x="412" y="612" width="96" height="54" rx="14" fill="#111827" stroke="#A78BFA" stroke-opacity="0.58"/>
+    <text x="205" y="645" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="760">Jira</text>
+    <text x="318" y="645" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="760">Repos</text>
+    <text x="434" y="645" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="760">CI/CD</text>
+  </g>
+
+  <rect x="665" y="358" width="270" height="350" rx="36" fill="#0B0717" stroke="#DDD6FE" stroke-opacity="0.26"/>
+  <circle cx="800" cy="460" r="78" fill="#7C3AED" fill-opacity="0.24" stroke="#DDD6FE" stroke-opacity="0.34"/>
+  <circle cx="800" cy="460" r="36" fill="#F5F3FF" fill-opacity="0.16" stroke="#F5F3FF" stroke-opacity="0.52"/>
+  <path d="M724 552H876" stroke="url(#line)" stroke-width="3"/>
+  <path d="M690 610H910" stroke="url(#line)" stroke-width="3" stroke-opacity="0.7"/>
+  <text x="800" y="650" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="740" text-anchor="middle">AI Orchestration</text>
+  <text x="800" y="681" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="14" text-anchor="middle">Agents • RAG • Tools • Governance</text>
+
+  <path d="M620 538C665 505 694 485 742 468" stroke="#DDD6FE" stroke-opacity="0.28" stroke-width="3"/>
+  <path d="M935 468C982 484 1020 505 1062 538" stroke="#22D3EE" stroke-opacity="0.28" stroke-width="3"/>
+  <circle cx="620" cy="538" r="7" fill="#C4B5FD"/>
+  <circle cx="1062" cy="538" r="7" fill="#22D3EE"/>
+
+  <rect x="980" y="356" width="470" height="350" rx="30" fill="#080511" fill-opacity="0.92" stroke="#67E8F9" stroke-opacity="0.38"/>
+  <rect x="1010" y="390" width="64" height="64" rx="18" fill="#22D3EE" fill-opacity="0.16" stroke="#67E8F9" stroke-opacity="0.38"/>
+  <path d="M1042 403L1051 426L1066 435L1047 439L1038 453L1035 437L1018 427L1036 423L1042 403Z" fill="#E0F2FE"/>
+  <circle cx="1026" cy="444" r="5" fill="#67E8F9"/>
+  <text x="1096" y="416" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="780">New Startup</text>
+  <text x="1098" y="446" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.5">AI-NATIVE FROM DAY ZERO</text>
+  <text x="1010" y="500" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="740">AI-native from day zero</text>
+  <text x="1010" y="542" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="19">Clean toolchain, captured knowledge, faster</text>
+  <text x="1010" y="570" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="19">product loops, and founder visibility.</text>
+
+  <g opacity="0.96">
+    <rect x="1010" y="612" width="380" height="54" rx="18" fill="#111827" stroke="#67E8F9" stroke-opacity="0.48"/>
+    <text x="1082" y="646" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="760">Spec → Code → Test → Ship → Learn</text>
+  </g>
+
+  <g opacity="0.56">
+    <circle cx="704" cy="410" r="4" fill="#EDE9FE"/>
+    <circle cx="920" cy="404" r="4" fill="#EDE9FE"/>
+    <circle cx="732" cy="608" r="4" fill="#EDE9FE"/>
+    <circle cx="902" cy="604" r="4" fill="#EDE9FE"/>
+    <path d="M704 410L800 460L920 404M732 608L800 460L902 604" stroke="#EDE9FE" stroke-opacity="0.32"/>
+  </g>
+</svg>
