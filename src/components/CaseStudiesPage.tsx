@@ -22,14 +22,14 @@ import { siteContent } from "../data/siteContent";
 
 const caseStudies = [
   {
-    title: "AI-Native Engineering Team",
-    subtitle: "A delivery model where engineers, AI agents, evals, and platform automation work as one system.",
+    title: "AI-Native Engineering Operating System",
+    subtitle: "A context and control layer that orchestrates coding agents, repo knowledge, tools, tests, evals, and human review.",
     icon: BrainCircuit,
     tone: "#11845b",
-    context: "A startup needs to build product faster without turning the engineering org into a prompt-only assembly line.",
-    stack: ["AI pair engineering", "Specs + acceptance criteria", "Agentic code review", "Evals", "CI/CD", "Observability"],
-    workflow: ["Intent brief", "AI-assisted implementation", "Human architecture review", "Automated tests and evals", "Trace review", "Release learning loop"],
-    outcomes: ["Faster feature throughput", "More inspectable correctness", "Reusable team playbooks", "Higher leverage per engineer"]
+    context: "In AI-native engineering, the strategic layer is not the coding agent alone. It is the context and control layer that turns specs, repo memory, architecture rules, tool access, tests, evals, and human review into one governed delivery system.",
+    stack: ["Context + control layer", "Claude Code", "Cursor", "GitHub Copilot", "LangGraph + LangChain", "MCP tools"],
+    workflow: ["Spec to tasks", "Context assembled", "Agents orchestrated", "Implementation drafted", "Tests and evals", "Review and release learning"],
+    outcomes: ["Higher leverage per engineer", "Faster idea-to-release cycles", "Safer AI adoption", "Reusable engineering playbooks"]
   },
   {
     title: "Finance and Accounting",
@@ -125,8 +125,111 @@ function StackOverview({ compact = false }: { compact?: boolean }) {
   );
 }
 
+function AINativeEngineeringDiagram({ study }: { study: CaseStudy }) {
+  const controlInputs = ["Specs", "Repo memory", "Architecture rules", "MCP tools", "Tests/evals", "Release gates"];
+  const agentLayer = [
+    {
+      label: "AI coding agents",
+      detail: "Claude Code, Cursor, GitHub Copilot, Codex-style workflows",
+      icon: Bot,
+      color: "#11845b"
+    },
+    {
+      label: "Governance harness",
+      detail: "Tests, evals, CI/CD gates, security scans, human review",
+      icon: ShieldCheck,
+      color: "#7352c7"
+    }
+  ];
+
+  return (
+    <div className="grid gap-4 p-4 md:p-5 xl:grid-cols-[0.86fr_1.14fr] xl:p-6">
+      <div className="flex flex-col justify-center">
+        <p className="text-xs font-extrabold uppercase tracking-[0.12em]" style={{ color: study.tone }}>
+          Context + control layer
+        </p>
+        <p className="mt-3 max-w-xl text-sm leading-6 text-[#5b655f]">{study.context}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {study.stack.map((item) => (
+            <span key={item} className="rounded-lg border border-[#d8ded7] bg-[#f6f7f4] px-2.5 py-1.5 text-xs font-bold text-[#17201a]">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-[#d8ded7] bg-[#fbfcfa] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
+        <div className="rounded-lg border border-[#b8d8c5] bg-[#eef5ef] p-3">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <span>
+              <b className="block text-base font-bold tracking-normal text-[#17201a]">Context + control layer</b>
+              <small className="mt-1 block text-xs leading-5 text-[#5b655f]">The layer AI/data engineering teams build to control how agents work.</small>
+            </span>
+            <Workflow className="size-6 text-[#11845b]" />
+          </div>
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {controlInputs.map((item) => (
+              <span key={item} className="rounded-lg bg-white px-2 py-1 text-[0.68rem] font-bold text-[#17201a]">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="my-2 flex justify-center">
+          <span className="rounded-lg border border-[#d8ded7] bg-white px-3 py-1 text-[0.68rem] font-extrabold uppercase tracking-[0.12em] text-[#11845b]">
+            orchestrates
+          </span>
+        </div>
+
+        <div className="grid gap-2 sm:grid-cols-2">
+          {agentLayer.map((lane) => {
+            const Icon = lane.icon;
+            return (
+              <div key={lane.label} className="relative grid gap-2 rounded-lg border border-[#d8ded7] bg-white p-3 sm:grid-cols-[34px_1fr]">
+                <span className="grid size-8 place-items-center rounded-lg text-white" style={{ background: lane.color }}>
+                  <Icon className="size-4" />
+                </span>
+                <span>
+                  <b className="block text-sm font-bold tracking-normal text-[#17201a]">{lane.label}</b>
+                  <small className="mt-1 block text-xs leading-4 text-[#5b655f]">{lane.detail}</small>
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-3 grid gap-3 rounded-lg border border-[#cfd7ce] bg-[#eef5ef] p-3 sm:grid-cols-2">
+          <div>
+            <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.12em] text-[#11845b]">Delivery loop</p>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {study.workflow.map((step) => (
+                <span key={step} className="rounded-lg bg-white px-2 py-1 text-[0.68rem] font-bold text-[#17201a]">
+                  {step}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.12em] text-[#11845b]">Business outcome</p>
+            <div className="mt-2 grid gap-1.5">
+              {study.outcomes.map((outcome) => (
+                <div key={outcome} className="flex gap-2 text-xs leading-4 text-[#5b655f]">
+                  <CheckCircle2 className="mt-0.5 size-3.5 shrink-0 text-[#11845b]" />
+                  <span>{outcome}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CaseStudyCard({ study, index, presentation = false }: { study: CaseStudy; index: number; presentation?: boolean }) {
   const Icon = study.icon;
+  const isAINativeEngineering = index === 0;
 
   return (
     <article className="min-w-0 overflow-hidden rounded-lg border border-[#d8ded7] bg-white shadow-[0_10px_30px_rgba(23,32,26,0.06)]">
@@ -148,6 +251,9 @@ function CaseStudyCard({ study, index, presentation = false }: { study: CaseStud
           </div>
         </div>
 
+        {isAINativeEngineering ? (
+          <AINativeEngineeringDiagram study={study} />
+        ) : (
         <div className={`grid gap-5 p-5 ${presentation ? "content-center md:grid-cols-3 md:p-6 xl:p-8" : "lg:grid-cols-[1.05fr_0.95fr_0.95fr] lg:p-6"}`}>
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.12em]" style={{ color: study.tone }}>
@@ -191,6 +297,7 @@ function CaseStudyCard({ study, index, presentation = false }: { study: CaseStud
             </div>
           </div>
         </div>
+        )}
       </div>
     </article>
   );
@@ -285,7 +392,7 @@ export function CaseStudiesPage() {
                     Case Studies for Agentic AI Applications
                   </h1>
                   <p className="mt-5 max-w-3xl text-base leading-7 text-[#5b655f] xl:text-lg xl:leading-8">
-                    Five operating examples showing how the stack applies to AI-native engineering, finance, legal, sales, and customer service teams.
+                    Practical examples of what we have learned across four years of AI engineering work, building AI products for engineering, finance, legal, sales, and customer service teams.
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     {["Workflow-first", "Skills-based", "RAG-aware", "Model-governed", "Human-reviewed"].map((tag) => (
@@ -376,7 +483,7 @@ export function CaseStudiesPage() {
             <span className="hidden sm:inline">Case Studies for Agentic AI Applications</span>
           </h1>
           <p className="mt-6 max-w-[21rem] break-words text-lg leading-8 text-[#5b655f] sm:max-w-full">
-            Five operating examples showing how the stack applies to AI-native engineering, finance, legal, sales, and customer service teams.
+            Practical examples of what we have learned across four years of AI engineering work, building AI products for engineering, finance, legal, sales, and customer service teams.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {["Workflow-first", "Skills-based", "RAG-aware", "Model-governed", "Human-reviewed"].map((tag) => (
