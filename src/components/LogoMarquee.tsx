@@ -25,10 +25,10 @@ export function LogoMarquee({ compact = false, intro = false }: { compact?: bool
   }
 
   return (
-    <div className={`relative overflow-hidden rounded-[1.75rem] border border-violet-300/24 bg-[linear-gradient(135deg,#2e1065_0%,#5b21b6_52%,#f7f3ff_135%)] shadow-[0_26px_90px_rgba(76,29,149,0.32)] ${compact ? "p-4" : "p-5 sm:p-6"}`}>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_0%,rgba(255,255,255,0.28),transparent_28%)]" />
+    <div className={`relative overflow-hidden rounded-[1.25rem] border border-zinc-200 bg-white shadow-[0_24px_70px_rgba(0,0,0,0.08)] ${compact ? "p-4" : "p-5 sm:p-6"}`}>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_0%,rgba(24,24,27,0.06),transparent_28%)]" />
       <div className="relative">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-violet-100/76">{siteContent.logoCloud.title}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">{siteContent.logoCloud.title}</p>
         <div className="mt-5 grid gap-5">
           {siteContent.logoCloud.groups.map((group, index) => (
             <LogoRow key={group.label} group={group} reverse={index % 2 === 1} />
@@ -59,8 +59,8 @@ function LogoRow({ group, reverse }: { group: LogoGroup; reverse?: boolean }) {
   return (
     <div>
       <div className="mb-3 flex items-center gap-3">
-        <span className="h-px w-8 bg-white/28" />
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-violet-50/72">{group.label}</p>
+        <span className="h-px w-8 bg-zinc-300" />
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-zinc-500">{group.label}</p>
       </div>
       <div className="logo-marquee-mask relative overflow-hidden">
         <div className={`flex w-max gap-3 ${reverse ? "animate-logo-marquee-reverse" : "animate-logo-marquee"}`}>
@@ -76,16 +76,16 @@ function LogoRow({ group, reverse }: { group: LogoGroup; reverse?: boolean }) {
 function LogoTile({ logo, small = false }: { logo: Logo; small?: boolean }) {
   return (
     <div
-      className={`flex items-center gap-3 rounded-2xl border border-white/14 bg-black/28 shadow-[0_12px_32px_rgba(0,0,0,0.24)] backdrop-blur ${
+      className={`flex items-center gap-3 rounded-xl border border-zinc-200 bg-zinc-50 shadow-[0_10px_26px_rgba(0,0,0,0.06)] ${
         small ? "h-12 min-w-36 px-3" : "h-16 min-w-44 px-4"
       }`}
     >
       <span
-        className={`relative grid shrink-0 place-items-center overflow-hidden rounded-xl border border-white/12 bg-white/95 ${
+        className={`relative grid shrink-0 place-items-center overflow-hidden rounded-lg border border-zinc-200 bg-white ${
           small ? "size-7 p-1" : "size-9 p-1.5"
         }`}
       >
-        <span className="text-[0.58rem] font-black uppercase tracking-normal text-violet-900">{getInitials(logo.name)}</span>
+        <span className="text-[0.58rem] font-black uppercase tracking-normal text-zinc-950">{getInitials(logo.name)}</span>
         <img
           src={logo.logoUrl}
           alt={`${logo.name} logo`}
@@ -98,8 +98,8 @@ function LogoTile({ logo, small = false }: { logo: Logo; small?: boolean }) {
         />
       </span>
       <span className="min-w-0">
-        <span className={`${small ? "text-xs" : "text-sm"} block truncate font-semibold text-white`}>{logo.name}</span>
-        {!small && <span className="block truncate text-xs text-violet-50/52">{logo.domain}</span>}
+        <span className={`${small ? "text-xs" : "text-sm"} block truncate font-semibold text-zinc-950`}>{logo.name}</span>
+        {!small && <span className="block truncate text-xs text-zinc-500">{logo.domain}</span>}
       </span>
     </div>
   );

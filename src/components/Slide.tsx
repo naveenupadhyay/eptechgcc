@@ -4,7 +4,6 @@ import { iconMap } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
 import { LogoMarquee } from "./LogoMarquee";
 import { MetricCard } from "./MetricCard";
-import { ModelComparisonCard } from "./ModelComparisonCard";
 import { PillarCard } from "./PillarCard";
 import { TimelineStep } from "./TimelineStep";
 import { siteContent } from "../data/siteContent";
@@ -37,7 +36,7 @@ export function Slide({
           : `h-dvh overflow-y-auto overscroll-contain pb-20 ${
               isTeamSlide
                 ? "pt-28 md:pt-32"
-                : "pt-24 md:place-items-center md:overflow-hidden md:pb-24 md:pt-28"
+                : "pt-24 md:place-items-center md:pb-24 md:pt-28"
             }`
       }`}
       initial={isStacked ? { opacity: 1 } : { opacity: 0, y: 38, filter: "blur(12px)" }}
@@ -45,6 +44,7 @@ export function Slide({
       exit={isStacked ? undefined : { opacity: 0, y: -34, filter: "blur(12px)" }}
       transition={isStacked ? undefined : { duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       aria-labelledby={`${slide.id}-title`}
+      data-active-slide={!isStacked ? "true" : undefined}
     >
       <div
         className={`mx-auto grid w-full max-w-7xl gap-5 md:gap-8 ${
@@ -52,24 +52,18 @@ export function Slide({
         }`}
       >
         <section className={isTeamSlide ? "max-w-4xl" : "max-w-3xl"}>
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan/20 bg-cyan/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan">
-            <span className="size-1.5 rounded-full bg-cyan" />
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-600 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+            <span className="size-1.5 rounded-full bg-zinc-950" />
             {slide.kicker}
           </div>
           <h1
             id={`${slide.id}-title`}
-            className="max-w-4xl text-balance text-3xl font-semibold leading-[1.04] tracking-normal text-white sm:text-5xl lg:text-7xl"
+            className="max-w-4xl text-balance text-3xl font-semibold leading-[1.04] tracking-normal text-zinc-950 sm:text-5xl lg:text-7xl"
           >
             {slide.title}
           </h1>
           {"body" in slide && slide.body && (
-            <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-slate-300 md:mt-6 md:text-xl md:leading-8">{slide.body}</p>
-          )}
-
-          {"achievement" in slide && slide.achievement && (
-            <div className="mt-6 rounded-lg border border-cyan/25 bg-cyan/10 px-5 py-4 text-base font-semibold leading-7 text-white">
-              {slide.achievement}
-            </div>
+            <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-zinc-600 md:mt-6 md:text-xl md:leading-8">{slide.body}</p>
           )}
 
           {"ctas" in slide && slide.ctas && (
@@ -94,9 +88,6 @@ export function Slide({
           )}
 
           {slide.id === "about" && <AboutProfile />}
-          {"credibility" in slide && slide.credibility && (
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-400">{slide.credibility}</p>
-          )}
         </section>
 
         <section className="min-h-0">
@@ -110,6 +101,7 @@ export function Slide({
             </div>
           )}
           {"items" in slide && slide.items && <ListPanel items={slide.items} Icon={Icon} />}
+          {"caseStudies" in slide && slide.caseStudies && <CaseStudiesPanel caseStudies={slide.caseStudies} />}
           {"pillars" in slide && slide.pillars && (
             <div className="grid gap-3 sm:grid-cols-2">
               {slide.pillars.map((pillar) => (
@@ -117,36 +109,9 @@ export function Slide({
               ))}
             </div>
           )}
-          {"metrics" in slide && slide.metrics && slide.id === "aistra" && (
-            <div className="grid gap-3 sm:grid-cols-2">
-              {slide.metrics.map((metric) => (
-                <MetricCard key={metric.label} {...metric} />
-              ))}
-              {"capabilities" in slide && (
-                <div className="rounded-lg border border-white/12 bg-white/[0.045] p-5 shadow-premium backdrop-blur sm:col-span-2">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan">Capabilities delivered</h3>
-                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                    {slide.capabilities.map((item) => (
-                      <span key={item} className="flex items-center gap-2 text-sm text-slate-300">
-                        <Check className="size-4 shrink-0 text-cyan" />
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-          {"models" in slide && slide.models && (
-            <div className="grid gap-3">
-              {slide.models.map((model) => (
-                <ModelComparisonCard key={model.name} {...model} />
-              ))}
-            </div>
-          )}
           {"timeline" in slide && slide.timeline && (
             <div className="relative grid gap-3">
-              <div className="absolute bottom-8 left-5 top-8 hidden w-px bg-gradient-to-b from-cyan via-electric to-transparent sm:block" />
+              <div className="absolute bottom-8 left-5 top-8 hidden w-px bg-gradient-to-b from-zinc-950 via-zinc-300 to-transparent sm:block" />
               {slide.timeline.map((step, stepIndex) => (
                 <TimelineStep key={step.title} index={stepIndex} {...step} />
               ))}
@@ -158,7 +123,7 @@ export function Slide({
       </div>
 
       {!isStacked && (
-        <div className="absolute bottom-5 left-4 z-20 text-xs uppercase tracking-[0.18em] text-slate-500 md:left-8">
+        <div className="absolute bottom-5 left-4 z-20 text-xs uppercase tracking-[0.18em] text-zinc-400 md:left-8">
           {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </div>
       )}
@@ -168,21 +133,21 @@ export function Slide({
 
 function HeroVisual() {
   return (
-    <div className="relative min-h-[230px] overflow-hidden rounded-lg border border-white/12 bg-white/[0.035] p-4 shadow-premium backdrop-blur sm:min-h-[320px] md:min-h-[520px] md:p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(196,181,253,0.22),transparent_28%),radial-gradient(circle_at_20%_68%,rgba(124,58,237,0.20),transparent_26%)]" />
+    <div className="relative min-h-[230px] overflow-hidden rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] sm:min-h-[320px] md:min-h-[520px] md:p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(24,24,27,0.06),transparent_28%),radial-gradient(circle_at_20%_68%,rgba(14,165,233,0.08),transparent_26%)]" />
       <div className="relative flex h-full min-h-[200px] flex-col justify-between sm:min-h-[280px] md:min-h-[480px]">
         <div className="flex items-center justify-between">
           <MapNode label="US HQ" align="left" />
-          <MapNode label="India GCC" align="right" active />
+          <MapNode label="India Team" align="right" active />
         </div>
         <div className="relative my-4 grid items-center gap-4 sm:my-6 md:grid-cols-[0.9fr_1.1fr]">
           <FounderSignal />
           <div className="relative h-20 sm:h-28">
-            <div className="absolute left-[14%] right-[14%] top-1/2 h-px bg-gradient-to-r from-electric via-cyan to-teal" />
+            <div className="absolute left-[14%] right-[14%] top-1/2 h-px bg-gradient-to-r from-zinc-300 via-zinc-950 to-zinc-300" />
             {[0, 1, 2, 3, 4].map((dot) => (
               <motion.span
                 key={dot}
-                className="absolute top-1/2 size-2 -translate-y-1/2 rounded-full bg-cyan shadow-glow"
+                className="absolute top-1/2 size-2 -translate-y-1/2 rounded-full bg-zinc-950 shadow-[0_0_18px_rgba(0,0,0,0.32)]"
                 initial={{ left: "16%", opacity: 0 }}
                 animate={{ left: "82%", opacity: [0, 1, 1, 0] }}
                 transition={{ duration: 3.4, repeat: Infinity, delay: dot * 0.42, ease: "easeInOut" }}
@@ -191,8 +156,8 @@ function HeroVisual() {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          {["Product", "Engineering", "AI Ops", "Governance"].map((item) => (
-            <div key={item} className="rounded-md border border-white/10 bg-black/20 p-3 text-sm font-semibold text-slate-200">
+          {["Strategy", "Architecture", "AI Products", "India Team"].map((item) => (
+            <div key={item} className="rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm font-semibold text-zinc-800">
               {item}
             </div>
           ))}
@@ -204,19 +169,19 @@ function HeroVisual() {
 
 function FounderSignal() {
   return (
-    <div className="rounded-lg border border-cyan/20 bg-black/30 p-3 shadow-glow backdrop-blur sm:p-4">
+    <div className="rounded-lg border border-zinc-200 bg-white p-3 shadow-[0_22px_60px_rgba(0,0,0,0.12)] sm:p-4">
       <div className="flex items-center gap-3 sm:gap-4">
         <img
           src={siteContent.brand.portrait}
           alt="Naveen Upadhyay"
-          className="size-16 shrink-0 rounded-lg border border-cyan/25 object-cover sm:size-24"
+          className="size-16 shrink-0 rounded-lg border border-zinc-200 object-cover sm:size-24"
         />
         <div className="min-w-0">
-          <div className="text-xs uppercase tracking-[0.18em] text-cyan">Led by Naveen Upadhyay</div>
-          <div className="mt-2 text-base font-semibold leading-tight text-white sm:text-lg">
-            Operator, CPTO, and India GCC builder
+            <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">Led by Naveen Upadhyay</div>
+          <div className="mt-2 text-base font-semibold leading-tight text-zinc-950 sm:text-lg">
+            CTO-level expertise + India product engineering
           </div>
-          <div className="mt-2 text-xs leading-5 text-slate-400">
+          <div className="mt-2 text-xs leading-5 text-zinc-500">
             Aistra Labs. eyewa. Boutiqaat. BYJU'S. Paytm. Walmart. Snapdeal.
           </div>
         </div>
@@ -228,10 +193,10 @@ function FounderSignal() {
 function MapNode({ label, active, align }: { label: string; active?: boolean; align: "left" | "right" }) {
   return (
     <div className={`max-w-[48%] ${align === "right" ? "text-right" : ""}`}>
-      <div className={`mb-3 inline-grid size-16 place-items-center rounded-lg border ${active ? "border-cyan bg-cyan/15 text-cyan" : "border-white/15 bg-white/5 text-slate-300"}`}>
+      <div className={`mb-3 inline-grid size-16 place-items-center rounded-lg border ${active ? "border-zinc-950 bg-zinc-950 text-white" : "border-zinc-200 bg-zinc-50 text-zinc-500"}`}>
         <span className="size-3 rounded-sm bg-current" />
       </div>
-      <div className="text-xs uppercase tracking-[0.18em] text-slate-400">{label}</div>
+      <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">{label}</div>
     </div>
   );
 }
@@ -248,31 +213,31 @@ function AboutProfile() {
 
 function ProfilePanel() {
   return (
-    <div className="rounded-lg border border-white/12 bg-white/[0.045] p-4 shadow-premium backdrop-blur md:max-h-[66vh] md:overflow-y-auto md:p-6">
+    <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] md:max-h-[66vh] md:overflow-y-auto md:p-6">
       <div className="grid gap-5 sm:grid-cols-[150px_minmax(0,1fr)]">
         <img
           src={siteContent.brand.portrait}
           alt="Naveen Upadhyay"
-          className="aspect-square w-32 rounded-lg border border-cyan/20 object-cover shadow-glow sm:w-full"
+          className="aspect-square w-32 rounded-lg border border-zinc-200 object-cover shadow-[0_18px_50px_rgba(0,0,0,0.12)] sm:w-full"
         />
         <div className="min-w-0">
           <div className="flex items-start justify-between gap-5">
             <div>
-              <div className="text-sm uppercase tracking-[0.18em] text-cyan">{siteContent.brand.founder}</div>
-              <h2 className="mt-3 text-2xl font-semibold text-white">{siteContent.profile.title}</h2>
+              <div className="text-sm uppercase tracking-[0.18em] text-zinc-500">{siteContent.brand.founder}</div>
+              <h2 className="mt-3 text-2xl font-semibold text-zinc-950">{siteContent.profile.title}</h2>
             </div>
             <a
               href={siteContent.brand.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="grid size-10 shrink-0 place-items-center rounded-md border border-cyan/25 bg-cyan/10 text-cyan"
+              className="grid size-10 shrink-0 place-items-center rounded-md border border-zinc-200 bg-zinc-950 text-white"
               aria-label="Open LinkedIn profile"
             >
               <ExternalLink className="size-4" />
             </a>
           </div>
-          <p className="mt-4 text-sm leading-6 text-slate-300">{siteContent.profile.summary}</p>
-          <p className="mt-3 text-sm font-semibold leading-6 text-white">{siteContent.profile.operatorLine}</p>
+          <p className="mt-4 text-sm leading-6 text-zinc-600">{siteContent.profile.summary}</p>
+          <p className="mt-3 text-sm font-semibold leading-6 text-zinc-950">{siteContent.profile.operatorLine}</p>
         </div>
       </div>
 
@@ -284,8 +249,8 @@ function ProfilePanel() {
 
       <div className="mt-6 grid gap-3">
         {siteContent.profile.points.map((point) => (
-          <div key={point} className="flex gap-3 rounded-md border border-white/8 bg-black/15 p-3 text-sm leading-6 text-slate-300">
-            <Check className="mt-1 size-4 shrink-0 text-cyan" />
+          <div key={point} className="flex gap-3 rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm leading-6 text-zinc-600">
+            <Check className="mt-1 size-4 shrink-0 text-zinc-950" />
             {point}
           </div>
         ))}
@@ -293,10 +258,10 @@ function ProfilePanel() {
 
       <div className="mt-6 grid gap-3">
         {siteContent.profile.timeline.map((item) => (
-          <div key={item.company} className="rounded-md border border-cyan/15 bg-cyan/[0.055] p-4">
-            <div className="text-xs uppercase tracking-[0.18em] text-cyan">{item.company}</div>
-            <div className="mt-2 text-sm font-semibold text-white">{item.role}</div>
-            <p className="mt-2 text-sm leading-6 text-slate-300">{item.detail}</p>
+          <div key={item.company} className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
+            <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">{item.company}</div>
+            <div className="mt-2 text-sm font-semibold text-zinc-950">{item.role}</div>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">{item.detail}</p>
           </div>
         ))}
       </div>
@@ -306,20 +271,59 @@ function ProfilePanel() {
 
 function ListPanel({ items, Icon }: { items: readonly string[]; Icon: React.ComponentType<{ className?: string }> | null }) {
   return (
-    <div className="rounded-lg border border-white/12 bg-white/[0.045] p-5 shadow-premium backdrop-blur md:p-6">
+    <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-[0_30px_80px_rgba(0,0,0,0.10)] md:p-6">
       {Icon && (
-        <div className="mb-6 grid size-12 place-items-center rounded-md border border-cyan/25 bg-cyan/10 text-cyan">
+        <div className="mb-6 grid size-12 place-items-center rounded-md border border-zinc-200 bg-zinc-950 text-white">
           <Icon className="size-6" />
         </div>
       )}
       <div className="grid gap-3">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-3 rounded-md border border-white/8 bg-black/15 p-3 text-sm leading-6 text-slate-300">
-            <Check className="mt-1 size-4 shrink-0 text-cyan" />
+          <div key={item} className="flex items-start gap-3 rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm leading-6 text-zinc-600">
+            <Check className="mt-1 size-4 shrink-0 text-zinc-950" />
             <span>{item}</span>
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function CaseStudiesPanel({
+  caseStudies
+}: {
+  caseStudies: ReadonlyArray<{
+    readonly title: string;
+    readonly description: string;
+    readonly tags: readonly string[];
+    readonly icon: keyof typeof iconMap;
+  }>;
+}) {
+  return (
+    <div className="grid gap-2 xl:grid-cols-2">
+      {caseStudies.map((study) => {
+        const Icon = iconMap[study.icon];
+        return (
+          <article key={study.title} className="rounded-lg border border-zinc-200 bg-white p-3 shadow-[0_14px_38px_rgba(0,0,0,0.06)]">
+            <div className="flex items-start gap-3">
+              <span className="grid size-9 shrink-0 place-items-center rounded-md border border-zinc-200 bg-zinc-950 text-white">
+                <Icon className="size-4" />
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-base font-semibold leading-5 text-zinc-950">{study.title}</h3>
+                <p className="mt-1.5 text-xs leading-5 text-zinc-600">{study.description}</p>
+              </div>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {study.tags.map((tag) => (
+                <span key={tag} className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-0.5 text-[0.68rem] font-semibold text-zinc-700">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 }
@@ -341,38 +345,38 @@ function TeamPanel({
       {team.map((member, index) => (
         <article
           key={member.name}
-          className="rounded-lg border border-white/12 bg-white/[0.055] p-4 shadow-premium backdrop-blur transition hover:border-cyan/35 hover:bg-cyan/[0.07] sm:p-5 md:min-h-[180px] md:p-7"
+          className="rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_18px_50px_rgba(0,0,0,0.07)] transition hover:-translate-y-0.5 hover:border-zinc-950 sm:p-5 md:min-h-[180px] md:p-7"
         >
           <div className="flex items-start gap-4 md:gap-5">
             {member.image ? (
               <img
                 src={member.image}
                 alt={member.name}
-                className="size-20 shrink-0 rounded-lg border border-cyan/25 object-cover shadow-glow sm:size-24 md:size-28"
+                className="size-20 shrink-0 rounded-lg border border-zinc-200 object-cover shadow-[0_16px_42px_rgba(0,0,0,0.12)] sm:size-24 md:size-28"
               />
             ) : (
-              <div className="grid size-20 shrink-0 place-items-center rounded-lg border border-cyan/25 bg-cyan/10 text-xl font-semibold text-cyan sm:size-24 md:size-28 md:text-2xl">
+              <div className="grid size-20 shrink-0 place-items-center rounded-lg border border-zinc-200 bg-zinc-950 text-xl font-semibold text-white sm:size-24 md:size-28 md:text-2xl">
                 {member.initials}
               </div>
             )}
             <div className="min-w-0">
-              <div className="text-xs uppercase tracking-[0.18em] text-cyan">0{index + 1}</div>
+              <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">0{index + 1}</div>
               <div className="mt-2 flex items-start justify-between gap-3">
-                <h3 className="text-xl font-semibold text-white md:text-2xl">{member.name}</h3>
+                <h3 className="text-xl font-semibold text-zinc-950 md:text-2xl">{member.name}</h3>
                 {member.linkedin && (
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="grid size-8 shrink-0 place-items-center rounded-md border border-cyan/25 bg-cyan/10 text-cyan transition hover:border-cyan hover:bg-cyan/20 hover:text-white"
+                    className="grid size-8 shrink-0 place-items-center rounded-md border border-zinc-200 bg-zinc-950 text-white transition hover:bg-zinc-800"
                     aria-label={`Open ${member.name} LinkedIn profile`}
                   >
                     <ExternalLink className="size-3.5" />
                   </a>
                 )}
               </div>
-              <div className="mt-2 text-base font-semibold text-cyan">{member.role}</div>
-              <p className="mt-3 text-sm leading-6 text-slate-400 md:mt-4 md:text-base md:leading-7">{member.description}</p>
+              <div className="mt-2 text-base font-semibold text-zinc-700">{member.role}</div>
+              <p className="mt-3 text-sm leading-6 text-zinc-600 md:mt-4 md:text-base md:leading-7">{member.description}</p>
             </div>
           </div>
         </article>
@@ -383,14 +387,14 @@ function TeamPanel({
 
 function FinalPanel() {
   return (
-    <div className="rounded-lg border border-cyan/20 bg-cyan/[0.07] p-6 shadow-glow backdrop-blur">
-      <div className="text-xs uppercase tracking-[0.18em] text-cyan">EleventyfirstParallel AI</div>
-      <div className="mt-5 text-3xl font-semibold text-white">
-        AI-native global execution infrastructure, led by an operator who has built India technology centers before.
+    <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-[0_30px_80px_rgba(0,0,0,0.10)]">
+      <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">EleventyfirstParallel AI</div>
+      <div className="mt-5 text-3xl font-semibold text-zinc-950">
+        CTO-level product leadership plus an India AI engineering team that can turn strategy into shipped software.
       </div>
-      <div className="mt-8 grid gap-3 text-sm text-slate-300">
+      <div className="mt-8 grid gap-3 text-sm text-zinc-600">
         <div>Naveen Upadhyay</div>
-        <a className="text-cyan transition hover:text-white" href={`mailto:${siteContent.brand.email}`}>
+        <a className="font-semibold text-zinc-950 underline decoration-zinc-300 underline-offset-4 transition hover:decoration-zinc-950" href={`mailto:${siteContent.brand.email}`}>
           {siteContent.brand.email}
         </a>
         <div>{siteContent.brand.footer}</div>

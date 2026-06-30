@@ -33,43 +33,43 @@ const caseStudies = [
   },
   {
     title: "Finance and Accounting",
-    subtitle: "Document-heavy finance workflows automated with OCR, RAG, rules, predictive models, and human review.",
+    subtitle: "Audit automation for public and private company filings, financial reconciliation, and evidence workflows.",
     icon: CircleDollarSign,
     tone: "#a85f00",
-    context: "Finance teams handle invoices, reconciliations, audits, tax records, claims, and policy-heavy exceptions.",
-    stack: ["PDF/OCR ingestion", "Structured extraction", "RAG over policies", "Workflow routing", "ERP integrations", "Audit logs"],
-    workflow: ["Upload documents", "Extract entities and tables", "Match against policies", "Flag exceptions", "Route approvals", "Generate audit trail"],
-    outcomes: ["Lower manual review load", "Fewer missed exceptions", "Cleaner close processes", "Better evidence traceability"]
+    context: "Built an application for audit firms to conduct audits on public and private companies by parsing current and prior filings, reading financials, and reconciling evidence across workflows.",
+    stack: ["Filing parsers", "Financial extraction", "Java automation", "Python automation", "Reconciliation engines", "Audit evidence trails"],
+    workflow: ["Ingest filings", "Parse prior periods", "Extract financials", "Run reconciliations", "Flag exceptions", "Generate audit trail"],
+    outcomes: ["Faster audit preparation", "Stronger evidence traceability", "Lower manual reconciliation effort", "More consistent exception review"]
   },
   {
     title: "Legal",
-    subtitle: "Legal AI that reads matters, retrieves precedent, extracts issues, predicts risk, and drafts grounded analysis.",
+    subtitle: "Contract negotiation at scale and ADR workflows combining LLMs, ML models, and decision-tree logic.",
     icon: Scale,
     tone: "#7352c7",
-    context: "Legal teams need support across case research, contract review, matter triage, risk scoring, and drafting.",
-    stack: ["Judgment ingestion", "LLM-based OCR", "Legal RAG", "Predictive ML", "Citation checking", "Human approval"],
-    workflow: ["Parse matter files", "Extract facts and issues", "Retrieve similar cases", "Score risk", "Draft analysis", "Verify citations"],
-    outcomes: ["Faster matter triage", "Stronger precedent recall", "Calibrated risk views", "Explainable legal recommendations"]
+    context: "Built legal AI solutions for contract management and negotiation at scale, plus alternate dispute resolution workflows using LLMs, machine learning models, and structured decision trees.",
+    stack: ["Contract ingestion", "Clause intelligence", "Negotiation workflows", "LLM reasoning", "Predictive ML", "Decision trees"],
+    workflow: ["Parse contracts", "Extract clauses", "Compare positions", "Route negotiation steps", "Score dispute signals", "Recommend next action"],
+    outcomes: ["Faster contract review cycles", "More consistent negotiation positions", "Structured ADR decision support", "Explainable legal workflow automation"]
   },
   {
-    title: "Sales and CRM",
-    subtitle: "AI-assisted revenue operations across lead enrichment, account research, next-best action, and CRM hygiene.",
+    title: "Sales Outreach",
+    subtitle: "Voice-agent driven sales outreach that calls customers, qualifies intent, and routes follow-up actions.",
     icon: BriefcaseBusiness,
     tone: "#2457d6",
-    context: "Sales teams lose time to account research, note-taking, stale CRM records, and inconsistent follow-up.",
-    stack: ["CRM connectors", "Email/calendar context", "Lead scoring", "Agent workflows", "Call summaries", "Next-best action"],
-    workflow: ["Ingest account signals", "Summarize context", "Prioritize leads", "Recommend outreach", "Update CRM", "Track conversion"],
-    outcomes: ["Cleaner pipeline data", "Better rep focus", "Faster account prep", "More consistent follow-up"]
+    context: "Built a sales outreach engine as part of the conversational AI stack, where voice agents call customers, follow scripts, capture responses, and support sales conversion workflows.",
+    stack: ["Voice agents", "Telephony/SIP", "Conversation scripts", "CRM workflows", "Call summaries", "Lead routing"],
+    workflow: ["Select audience", "Trigger outbound call", "Qualify customer intent", "Capture objections", "Update CRM", "Route human follow-up"],
+    outcomes: ["Higher outreach capacity", "Consistent sales conversations", "Cleaner customer intent capture", "Faster follow-up cycles"]
   },
   {
-    title: "Customer Service",
-    subtitle: "Voice and chat agents that resolve repetitive issues, escalate correctly, and learn from support traces.",
+    title: "Customer Care",
+    subtitle: "Conversational AI for regulated customer support, including a Dubai government entity use case.",
     icon: Headphones,
     tone: "#0b7285",
-    context: "Support teams need faster resolution while keeping escalation, policy compliance, and customer tone under control.",
+    context: "Built customer care support automation for a Dubai government entity using conversational AI that could understand customer intent, retrieve policy context, and escalate sensitive cases.",
     stack: ["Voice/chat surfaces", "LiveKit/WebRTC", "Knowledge RAG", "Tool actions", "Escalation policy", "QA evals"],
-    workflow: ["Detect intent", "Retrieve policy", "Ask clarifying questions", "Execute allowed action", "Escalate edge cases", "Analyze traces"],
-    outcomes: ["Shorter response times", "Higher deflection with control", "Consistent policy answers", "Better QA visibility"]
+    workflow: ["Detect intent", "Retrieve policy", "Ask clarifying questions", "Execute allowed action", "Escalate sensitive cases", "Analyze traces"],
+    outcomes: ["Shorter response times", "Controlled escalation paths", "Consistent policy answers", "Better QA visibility"]
   }
 ];
 

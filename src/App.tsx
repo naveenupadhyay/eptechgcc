@@ -1,5 +1,5 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { IntroAnimation } from "./components/IntroAnimation";
 import { NavigationDots } from "./components/NavigationDots";
@@ -13,13 +13,10 @@ import { FinanceAIPage } from "./components/FinanceAIPage";
 import { StackPage } from "./components/StackPage";
 import { siteContent } from "./data/siteContent";
 
-const NetworkScene = lazy(() => import("./components/NetworkScene"));
-
 const INTRO_KEY = "eleventyfirstparallel_intro_complete";
 
 function App() {
   const pathname = typeof window === "undefined" ? "/" : window.location.pathname.replace(/\/$/, "") || "/";
-  const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === "undefined") return false;
@@ -119,6 +116,16 @@ function App() {
   const onWheel = useCallback(
     (event: React.WheelEvent<HTMLElement>) => {
       if (Math.abs(event.deltaY) < 40) return;
+
+      const activeArticle = event.currentTarget.querySelector<HTMLElement>("[data-active-slide='true']");
+      if (activeArticle && activeArticle.scrollHeight > activeArticle.clientHeight) {
+        const maxScrollTop = activeArticle.scrollHeight - activeArticle.clientHeight;
+        const canScrollDown = event.deltaY > 0 && activeArticle.scrollTop < maxScrollTop - 2;
+        const canScrollUp = event.deltaY < 0 && activeArticle.scrollTop > 2;
+
+        if (canScrollDown || canScrollUp) return;
+      }
+
       event.deltaY > 0 ? goToSlide(activeIndex + 1) : goToSlide(activeIndex - 1);
     },
     [activeIndex, goToSlide]
@@ -156,14 +163,8 @@ function App() {
   }
 
   return (
-    <main className="relative h-dvh overflow-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(109,40,217,0.12),transparent_30%),linear-gradient(180deg,#030207_0%,#05030b_48%,#02040a_100%)]" />
-
-      {introComplete && !prefersReducedMotion && (
-        <Suspense fallback={null}>
-          <NetworkScene activeIndex={activeIndex} />
-        </Suspense>
-      )}
+    <main className="relative h-dvh overflow-hidden bg-white text-zinc-950">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(24,24,27,0.05),transparent_26%),radial-gradient(circle_at_84%_16%,rgba(14,165,233,0.08),transparent_28%),linear-gradient(180deg,#ffffff_0%,#fafafa_55%,#f4f4f5_100%)]" />
 
       <AnimatePresence mode="wait">
         {!introComplete ? (
@@ -187,14 +188,14 @@ function App() {
                 onClick={() => goToSlide(0)}
                 aria-label="Go to hero slide"
               >
-                <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-cyan/35 bg-white/[0.04] shadow-glow">
+                <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-[0_10px_28px_rgba(0,0,0,0.10)]">
                   <img src="/ep.avif" alt="" className="size-full object-cover" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block truncate text-sm font-semibold tracking-wide text-white">
+                  <span className="block truncate text-sm font-semibold tracking-wide text-zinc-950">
                     {siteContent.brand.name}
                   </span>
-                  <span className="hidden text-xs text-slate-400 sm:block">{siteContent.brand.positioning}</span>
+                  <span className="hidden text-xs text-zinc-500 sm:block">{siteContent.brand.positioning}</span>
                 </span>
               </button>
               <a
@@ -202,7 +203,7 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open LinkedIn profile"
-                className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg border border-white/15 bg-white/[0.04] px-3 text-xs font-semibold text-white transition hover:border-cyan/50 hover:bg-cyan/10"
+                className="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 text-xs font-semibold text-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition hover:border-black hover:bg-zinc-50"
               >
                 <span className="hidden sm:inline">LinkedIn</span>
                 <ExternalLink className="size-3.5" />
@@ -238,11 +239,11 @@ function App() {
               </>
             )}
 
-            <div className="absolute bottom-5 left-8 z-30 hidden items-center gap-2 rounded-full border border-white/10 bg-black/25 px-2 py-1 backdrop-blur md:flex">
+            <div className="absolute bottom-5 left-8 z-30 hidden items-center gap-2 rounded-full border border-zinc-200 bg-white/90 px-2 py-1 shadow-[0_18px_50px_rgba(0,0,0,0.10)] backdrop-blur md:flex">
               <CTAButton variant="ghost" size="icon" onClick={() => goToSlide(activeIndex - 1)} ariaLabel="Previous slide">
                 <ArrowLeft className="size-4" />
               </CTAButton>
-              <span className="px-2 text-xs tabular-nums text-slate-400">
+              <span className="px-2 text-xs tabular-nums text-zinc-500">
                 {String(activeIndex + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
               </span>
               <CTAButton variant="ghost" size="icon" onClick={() => goToSlide(activeIndex + 1)} ariaLabel="Next slide">

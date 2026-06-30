@@ -13,6 +13,7 @@ import {
   Fingerprint,
   Globe2,
   Handshake,
+  Headphones,
   Layers3,
   LineChart,
   Link as LinkIcon,
@@ -44,6 +45,7 @@ export type IconName =
   | "Fingerprint"
   | "Globe2"
   | "Handshake"
+  | "Headphones"
   | "Layers3"
   | "LineChart"
   | "LinkIcon"
@@ -73,6 +75,7 @@ export const iconMap: Record<IconName, LucideIcon> = {
   Fingerprint,
   Globe2,
   Handshake,
+  Headphones,
   Layers3,
   LineChart,
   LinkIcon,
@@ -92,8 +95,8 @@ export const siteContent = {
   brand: {
     name: "EleventyfirstParallel AI",
     founder: "Naveen Upadhyay",
-    positioning: "Helping US startups build AI-native GCCs in India.",
-    footer: "GCC Setup | AI-Native Operations | India Execution Partner",
+    positioning: "CTO-level expertise, product development, GTM, and India execution.",
+    footer: "CTO Services | Product Development | GTM | Fundraise Support | India Team",
     email: "naveen@eleventyfirstparallel.in",
     linkedin: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true",
     portrait: "/nav.jpg"
@@ -126,46 +129,46 @@ export const siteContent = {
     enterLabel: "Enter Site",
     sequences: [
       {
-        eyebrow: "Global startup pressure",
-        headline: "Global startups need speed.",
-        subline: "Talent. Scale. AI leverage."
+        eyebrow: "Founder pressure",
+        headline: "Startups need senior judgment before they can afford senior mistakes.",
+        subline: "Product. Technology. GTM. Fundraise readiness."
       },
       {
-        eyebrow: "India activation",
-        headline: "India is no longer just outsourcing.",
-        subline: "It is your AI-native execution hub."
+        eyebrow: "CTO leverage",
+        headline: "Get CTO-level expertise without waiting for a full-time hire.",
+        subline: "6+ startup journeys from early stage to unicorn or decacorn scale."
       },
       {
-        eyebrow: "GCC setup pipeline",
-        headline: "Strategy to scale, without losing control.",
-        subline: "Strategy -> Entity Setup -> Talent Build -> AI-Native Operations -> Scale"
+        eyebrow: "Operating model",
+        headline: "Strategy and execution in one model.",
+        subline: "PMF -> Roadmap -> Product build -> GTM -> Fundraise support"
       },
       {
         eyebrow: "Case study signal",
-        headline: "Execution infrastructure, already proven.",
-        subline: "50+ team. Under 3 months. 4 Agentic AI verticals."
+        headline: "Real product builds, already proven.",
+        subline: "Audit. Legal. Conversational AI. Sales outreach. Engineering systems."
       }
     ],
-    finalHeadline: "BUILD YOUR AI-NATIVE GCC IN INDIA",
-    finalSubheadline: "Product. Engineering. AI Operations. Scale.",
+    finalHeadline: "CTO-LEVEL HELP TO BUILD, SELL, AND RAISE",
+    finalSubheadline: "Product development. GTM. Fundraise support. India execution.",
     metrics: [
-      { value: "50+", label: "product & engineering team" },
-      { value: "<3", label: "months to build" },
-      { value: "4", label: "Agentic AI verticals" },
-      { value: "LLMs", label: "custom workflows" }
+      { value: "6+", label: "unicorn/decacorn journeys" },
+      { value: "20+", label: "years product & engineering" },
+      { value: "CTO", label: "level operating support" },
+      { value: "India", label: "execution team" }
     ],
     pipeline: [
-      { label: "Strategy", icon: "Target" },
-      { label: "Entity Setup", icon: "Building2" },
-      { label: "Talent Build", icon: "Users" },
-      { label: "AI-Native Operations", icon: "BrainCircuit" },
+      { label: "PMF", icon: "Target" },
+      { label: "Product", icon: "Building2" },
+      { label: "GTM", icon: "Users" },
+      { label: "Fundraise", icon: "BarChart3" },
       { label: "Scale", icon: "Rocket" }
     ] as Array<{ label: string; icon: IconName }>
   },
   profile: {
-    title: "Operator, CPTO, and India GCC Builder",
+    title: "Operator, CPTO, and India Product Engineering Partner",
     summary:
-      "Naveen Upadhyay is a product and engineering operator with 20+ years across AI, eCommerce, edTech, investment banking, enterprise identity, and global development centers. He has repeatedly built, scaled, and led India-based technology organizations for high-growth companies.",
+      "Naveen Upadhyay is a product and engineering operator with 20+ years across AI, eCommerce, edTech, investment banking, enterprise identity, and India-based technology teams. He helps founders combine CTO/CPTO-level judgment with serious product engineering execution from India.",
     operatorLine:
       "The difference is not advisory theater. Naveen has personally run product, engineering, design, data, AI, and platform teams at CPTO, CTO, President Engineering, and Head of Engineering levels.",
     metrics: [
@@ -175,9 +178,9 @@ export const siteContent = {
       { value: "0-1", label: "to 100-1000 operating range" }
     ],
     points: [
-      "Chief Technology Officer (GCC) at Aistra Labs, leading an AI-native GCC across Audit & Tax, Legal, Education, and Conversational AI.",
-      "Chief Technology Officer (GCC) at eyewa, helping set up and scale a fully remote India-based technology organization.",
-      "CTO and CPO for Boutiqaat's India-based GCC, running technology, product, design, data, and BI teams.",
+      "Chief Technology Officer at Aistra Labs, leading AI-native product development across Audit & Tax, Legal, Education, and Conversational AI.",
+      "Chief Technology Officer at eyewa, helping set up and scale a fully remote India-based technology organization.",
+      "CTO and CPO for Boutiqaat's India product and engineering organization, running technology, product, design, data, and BI teams.",
       "President Engineering at BYJU'S, running integration technology across acquired companies including WhiteHat Jr, Epic, Toppr, and Tynker.",
       "Head of Engineering at Paytm, leading large-scale commerce systems for catalog, search, recommendation, inventory, serviceability, and hyperlocal commerce.",
       "Engineering leadership at Walmart eCommerce, contributing to India development center growth from 1,500 to 4,000+ people.",
@@ -186,17 +189,17 @@ export const siteContent = {
     timeline: [
       {
         company: "Aistra Labs",
-        role: "Chief Technology Officer (GCC)",
-        detail: "Set up and scaled an AI-native GCC for four Agentic AI verticals, including custom LLMs, agentic workflows, and enterprise automation."
+        role: "Chief Technology Officer",
+        detail: "Set up and scaled an AI-native product engineering organization for four Agentic AI verticals, including custom LLMs, agentic workflows, and enterprise automation."
       },
       {
         company: "eyewa",
-        role: "Chief Technology Officer (GCC)",
+        role: "Chief Technology Officer",
         detail: "Helped build a remote India technology organization while leading technology and product execution for a leading omnichannel eyewear player."
       },
       {
         company: "Boutiqaat",
-        role: "CTO and CPO (India-based GCC)",
+        role: "CTO and CPO",
         detail: "Ran technology, product, design, data, and BI teams; scaled commerce systems, improved conversion, and reduced AWS infrastructure cost by 80%."
       },
       {
@@ -614,233 +617,182 @@ export const siteContent = {
   slides: [
     {
       id: "hero",
-      kicker: "AI-native global execution infrastructure",
-      title: "Build Your AI-Native GCC in India",
+      kicker: "CTO-level expertise + execution team",
+      title: "Get a Startup CTO Without Hiring One Full-Time",
       body:
-        "Move US work to India with an operator who has built and led India development centers across Aistra Labs, eyewa, Boutiqaat, BYJU'S, Paytm, Walmart, and Snapdeal.",
+        "Work directly with Naveen Upadhyay, a CTO/CPTO operator with 6+ startup journeys from early stage to unicorn or decacorn scale, backed by a senior India product engineering team.",
       ctas: [
-        { label: "See Naveen's Track Record", target: "operator" },
-        { label: "Explore the GCC Model", target: "framework", variant: "secondary" },
-        { label: "View Aistra Case Study", target: "aistra", variant: "secondary" },
-        { label: "AI-Native Engineering", href: "/ai-native-engineering", variant: "secondary" },
-        { label: "F&A AI Pitch", href: "/finance-ai", variant: "secondary" }
+        { label: "See Track Record", target: "operator" },
+        { label: "View Case Studies", target: "case-studies", variant: "secondary" },
+        { label: "Start a Conversation", href: "mailto:naveen@eleventyfirstparallel.in", variant: "secondary" }
       ]
     },
     {
       id: "about",
-      kicker: "About Naveen",
-      title: "Operator, CPTO, and India GCC Builder",
+      kicker: "The offer",
+      title: "CTO Judgment Plus a Product Team That Can Ship",
       body:
-        "A founder-focused partner who has actually built and led India development centers, not just advised from the outside."
+        "Senior product-tech leadership, product development support, GTM thinking, fundraise preparation, and an accountable engineering team from India."
     },
     {
       id: "operator",
       kicker: "Operator proof",
-      title: "Built and Led India Development Centers Before GCC Became a Buzzword",
+      title: "6+ Startup Journeys to Unicorn or Decacorn Scale",
       body:
-        "Naveen has operated inside the complexity US founders care about: product ownership, engineering quality, AI workflows, hiring velocity, delivery governance, platform scale, and executive accountability.",
+        "Naveen has worked through the messy middle founders care about: early product bets, scale architecture, hiring, delivery, cost, GTM pressure, and executive accountability.",
       operatorProof: [
         {
-          title: "Aistra Labs",
-          description: "CTO (GCC) for an AI-native center across four Agentic AI verticals with 50+ product and engineering team members built in under 3 months.",
-          icon: "BrainCircuit"
+          title: "Early to scale operator",
+          description: "Experience across startup journeys that reached unicorn or decacorn scale, including Snapdeal, Paytm, BYJU'S, Boutiqaat, eyewa, and Aistra Labs.",
+          icon: "Rocket"
         },
         {
-          title: "eyewa",
-          description: "CTO (GCC) helping scale a remote India technology organization for a leading GCC/MENA omnichannel eyewear company.",
-          icon: "Globe2"
+          title: "CTO / CPTO lens",
+          description: "Owned product, engineering, architecture, design, data, BI, platform scale, cost optimization, and executive communication.",
+          icon: "BadgeCheck"
         },
         {
-          title: "Boutiqaat",
-          description: "CTO and CPO for an India-based GCC, running product, engineering, design, data, and BI for a major MENA commerce unicorn.",
-          icon: "Layers3"
+          title: "India team builder",
+          description: "Built and led India-based product and engineering organizations for high-growth companies, not just vendor teams.",
+          icon: "Users"
         },
         {
-          title: "Walmart eCommerce",
-          description: "Engineering leadership exposure to one of the world's largest retail technology environments and India center growth from 1,500 to 4,000+ people.",
-          icon: "Building2"
+          title: "Enterprise-grade depth",
+          description: "Experience across Walmart, JPMorgan, retail platforms, investment banking systems, and security-sensitive environments.",
+          icon: "ShieldCheck"
         }
       ]
     },
     {
       id: "cpto",
-      kicker: "Why Naveen is different",
-      title: "CPTO-Level Judgment, Not Vendor Management",
+      kicker: "Founder leverage",
+      title: "What a CTO-Level Partner Actually Does",
       body:
-        "Most GCC vendors sell staffing. Naveen brings the judgment of someone who has owned product, architecture, delivery, cost, scale, and executive communication.",
+        "The value is not just writing code. It is helping the founder make better product, technology, GTM, hiring, and fundraising decisions while the team keeps shipping.",
       items: [
-        "Can translate founder strategy into product, engineering, AI, and operating roadmaps",
-        "Understands 0-1, 1-100, and 100-1000 stage operating problems",
-        "Has led product, technology, design, data, BI, AI, and platform teams",
-        "Knows how India teams should be structured for ownership, not ticket execution",
-        "Has shipped at India-scale and global-scale across Paytm, Walmart, Snapdeal, BYJU'S, Boutiqaat, eyewa, and Aistra Labs",
-        "Brings executive-level communication for US founders, CEOs, COOs, CTOs, and investors"
+        "Convert founder vision into roadmap, architecture, and release priorities",
+        "Identify the fastest path to product-market fit",
+        "Make build-versus-buy, AI stack, and architecture decisions",
+        "Create senior review around quality, delivery risk, and speed",
+        "Shape the product story for customers, investors, and early hires",
+        "Extend runway with an India team managed for ownership"
       ],
       icon: "BadgeCheck"
     },
     {
-      id: "need",
-      kicker: "Founder pressure",
-      title: "US Startups Need Speed, Talent, and Leverage",
+      id: "services",
+      kicker: "Four ways we help",
+      title: "Product, Technology, GTM, and Fundraise Support",
+      pillars: [
+        {
+          title: "CTO / CPTO Services",
+          description: "Roadmap, architecture, AI strategy, engineering standards, hiring, delivery governance, and founder-level decision support.",
+          icon: "BadgeCheck"
+        },
+        {
+          title: "Product Development",
+          description: "MVPs, platform builds, AI products, workflow automation, customer-facing apps, internal tools, and delivery execution.",
+          icon: "BrainCircuit"
+        },
+        {
+          title: "Client Acquisition / GTM",
+          description: "ICP clarity, demo narratives, enterprise sales support, proof-of-value design, and customer discovery loops.",
+          icon: "Target"
+        },
+        {
+          title: "Fundraise Support",
+          description: "Product narrative, technical credibility, roadmap clarity, diligence support, demo readiness, and investor-facing story.",
+          icon: "BarChart3"
+        }
+      ]
+    },
+    {
+      id: "case-studies",
+      kicker: "Case studies",
+      title: "Proof from Real Product Builds",
+      body:
+        "Examples from recent product engineering work across AI-native engineering, finance, legal, sales, and customer care.",
+      caseStudies: [
+        {
+          title: "AI-Native Engineering",
+          description: "A context and control layer that orchestrates coding agents, repo knowledge, architecture rules, MCP tools, tests, evals, release gates, and human review.",
+          tags: ["Claude Code", "Cursor", "LangGraph/LangChain", "MCP", "Evals"],
+          icon: "BrainCircuit"
+        },
+        {
+          title: "Finance and Audit",
+          description: "Audit-firm application for public and private company audits: parsing filings and prior filings, reading financials, and running reconciliation through Java and Python automation.",
+          tags: ["Filings", "Financial parsing", "Java automation", "Python automation", "Audit trails"],
+          icon: "CircleDollarSign"
+        },
+        {
+          title: "Legal AI",
+          description: "Contract negotiation at scale plus alternate dispute resolution workflows using LLMs, machine learning models, and structured decision trees.",
+          tags: ["Contract negotiation", "ADR", "LLMs", "ML models", "Decision trees"],
+          icon: "Scale"
+        },
+        {
+          title: "Conversational AI",
+          description: "Customer care support for a Dubai government entity and a sales outreach engine where voice agents call customers, qualify intent, and route follow-up.",
+          tags: ["Voice agents", "Customer care", "Sales outreach", "Telephony", "Escalation"],
+          icon: "Headphones"
+        }
+      ]
+    },
+    {
+      id: "ai-stack",
+      kicker: "Product-market fit",
+      title: "Build Less Randomly. Learn Faster.",
+      body:
+        "The goal is not to build every idea. The goal is to choose sharper product bets, ship the smallest credible version, read customer signals, and improve the story.",
       items: [
-        "High US product and engineering costs",
-        "Difficulty scaling AI/product talent quickly",
-        "Pressure to extend runway",
-        "Need for faster product cycles",
-        "Need for 24/7 execution velocity",
-        "Founder desire for control without vendor dependency",
-        "AI transformation requires new operating models"
+        "Clarify ICP, pain, workflow, and willingness to pay",
+        "Turn founder intuition into testable product assumptions",
+        "Ship demos and pilots that create real customer conversations",
+        "Use feedback to refine roadmap, pricing, and positioning",
+        "Create investor-ready evidence of learning and traction"
       ],
-      icon: "Zap"
+      icon: "Target"
     },
     {
       id: "india",
-      kicker: "India as strategic infrastructure",
-      title: "India Is No Longer Just Cost Advantage",
+      kicker: "India execution",
+      title: "India Team, Founder Control",
       body:
-        "India can become a strategic product, engineering, AI, and operations hub for ambitious US startups.",
+        "The right India team gives founders more shipping capacity without losing product strategy, architecture control, or quality discipline.",
       items: [
-        "World-class product and engineering talent",
-        "Deep AI/ML and automation capability",
-        "Lower burn with higher execution capacity",
-        "Time-zone leverage",
-        "Scalable hiring",
-        "Strong startup and enterprise technology ecosystem",
-        "Better strategic control than outsourcing",
-        "Faster experimentation and product velocity"
+        "Senior product-minded engineers who understand ownership and delivery context",
+        "Lower burn without compromising ambition or architecture quality",
+        "Time-zone leverage for faster throughput and customer-response loops",
+        "AI/data engineering capability across document, workflow, voice, and enterprise automation",
+        "A path to a larger dedicated India organization when the company is ready"
       ],
       icon: "Globe2"
     },
     {
-      id: "pillars",
-      kicker: "What we help build",
-      title: "From Offshore Team to AI-Native GCC",
-      pillars: [
-        {
-          title: "Legal entity and operating model setup",
-          description: "Choose the right path, governance structure, compliance base, and leadership rhythm.",
-          icon: "Building2"
-        },
-        {
-          title: "Product + engineering team buildout",
-          description: "Build senior, accountable India teams aligned to US product strategy and delivery.",
-          icon: "Code2"
-        },
-        {
-          title: "AI-native workflows and automation",
-          description: "Turn repeatable work into AI-assisted systems across product, ops, and customer workflows.",
-          icon: "Workflow"
-        },
-        {
-          title: "Governance, KPIs, cadence, and scale",
-          description: "Install reporting, sprint discipline, decision rights, and operating maturity.",
-          icon: "ClipboardCheck"
-        }
-      ]
-    },
-    {
-      id: "aistra",
-      kicker: "Case study",
-      title: "AI-Native GCC Setup for Aistra Labs",
-      body:
-        "Led the setup and scale-up of an AI-native GCC supporting the Aistra Labs portfolio, managing end-to-end product development across four Agentic AI verticals: Audit & Tax, Legal, Education, and Conversational AI.",
-      achievement: "Built and scaled a 50+ member product and engineering team in less than 3 months.",
-      credibility: "Worked with founders who have taken multiple startups to multi-billion dollar IPOs in the US.",
-      metrics: [
-        { value: "50+", label: "team built", icon: "Users" },
-        { value: "<3", label: "months", icon: "Clock3" },
-        { value: "4", label: "AI verticals", icon: "Layers3" },
-        { value: "Agentic", label: "AI portfolio", icon: "BrainCircuit" },
-        { value: "LLM", label: "workflows", icon: "Sparkles" }
-      ],
-      capabilities: [
-        "Customized LLMs",
-        "Agentic AI workflows",
-        "Audit and taxation automation",
-        "Contact center automation",
-        "Document-based workflow automation",
-        "AI-powered enterprise process transformation"
-      ]
-    },
-    {
-      id: "models",
-      kicker: "Setup models",
-      title: "Flexible Paths to Build in India",
-      models: [
-        {
-          name: "Captive GCC",
-          bestFor: "Best for long-term strategic control.",
-          includes: "Indian legal entity setup, compliance, direct hiring, payroll, leadership, governance.",
-          icon: "Building2"
-        },
-        {
-          name: "Employer of Record",
-          bestFor: "Best for fast entry and initial hiring.",
-          includes: "Useful for validating India operations before creating a full entity.",
-          icon: "BriefcaseBusiness"
-        },
-        {
-          name: "Build-Operate-Transfer",
-          bestFor: "Best for companies that want speed first, ownership later.",
-          includes: "We help build, operate, stabilize, and transfer the India center.",
-          icon: "Handshake"
-        }
-      ]
-    },
-    {
       id: "framework",
-      kicker: "Operating framework",
-      title: "From Strategy to Scale",
+      kicker: "Operating model",
+      title: "How the Engagement Works",
       timeline: [
-        { title: "Strategy & Operating Model", icon: "Target" },
-        { title: "Entity / EOR / BOT Path Selection", icon: "Scale" },
-        { title: "Talent Map & Hiring Plan", icon: "Users" },
-        { title: "Product + Engineering Team Build", icon: "Code2" },
-        { title: "AI-Native Workflow Design", icon: "BrainCircuit" },
-        { title: "Governance, KPIs & Scale", icon: "BarChart3" }
+        { title: "Founder strategy and product-market fit review", icon: "Target" },
+        { title: "Roadmap, architecture, and AI stack choices", icon: "BrainCircuit" },
+        { title: "India team shape and delivery operating model", icon: "Users" },
+        { title: "Weekly product, sprint, QA, and release cadence", icon: "ClipboardCheck" },
+        { title: "GTM, demo, and client-acquisition support", icon: "Workflow" },
+        { title: "Fundraise narrative and diligence readiness", icon: "BarChart3" }
       ]
-    },
-    {
-      id: "now",
-      kicker: "Why act now",
-      title: "Extend Runway Without Slowing Ambition",
-      items: [
-        "Build more product for the same capital",
-        "Hire senior talent faster",
-        "Create resilient global execution capacity",
-        "Move repeatable workflows to AI-powered teams",
-        "Keep strategic control while reducing burn",
-        "Increase speed from idea to shipped product",
-        "Build AI-native operating leverage before competitors do"
-      ],
-      icon: "LineChart"
-    },
-    {
-      id: "trust",
-      kicker: "Governance & trust",
-      title: "Built for Enterprise-Grade Execution",
-      items: [
-        "IP protection",
-        "Security-first workflows",
-        "Compliance and HR governance",
-        "Transparent reporting",
-        "Sprint cadence and delivery discipline",
-        "Founder-level communication",
-        "Long-term operating maturity"
-      ],
-      icon: "ShieldCheck"
     },
     {
       id: "fit",
-      kicker: "Ideal clients",
-      title: "Best Fit Companies",
+      kicker: "Best fit",
+      title: "Best Fit",
       items: [
-        "US startups from Series A to pre-IPO",
-        "AI-first or AI-transforming companies",
-        "SaaS, fintech, legaltech, edtech, healthtech, enterprise software",
-        "Founder-led companies wanting strategic India presence",
-        "Companies needing 20-200 person India teams",
-        "Companies that want ownership, not vendor dependency"
+        "Early-stage founders who need CTO-level expertise before hiring a full-time CTO",
+        "Seed to Series B startups trying to reach product-market fit or scale beyond it",
+        "AI, SaaS, fintech, legaltech, edtech, commerce, healthtech, and enterprise software companies",
+        "Founders who need product development and GTM support together",
+        "Companies preparing for fundraise, enterprise pilots, or technical diligence",
+        "Teams that want senior judgment plus an India team that can execute"
       ],
       icon: "Fingerprint"
     },
@@ -849,12 +801,12 @@ export const siteContent = {
       kicker: "Team",
       title: "The People Behind EleventyfirstParallel AI",
       body:
-        "A compact senior team combining founder-level product and engineering leadership, strategic guidance, and people operations for India-based execution.",
+        "A compact team around Naveen: product-tech leadership, strategic guidance, hiring discipline, people operations, and AI-native execution support.",
       team: [
         {
           name: "Naveen Upadhyay",
           role: "Founder and CEO",
-          description: "Operator, CPTO, and India GCC builder leading the product, engineering, AI-native operations, and client strategy.",
+          description: "Operator and CPTO partner leading product strategy, architecture, AI-native engineering, India team buildout, and client strategy.",
           initials: "NU",
           image: "/nav.jpg",
           linkedin: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true"
@@ -862,7 +814,7 @@ export const siteContent = {
         {
           name: "Kamal Tripathi",
           role: "Strategic Advisor",
-          description: "Advises on strategic direction, operating model maturity, and long-term GCC value creation.",
+          description: "Advises on strategic direction, operating model maturity, enterprise relationships, and long-term value creation.",
           initials: "KT",
           image: "/kamal.jpg",
           linkedin: "https://www.linkedin.com/in/kamal-tripathi-459a825/"
@@ -874,22 +826,14 @@ export const siteContent = {
           initials: "NK",
           image: "/nisha.jpg",
           linkedin: "https://www.linkedin.com/in/nisha-kotwal/"
-        },
-        {
-          name: "Vishesh Mundra",
-          role: "AI Evangelist",
-          description: "Supports AI adoption, education, and evangelism across AI-native workflows and operating practices.",
-          initials: "VM",
-          image: "/vishesh.jpg",
-          linkedin: "https://www.linkedin.com/in/visheshh-mundra-231518254/"
         }
       ]
     },
     {
       id: "cta",
       kicker: "Start building",
-      title: "Ready to Build Your India GCC?",
-      body: "Turn India into your AI-native product, engineering, and operations advantage.",
+      title: "Need CTO-Level Help to Build, Sell, or Raise?",
+      body: "Bring senior product-tech judgment into your company without slowing down. Strategy, product development, GTM, fundraise support, and India execution in one operating model.",
       ctas: [
         { label: "Start a Conversation", href: "mailto:naveen@eleventyfirstparallel.in" },
         { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true", variant: "secondary" }
