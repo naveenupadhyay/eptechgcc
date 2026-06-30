@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Check, ExternalLink } from "lucide-react";
 import { iconMap } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
-import { LogoMarquee } from "./LogoMarquee";
 import { MetricCard } from "./MetricCard";
 import { PillarCard } from "./PillarCard";
 import { TimelineStep } from "./TimelineStep";
@@ -48,7 +47,7 @@ export function Slide({
     >
       <div
         className={`mx-auto grid w-full max-w-7xl gap-5 md:gap-8 ${
-          isTeamSlide ? "lg:max-w-6xl" : "lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1.05fr)] lg:items-center"
+          isTeamSlide ? "lg:max-w-6xl" : "md:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] md:items-center"
         }`}
       >
         <section className={isTeamSlide ? "max-w-4xl" : "max-w-3xl"}>
@@ -78,12 +77,6 @@ export function Slide({
                   {cta.label}
                 </CTAButton>
               ))}
-            </div>
-          )}
-
-          {slide.id === "hero" && (
-            <div className="mt-6 max-w-2xl md:mt-8">
-              <LogoMarquee compact />
             </div>
           )}
 
@@ -133,9 +126,9 @@ export function Slide({
 
 function HeroVisual() {
   return (
-    <div className="relative min-h-[230px] overflow-hidden rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] sm:min-h-[320px] md:min-h-[520px] md:p-5">
+    <div className="relative min-h-[230px] overflow-hidden rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] sm:min-h-[320px] md:min-h-[380px] md:p-5 xl:min-h-[500px]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(24,24,27,0.06),transparent_28%),radial-gradient(circle_at_20%_68%,rgba(14,165,233,0.08),transparent_26%)]" />
-      <div className="relative flex h-full min-h-[200px] flex-col justify-between sm:min-h-[280px] md:min-h-[480px]">
+      <div className="relative flex h-full min-h-[200px] flex-col justify-between sm:min-h-[280px] md:min-h-[340px] xl:min-h-[460px]">
         <div className="flex items-center justify-between">
           <MapNode label="US HQ" align="left" />
           <MapNode label="India Team" align="right" active />
@@ -213,7 +206,7 @@ function AboutProfile() {
 
 function ProfilePanel() {
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] md:max-h-[66vh] md:overflow-y-auto md:p-6">
+    <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] md:p-6">
       <div className="grid gap-5 sm:grid-cols-[150px_minmax(0,1fr)]">
         <img
           src={siteContent.brand.portrait}
@@ -244,25 +237,6 @@ function ProfilePanel() {
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {siteContent.profile.metrics.map((metric) => (
           <MetricCard key={metric.label} {...metric} />
-        ))}
-      </div>
-
-      <div className="mt-6 grid gap-3">
-        {siteContent.profile.points.map((point) => (
-          <div key={point} className="flex gap-3 rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm leading-6 text-zinc-600">
-            <Check className="mt-1 size-4 shrink-0 text-zinc-950" />
-            {point}
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-6 grid gap-3">
-        {siteContent.profile.timeline.map((item) => (
-          <div key={item.company} className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
-            <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">{item.company}</div>
-            <div className="mt-2 text-sm font-semibold text-zinc-950">{item.role}</div>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">{item.detail}</p>
-          </div>
         ))}
       </div>
     </div>
