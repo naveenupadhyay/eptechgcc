@@ -820,12 +820,11 @@ export const siteContent = {
           linkedin: "https://www.linkedin.com/in/kamal-tripathi-459a825/"
         },
         {
-          name: "Nisha Kotwal",
+          name: "Nisha K.",
           role: "HR and People Operations",
           description: "Leads people operations, hiring coordination, talent experience, and India team operating rhythm.",
           initials: "NK",
-          image: "/nisha.jpg",
-          linkedin: "https://www.linkedin.com/in/nisha-kotwal/"
+          image: "/nisha.jpg"
         }
       ]
     },

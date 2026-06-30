@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Check, ExternalLink } from "lucide-react";
 import { iconMap } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
-import { MetricCard } from "./MetricCard";
 import { PillarCard } from "./PillarCard";
 import { TimelineStep } from "./TimelineStep";
 import { siteContent } from "../data/siteContent";
@@ -35,7 +34,7 @@ export function Slide({
           : `h-dvh overflow-y-auto overscroll-contain pb-20 ${
               isTeamSlide
                 ? "pt-28 md:pt-32"
-                : "pt-24 md:place-items-center md:pb-24 md:pt-28"
+                : "pt-24 md:place-items-center md:pb-20 md:pt-24"
             }`
       }`}
       initial={isStacked ? { opacity: 1 } : { opacity: 0, y: 38, filter: "blur(12px)" }}
@@ -205,38 +204,36 @@ function AboutProfile() {
 }
 
 function ProfilePanel() {
+  const compactStats = [
+    { value: "20+", label: "years" },
+    { value: "6+", label: "scale journeys" },
+    { value: "CTO", label: "operator lens" },
+    { value: "India", label: "team build" }
+  ];
+
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] md:p-6">
-      <div className="grid gap-5 sm:grid-cols-[150px_minmax(0,1fr)]">
+    <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] md:p-5">
+      <div className="flex items-start gap-4">
         <img
           src={siteContent.brand.portrait}
           alt="Naveen Upadhyay"
-          className="aspect-square w-32 rounded-lg border border-zinc-200 object-cover shadow-[0_18px_50px_rgba(0,0,0,0.12)] sm:w-full"
+          className="size-24 shrink-0 rounded-lg border border-zinc-200 object-cover shadow-[0_18px_50px_rgba(0,0,0,0.12)] md:size-28"
         />
         <div className="min-w-0">
-          <div className="flex items-start justify-between gap-5">
-            <div>
-              <div className="text-sm uppercase tracking-[0.18em] text-zinc-500">{siteContent.brand.founder}</div>
-              <h2 className="mt-3 text-2xl font-semibold text-zinc-950">{siteContent.profile.title}</h2>
-            </div>
-            <a
-              href={siteContent.brand.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="grid size-10 shrink-0 place-items-center rounded-md border border-zinc-200 bg-zinc-950 text-white"
-              aria-label="Open LinkedIn profile"
-            >
-              <ExternalLink className="size-4" />
-            </a>
-          </div>
-          <p className="mt-4 text-sm leading-6 text-zinc-600">{siteContent.profile.summary}</p>
-          <p className="mt-3 text-sm font-semibold leading-6 text-zinc-950">{siteContent.profile.operatorLine}</p>
+          <div className="text-xs uppercase tracking-[0.22em] text-zinc-500">{siteContent.brand.founder}</div>
+          <h2 className="mt-2 text-xl font-semibold leading-tight text-zinc-950 md:text-2xl">Startup CTO / CPTO Operator</h2>
+          <p className="mt-3 text-sm leading-6 text-zinc-600">
+            20+ years across AI, commerce, edtech, fintech, enterprise platforms, and India-based product engineering teams.
+          </p>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        {siteContent.profile.metrics.map((metric) => (
-          <MetricCard key={metric.label} {...metric} />
+      <div className="mt-5 grid grid-cols-2 gap-2">
+        {compactStats.map((metric) => (
+          <div key={metric.label} className="rounded-md border border-zinc-200 bg-zinc-50 p-3">
+            <div className="text-xl font-semibold text-zinc-950">{metric.value}</div>
+            <div className="mt-1 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-zinc-500">{metric.label}</div>
+          </div>
         ))}
       </div>
     </div>
