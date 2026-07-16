@@ -64,7 +64,7 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
     >
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover opacity-95"
+        className="absolute inset-0 h-full w-full object-cover object-[70%_50%] opacity-95"
         src="/intro-background.mov"
         autoPlay
         muted
