@@ -118,7 +118,7 @@ export function CapabilitiesPage() {
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    document.title = "Eptech AI Product Engineering Capabilities | EleventyfirstParallel AI";
+    document.title = "Eptech AI Product Engineering Capabilities | Eleventyfirst Parallel Technologies";
   }, []);
 
   return (
@@ -176,7 +176,7 @@ export function CapabilitiesPage() {
             </p>
             <p className="mt-7 hidden max-w-3xl text-pretty text-xl leading-8 text-slate-300 sm:block">{content.subtitle}</p>
             <p className="mt-5 text-sm leading-7 text-slate-400 sm:hidden">
-              This is the delivery foundation behind EleventyfirstParallel AI: battle-tested product engineering for
+              This is the delivery foundation behind Eleventyfirst Parallel Technologies: battle-tested product engineering for
               India-based GCC execution.
             </p>
             <p className="mt-5 hidden max-w-3xl text-pretty text-base leading-7 text-slate-400 sm:block">{content.positioning}</p>

@@ -93,16 +93,16 @@ export const iconMap: Record<IconName, LucideIcon> = {
 
 export const siteContent = {
   brand: {
-    name: "EleventyfirstParallel AI",
+    name: "Eleventyfirst Parallel Technologies",
     founder: "Naveen Upadhyay",
-    positioning: "CTO-level expertise, product development, GTM, and India execution.",
-    footer: "CTO Services | Product Development | GTM | Fundraise Support | India Team",
+    positioning: "AI workflow transformation, product engineering, and enterprise automation.",
+    footer: "AI Transformation | Product Engineering | Workflow Automation | India Execution",
     email: "naveen@eleventyfirstparallel.in",
     linkedin: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true",
-    portrait: "/nav.jpg"
+    portrait: "/naveen-operator.png"
   },
   logoCloud: {
-    title: "Experience across companies founders recognize",
+    title: "Experience across companies leaders recognize",
     groups: [
       {
         label: "Eptech client and build relationships",
@@ -114,7 +114,7 @@ export const siteContent = {
         ]
       },
       {
-        label: "Naveen's operator track record",
+        label: "Operator track record behind the company",
         logos: [
           { name: "Paytm", domain: "paytm.com", logoUrl: "/logos/paytm.jpg" },
           { name: "Walmart", domain: "walmart.com", logoUrl: "/logos/walmart.jpg" },
@@ -129,39 +129,43 @@ export const siteContent = {
     enterLabel: "Enter Site",
     sequences: [
       {
-        eyebrow: "Founder pressure",
-        headline: "Startups need senior judgment before they can afford senior mistakes.",
-        subline: "Product. Technology. GTM. Fundraise readiness."
+        eyebrow: "Enterprise AI transformation",
+        headline: "Turn business workflows into AI-powered operating systems.",
+        subline: "Finance, legal, sales, support, engineering, and operations can all move from manual work to intelligent execution.",
+        bullets: ["Automate document-heavy processes.", "Add AI agents where teams lose time, speed, and consistency."]
       },
       {
-        eyebrow: "CTO leverage",
-        headline: "Get CTO-level expertise without waiting for a full-time hire.",
-        subline: "6+ startup journeys from early stage to unicorn or decacorn scale."
+        eyebrow: "Practical AI capability",
+        headline: "Build AI products that work inside real enterprise workflows.",
+        subline: "Not slideware, not generic bots: systems that parse, reason, call tools, follow SOPs, and support decisions.",
+        bullets: ["Agentic RAG and workflow automation.", "Voice, chat, document, and decision-support systems."]
       },
       {
-        eyebrow: "Operating model",
-        headline: "Strategy and execution in one model.",
-        subline: "PMF -> Roadmap -> Product build -> GTM -> Fundraise support"
+        eyebrow: "Case-study led proof",
+        headline: "Built across finance, legal, conversational AI, and AI-native engineering.",
+        subline: "Our strongest signal is the practical work: audit automation, contract workflows, dispute resolution, voice agents, and engineering copilots.",
+        bullets: ["Finance and audit workflow automation.", "Legal AI, customer care, sales outreach, and coding-agent orchestration."]
       },
       {
-        eyebrow: "Case study signal",
-        headline: "Real product builds, already proven.",
-        subline: "Audit. Legal. Conversational AI. Sales outreach. Engineering systems."
+        eyebrow: "Eleventyfirst Parallel Technologies",
+        headline: "Operator-led AI transformation, backed by India execution capability.",
+        subline: "The company combines high-scale operator judgment with practical AI product engineering and India execution.",
+        bullets: ["Built around real enterprise workflow transformation.", "Transforms AI capability into shipped systems and measurable workflow outcomes."]
       }
     ],
-    finalHeadline: "CTO-LEVEL HELP TO BUILD, SELL, AND RAISE",
-    finalSubheadline: "Product development. GTM. Fundraise support. India execution.",
+    finalHeadline: "AI TRANSFORMATION FOR ENTERPRISE WORKFLOWS",
+    finalSubheadline: "Document intelligence. Agentic workflows. Voice and chat agents. AI-native engineering. Built by operators who understand real business execution.",
     metrics: [
-      { value: "6+", label: "unicorn/decacorn journeys" },
-      { value: "20+", label: "years product & engineering" },
-      { value: "CTO", label: "level operating support" },
-      { value: "India", label: "execution team" }
+      { value: "4", label: "AI capability verticals" },
+      { value: "3.5 yrs", label: "AI product depth" },
+      { value: "Agents", label: "workflow automation" },
+      { value: "India", label: "execution capability" }
     ],
     pipeline: [
-      { label: "PMF", icon: "Target" },
-      { label: "Product", icon: "Building2" },
-      { label: "GTM", icon: "Users" },
-      { label: "Fundraise", icon: "BarChart3" },
+      { label: "Workflow", icon: "Workflow" },
+      { label: "Documents", icon: "FileCheck2" },
+      { label: "Agents", icon: "BrainCircuit" },
+      { label: "Governance", icon: "ShieldCheck" },
       { label: "Scale", icon: "Rocket" }
     ] as Array<{ label: string; icon: IconName }>
   },
@@ -226,7 +230,7 @@ export const siteContent = {
     subtitle:
       "Over the last three and a half years, Eptech has built production-grade AI systems across document intelligence, agentic automation, voice and chat agents, claims workflows, legal AI, and education support tools.",
     positioning:
-      "This is the delivery foundation behind EleventyfirstParallel AI: not generic staffing, but battle-tested AI product engineering capability that can become the execution core of an India-based GCC.",
+      "This is the delivery foundation behind Eleventyfirst Parallel Technologies: not generic staffing, but battle-tested AI product engineering capability that can become the execution core of an India-based GCC.",
     ctas: [
       { label: "Discuss a GCC Buildout", href: "mailto:naveen@eleventyfirstparallel.in" },
       {
@@ -617,110 +621,104 @@ export const siteContent = {
   slides: [
     {
       id: "hero",
-      kicker: "CTO-level expertise + execution team",
-      title: "Get a Startup CTO Without Hiring One Full-Time",
+      kicker: "AI transformation + execution capability",
+      title: "Transform Enterprise Workflows with AI",
       body:
-        "Work directly with Naveen Upadhyay, a CTO/CPTO operator with 6+ startup journeys from early stage to unicorn or decacorn scale, backed by a senior India product engineering team.",
+        "We help enterprises and ambitious startups turn manual, document-heavy, conversation-heavy, and engineering-heavy workflows into AI-powered operating systems.",
       ctas: [
-        { label: "See Track Record", target: "operator" },
         { label: "View Case Studies", target: "case-studies", variant: "secondary" },
+        { label: "Explore Capabilities", target: "services" },
         { label: "Start a Conversation", href: "mailto:naveen@eleventyfirstparallel.in", variant: "secondary" }
       ]
     },
     {
       id: "about",
-      kicker: "The offer",
-      title: "CTO Judgment Plus a Product Team That Can Ship",
+      kicker: "What we build",
+      title: "AI Systems for Real Business Workflows",
       body:
-        "Senior product-tech leadership, product development support, GTM thinking, fundraise preparation, and an accountable engineering team from India."
+        "Eleventyfirst Parallel Technologies combines product engineering, AI architecture, workflow automation, and India execution capability to build practical AI systems that teams can actually use."
     },
     {
       id: "operator",
-      kicker: "Operator proof",
-      title: "6+ Startup Journeys to Unicorn or Decacorn Scale",
+      kicker: "Operator credibility",
+      title: "Led by an Operator Who Has Built at Scale",
       body:
-        "Naveen has worked through the messy middle founders care about: early product bets, scale architecture, hiring, delivery, cost, GTM pressure, and executive accountability.",
+        "The company is operator-led, which helps us design AI transformation around business reality: teams, processes, cost, adoption, governance, and delivery.",
       operatorProof: [
         {
-          title: "Early to scale operator",
-          description: "Experience across startup journeys that reached unicorn or decacorn scale, including Snapdeal, Paytm, BYJU'S, Boutiqaat, eyewa, and Aistra Labs.",
+          title: "Scale-company operator",
+          description: "Experience across Snapdeal, Paytm, BYJU'S, Boutiqaat, eyewa, Aistra Labs, Walmart, JPMorgan, and Alibaba ecosystem exposure.",
           icon: "Rocket"
         },
         {
-          title: "CTO / CPTO lens",
+          title: "Product + engineering depth",
           description: "Owned product, engineering, architecture, design, data, BI, platform scale, cost optimization, and executive communication.",
           icon: "BadgeCheck"
         },
         {
-          title: "India team builder",
-          description: "Built and led India-based product and engineering organizations for high-growth companies, not just vendor teams.",
+          title: "Enterprise workflow judgment",
+          description: "Understands how AI must fit into existing tools, compliance needs, human review, delivery cadence, and operating metrics.",
           icon: "Users"
         },
         {
-          title: "Enterprise-grade depth",
-          description: "Experience across Walmart, JPMorgan, retail platforms, investment banking systems, and security-sensitive environments.",
+          title: "India execution capability",
+          description: "Builds with product-minded India teams that can ship AI products, integrations, automation, and production workflows.",
           icon: "ShieldCheck"
         }
       ]
     },
     {
       id: "cpto",
-      kicker: "Founder leverage",
-      title: "What a CTO-Level Partner Actually Does",
+      kicker: "Transformation lens",
+      title: "Where AI Creates Enterprise Leverage",
       body:
-        "The value is not just writing code. It is helping the founder make better product, technology, GTM, hiring, and fundraising decisions while the team keeps shipping.",
+        "The opportunity is not only chatbots. It is redesigning the way work moves through documents, decisions, conversations, approvals, engineering tasks, and customer interactions.",
       items: [
-        "Convert founder vision into roadmap, architecture, and release priorities",
-        "Identify the fastest path to product-market fit",
-        "Make build-versus-buy, AI stack, and architecture decisions",
-        "Create senior review around quality, delivery risk, and speed",
-        "Shape the product story for customers, investors, and early hires",
-        "Extend runway with an India team managed for ownership"
+        "Document-heavy workflows become semantic extraction, reasoning, reconciliation, and review systems",
+        "Support and sales workflows become voice and chat agents that follow SOPs and escalate intelligently",
+        "Legal and compliance workflows become contract, evidence, clause, and decision-support systems",
+        "Engineering workflows become context-aware coding-agent orchestration with tests, reviews, and release gates",
+        "Operations workflows become tool-calling agents connected to APIs, MCP servers, CRMs, ERPs, and internal systems",
+        "Leadership gets dashboards, audit trails, evaluation loops, and measurable productivity outcomes"
       ],
       icon: "BadgeCheck"
     },
     {
       id: "services",
-      kicker: "Four ways we help",
-      title: "Product, Technology, GTM, and Fundraise Support",
+      kicker: "Core AI capabilities",
+      title: "From AI Pilots to Production Workflow Systems",
       pillars: [
         {
-          title: "CTO / CPTO Services",
-          description: "Roadmap, architecture, AI strategy, engineering standards, hiring, delivery governance, and founder-level decision support.",
-          icon: "BadgeCheck"
+          title: "Document Intelligence",
+          description: "Semantic parsing, evidence extraction, filings analysis, contract review, claims processing, audit trails, and human-in-the-loop review.",
+          icon: "FileCheck2"
         },
         {
-          title: "Product Development",
-          description: "MVPs, platform builds, AI products, workflow automation, customer-facing apps, internal tools, and delivery execution.",
+          title: "Agentic Workflows",
+          description: "AI agents that reason over context, call tools, follow SOPs, integrate with APIs/MCP servers, and execute governed business processes.",
           icon: "BrainCircuit"
         },
         {
-          title: "Client Acquisition / GTM",
-          description: "ICP clarity, demo narratives, enterprise sales support, proof-of-value design, and customer discovery loops.",
-          icon: "Target"
+          title: "Conversational AI",
+          description: "Voice and chat agents for customer care, sales outreach, WhatsApp, telephony, web, contact centers, escalation, and workflow completion.",
+          icon: "Headphones"
         },
         {
-          title: "Fundraise Support",
-          description: "Product narrative, technical credibility, roadmap clarity, diligence support, demo readiness, and investor-facing story.",
-          icon: "BarChart3"
+          title: "AI-Native Engineering",
+          description: "Context and control layers for coding agents, repo knowledge, tests, evals, MCP tools, architecture rules, and release learning loops.",
+          icon: "Workflow"
         }
       ]
     },
     {
       id: "case-studies",
       kicker: "Case studies",
-      title: "Proof from Real Product Builds",
+      title: "Practical Examples from Four Years of AI Engineering",
       body:
-        "Examples from recent product engineering work across AI-native engineering, finance, legal, sales, and customer care.",
+        "Examples from product engineering work across finance, legal, sales, customer care, and engineering teams. This is the capability proof, not a generic AI pitch.",
       caseStudies: [
         {
-          title: "AI-Native Engineering",
-          description: "A context and control layer that orchestrates coding agents, repo knowledge, architecture rules, MCP tools, tests, evals, release gates, and human review.",
-          tags: ["Claude Code", "Cursor", "LangGraph/LangChain", "MCP", "Evals"],
-          icon: "BrainCircuit"
-        },
-        {
-          title: "Finance and Audit",
+          title: "Finance, Audit and Tax",
           description: "Audit-firm application for public and private company audits: parsing filings and prior filings, reading financials, and running reconciliation through Java and Python automation.",
           tags: ["Filings", "Financial parsing", "Java automation", "Python automation", "Audit trails"],
           icon: "CircleDollarSign"
@@ -736,50 +734,56 @@ export const siteContent = {
           description: "Customer care support for a Dubai government entity and a sales outreach engine where voice agents call customers, qualify intent, and route follow-up.",
           tags: ["Voice agents", "Customer care", "Sales outreach", "Telephony", "Escalation"],
           icon: "Headphones"
+        },
+        {
+          title: "AI-Native Engineering",
+          description: "A context and control layer that orchestrates coding agents, repo knowledge, architecture rules, MCP tools, tests, evals, release gates, and human review.",
+          tags: ["Claude Code", "Cursor", "LangGraph/LangChain", "MCP", "Evals"],
+          icon: "BrainCircuit"
         }
       ]
     },
     {
       id: "ai-stack",
-      kicker: "Product-market fit",
-      title: "Build Less Randomly. Learn Faster.",
+      kicker: "AI stack",
+      title: "A Practical Stack for Enterprise AI Workflows",
       body:
-        "The goal is not to build every idea. The goal is to choose sharper product bets, ship the smallest credible version, read customer signals, and improve the story.",
+        "We design the stack around the workflow: data ingestion, semantic parsing, vector and graph memory, agent runtimes, tool calling, evaluation, security, and human review.",
       items: [
-        "Clarify ICP, pain, workflow, and willingness to pay",
-        "Turn founder intuition into testable product assumptions",
-        "Ship demos and pilots that create real customer conversations",
-        "Use feedback to refine roadmap, pricing, and positioning",
-        "Create investor-ready evidence of learning and traction"
+        "Document ingestion with OCR, Unstructured-style parsing, chunking, metadata, and extraction pipelines",
+        "RAG, agentic RAG, workflow state, vector search, structured databases, and knowledge graphs where useful",
+        "Agent runtimes using LangGraph, LangChain, tool calling, MCP integrations, queues, and workflow services",
+        "Model layer across commercial LLMs, open models, embeddings, rerankers, speech, and domain-specific classifiers",
+        "Evaluation, observability, audit trails, prompt/version control, human approval, and policy guardrails"
       ],
       icon: "Target"
     },
     {
       id: "india",
-      kicker: "India execution",
-      title: "India Team, Founder Control",
+      kicker: "Execution model",
+      title: "AI Product Engineering from India, with Operator Control",
       body:
-        "The right India team gives founders more shipping capacity without losing product strategy, architecture control, or quality discipline.",
+        "The India advantage is not cheap outsourcing. It is building a serious AI product engineering engine that can move from workflow diagnosis to production systems.",
       items: [
-        "Senior product-minded engineers who understand ownership and delivery context",
-        "Lower burn without compromising ambition or architecture quality",
-        "Time-zone leverage for faster throughput and customer-response loops",
-        "AI/data engineering capability across document, workflow, voice, and enterprise automation",
-        "A path to a larger dedicated India organization when the company is ready"
+        "Senior product-minded engineers who understand workflow context and business outcomes",
+        "AI, data, backend, frontend, QA, DevOps, and automation capability in one execution pod",
+        "Faster experimentation across pilots, proof-of-value, integrations, and production releases",
+        "Operator-level review around architecture, quality, cost, security, and adoption risk",
+        "A path from project team to dedicated AI capability center when the business is ready"
       ],
       icon: "Globe2"
     },
     {
       id: "framework",
       kicker: "Operating model",
-      title: "How the Engagement Works",
+      title: "From Workflow Diagnosis to Production AI",
       timeline: [
-        { title: "Founder strategy and product-market fit review", icon: "Target" },
-        { title: "Roadmap, architecture, and AI stack choices", icon: "BrainCircuit" },
-        { title: "India team shape and delivery operating model", icon: "Users" },
-        { title: "Weekly product, sprint, QA, and release cadence", icon: "ClipboardCheck" },
-        { title: "GTM, demo, and client-acquisition support", icon: "Workflow" },
-        { title: "Fundraise narrative and diligence readiness", icon: "BarChart3" }
+        { title: "Map the workflow, users, documents, tools, decisions, and failure points", icon: "Workflow" },
+        { title: "Identify AI leverage: extraction, reasoning, agents, automation, or conversation", icon: "BrainCircuit" },
+        { title: "Design the architecture, data flow, model layer, integrations, and human controls", icon: "Network" },
+        { title: "Build a pilot with real workflow data, evals, dashboards, and review loops", icon: "ClipboardCheck" },
+        { title: "Integrate with enterprise systems, APIs, MCP tools, and operating cadence", icon: "LinkIcon" },
+        { title: "Scale into production with governance, observability, security, and training", icon: "ShieldCheck" }
       ]
     },
     {
@@ -787,28 +791,28 @@ export const siteContent = {
       kicker: "Best fit",
       title: "Best Fit",
       items: [
-        "Early-stage founders who need CTO-level expertise before hiring a full-time CTO",
-        "Seed to Series B startups trying to reach product-market fit or scale beyond it",
-        "AI, SaaS, fintech, legaltech, edtech, commerce, healthtech, and enterprise software companies",
-        "Founders who need product development and GTM support together",
-        "Companies preparing for fundraise, enterprise pilots, or technical diligence",
-        "Teams that want senior judgment plus an India team that can execute"
+        "Enterprises with document-heavy finance, audit, tax, compliance, claims, or legal workflows",
+        "Companies building AI agents for customer care, sales outreach, operations, or internal productivity",
+        "Technology teams adopting AI-native engineering, coding agents, evals, and release automation",
+        "AI-first or AI-transforming companies that need product engineering depth from India",
+        "Leadership teams that want practical workflow outcomes rather than generic AI experimentation",
+        "Organizations that need operator judgment, fast pilots, and a path to production scale"
       ],
       icon: "Fingerprint"
     },
     {
       id: "team",
       kicker: "Team",
-      title: "The People Behind EleventyfirstParallel AI",
+      title: "The People Behind Eleventyfirst Parallel Technologies",
       body:
-        "A compact team around Naveen: product-tech leadership, strategic guidance, hiring discipline, people operations, and AI-native execution support.",
+        "A compact team around Naveen: AI product engineering leadership, strategic guidance, hiring discipline, people operations, and India execution support.",
       team: [
         {
           name: "Naveen Upadhyay",
           role: "Founder and CEO",
-          description: "Operator and CPTO partner leading product strategy, architecture, AI-native engineering, India team buildout, and client strategy.",
+          description: "Operator leading AI transformation strategy, product architecture, workflow automation, AI-native engineering, India team buildout, and client execution.",
           initials: "NU",
-          image: "/nav.jpg",
+          image: "/naveen-operator.png",
           linkedin: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true"
         },
         {
@@ -830,9 +834,9 @@ export const siteContent = {
     },
     {
       id: "cta",
-      kicker: "Start building",
-      title: "Need CTO-Level Help to Build, Sell, or Raise?",
-      body: "Bring senior product-tech judgment into your company without slowing down. Strategy, product development, GTM, fundraise support, and India execution in one operating model.",
+      kicker: "Start transforming",
+      title: "Ready to Turn a Workflow into an AI System?",
+      body: "Bring operator-led AI product engineering into your business. We can map the workflow, identify AI leverage, build the pilot, integrate the stack, and scale it through an India execution team.",
       ctas: [
         { label: "Start a Conversation", href: "mailto:naveen@eleventyfirstparallel.in" },
         { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/naveen-u-76612210/?skipRedirect=true", variant: "secondary" }

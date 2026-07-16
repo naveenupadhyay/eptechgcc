@@ -6,7 +6,7 @@ const content = siteContent.aiNativeEngineeringPage;
 
 export function AINativeEngineeringPage() {
   useEffect(() => {
-    document.title = "AI-Native Engineering Teams | EleventyfirstParallel AI";
+    document.title = "AI-Native Engineering Teams | Eleventyfirst Parallel Technologies";
   }, []);
 
   return (

@@ -85,12 +85,8 @@ export function Slide({
         <section className="min-h-0">
           {slide.id === "hero" && <HeroVisual />}
           {slide.id === "about" && <ProfilePanel />}
-          {"operatorProof" in slide && slide.operatorProof && (
-            <div className="grid gap-3 sm:grid-cols-2">
-              {slide.operatorProof.map((proof) => (
-                <PillarCard key={proof.title} {...proof} />
-              ))}
-            </div>
+          {"operatorProof" in slide && slide.operatorProof && slide.id === "operator" && (
+            <OperatorProofPanel proofItems={slide.operatorProof} />
           )}
           {"items" in slide && slide.items && <ListPanel items={slide.items} Icon={Icon} />}
           {"caseStudies" in slide && slide.caseStudies && <CaseStudiesPanel caseStudies={slide.caseStudies} />}
@@ -123,6 +119,65 @@ export function Slide({
   );
 }
 
+function OperatorProofPanel({
+  proofItems
+}: {
+  proofItems: ReadonlyArray<{
+    readonly title: string;
+    readonly description: string;
+    readonly icon: keyof typeof iconMap;
+  }>;
+}) {
+  const featured = proofItems.slice(0, 2);
+  const remaining = proofItems.slice(2);
+
+  return (
+    <div className="grid gap-3">
+      <div className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.10)]">
+        <div className="grid gap-0 sm:grid-cols-[0.8fr_1fr]">
+          <div className="bg-zinc-100">
+            <img
+              src={siteContent.brand.portrait}
+              alt={`${siteContent.brand.founder}, operator context`}
+              className="h-full min-h-[220px] w-full object-cover object-[50%_18%] sm:min-h-[320px]"
+            />
+          </div>
+          <div className="flex flex-col justify-center p-5 md:p-6">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Operator context</div>
+            <h2 className="mt-3 text-2xl font-semibold leading-tight text-zinc-950 md:text-3xl">
+              AI transformation with operating judgment behind it.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-zinc-600 md:text-base md:leading-7">
+              The company logo leads the brand. Naveen's operator background explains why the AI work is grounded in scale, adoption, cost, governance, and delivery reality.
+            </p>
+            <div className="mt-5 grid gap-2">
+              {featured.map((proof) => {
+                const Icon = iconMap[proof.icon];
+                return (
+                  <div key={proof.title} className="flex gap-3 rounded-md border border-zinc-200 bg-zinc-50 p-3">
+                    <span className="grid size-9 shrink-0 place-items-center rounded-md bg-zinc-950 text-white">
+                      <Icon className="size-4" />
+                    </span>
+                    <div>
+                      <div className="text-sm font-semibold text-zinc-950">{proof.title}</div>
+                      <div className="mt-1 text-xs leading-5 text-zinc-600">{proof.description}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {remaining.map((proof) => (
+          <PillarCard key={proof.title} {...proof} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function HeroVisual() {
   return (
     <div className="relative min-h-[230px] overflow-hidden rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] sm:min-h-[320px] md:min-h-[380px] md:p-5 xl:min-h-[500px]">
@@ -148,7 +203,7 @@ function HeroVisual() {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          {["Strategy", "Architecture", "AI Products", "India Team"].map((item) => (
+          {["Workflow", "AI Agents", "Integrations", "Governance"].map((item) => (
             <div key={item} className="rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm font-semibold text-zinc-800">
               {item}
             </div>
@@ -164,14 +219,14 @@ function FounderSignal() {
     <div className="rounded-lg border border-zinc-200 bg-white p-3 shadow-[0_22px_60px_rgba(0,0,0,0.12)] sm:p-4">
       <div className="flex items-center gap-3 sm:gap-4">
         <img
-          src={siteContent.brand.portrait}
-          alt="Naveen Upadhyay"
+          src="/ep.avif"
+          alt={`${siteContent.brand.name} logo`}
           className="size-16 shrink-0 rounded-lg border border-zinc-200 object-cover sm:size-24"
         />
         <div className="min-w-0">
-            <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">Led by Naveen Upadhyay</div>
+            <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">{siteContent.brand.name}</div>
           <div className="mt-2 text-base font-semibold leading-tight text-zinc-950 sm:text-lg">
-            CTO-level expertise + India product engineering
+            Operator-led AI transformation + India execution
           </div>
           <div className="mt-2 text-xs leading-5 text-zinc-500">
             Aistra Labs. eyewa. Boutiqaat. BYJU'S. Paytm. Walmart. Snapdeal.
@@ -196,8 +251,8 @@ function MapNode({ label, active, align }: { label: string; active?: boolean; al
 function AboutProfile() {
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-      <CTAButton href={siteContent.brand.linkedin} variant="secondary">
-        View LinkedIn Profile
+      <CTAButton href={`mailto:${siteContent.brand.email}`} variant="secondary">
+        Discuss AI Transformation
       </CTAButton>
     </div>
   );
@@ -205,25 +260,25 @@ function AboutProfile() {
 
 function ProfilePanel() {
   const compactStats = [
-    { value: "20+", label: "years" },
-    { value: "6+", label: "scale journeys" },
-    { value: "CTO", label: "operator lens" },
-    { value: "India", label: "team build" }
+    { value: "AI", label: "workflow systems" },
+    { value: "4", label: "capability verticals" },
+    { value: "Ops", label: "operator lens" },
+    { value: "India", label: "execution team" }
   ];
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-[0_30px_80px_rgba(0,0,0,0.10)] md:p-5">
       <div className="flex items-start gap-4">
         <img
-          src={siteContent.brand.portrait}
-          alt="Naveen Upadhyay"
+          src="/ep.avif"
+          alt={`${siteContent.brand.name} logo`}
           className="size-24 shrink-0 rounded-lg border border-zinc-200 object-cover shadow-[0_18px_50px_rgba(0,0,0,0.12)] md:size-28"
         />
         <div className="min-w-0">
-          <div className="text-xs uppercase tracking-[0.22em] text-zinc-500">{siteContent.brand.founder}</div>
-          <h2 className="mt-2 text-xl font-semibold leading-tight text-zinc-950 md:text-2xl">Startup CTO / CPTO Operator</h2>
+          <div className="text-xs uppercase tracking-[0.22em] text-zinc-500">{siteContent.brand.name}</div>
+          <h2 className="mt-2 text-xl font-semibold leading-tight text-zinc-950 md:text-2xl">AI Workflow Transformation Company</h2>
           <p className="mt-3 text-sm leading-6 text-zinc-600">
-            20+ years across AI, commerce, edtech, fintech, enterprise platforms, and India-based product engineering teams.
+            Product engineering, AI architecture, workflow automation, and India execution capability for practical enterprise AI systems.
           </p>
         </div>
       </div>
@@ -359,12 +414,12 @@ function TeamPanel({
 function FinalPanel() {
   return (
     <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-[0_30px_80px_rgba(0,0,0,0.10)]">
-      <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">EleventyfirstParallel AI</div>
+      <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">{siteContent.brand.name}</div>
       <div className="mt-5 text-3xl font-semibold text-zinc-950">
-        CTO-level product leadership plus an India AI engineering team that can turn strategy into shipped software.
+        Operator-led AI product engineering that turns enterprise workflows into shipped, governed AI systems.
       </div>
       <div className="mt-8 grid gap-3 text-sm text-zinc-600">
-        <div>Naveen Upadhyay</div>
+        <div>{siteContent.brand.name}</div>
         <a className="font-semibold text-zinc-950 underline decoration-zinc-300 underline-offset-4 transition hover:decoration-zinc-950" href={`mailto:${siteContent.brand.email}`}>
           {siteContent.brand.email}
         </a>

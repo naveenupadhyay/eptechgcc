@@ -258,7 +258,7 @@ export function FinanceAIPage() {
           </div>
         </div>
         <footer className="mt-8 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row">
-          <span>EPTech F&A AI Transformation | EleventyfirstParallel AI</span>
+          <span>EPTech F&A AI Transformation | Eleventyfirst Parallel Technologies</span>
           <a className="inline-flex items-center gap-2 text-violet-300 transition hover:text-white" href={`mailto:${siteContent.brand.email}`}>
             <Mail className="size-4" />
             {siteContent.brand.email}
