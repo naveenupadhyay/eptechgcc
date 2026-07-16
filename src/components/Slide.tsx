@@ -128,13 +128,10 @@ function OperatorProofPanel({
     readonly icon: keyof typeof iconMap;
   }>;
 }) {
-  const featured = proofItems.slice(0, 2);
-  const remaining = proofItems.slice(2);
-
   return (
     <div className="grid gap-3">
       <div className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.10)]">
-        <div className="grid gap-0 sm:grid-cols-[0.8fr_1fr]">
+        <div className="grid gap-0 sm:grid-cols-[0.68fr_1.32fr]">
           <div className="bg-zinc-100">
             <img
               src={siteContent.brand.portrait}
@@ -142,19 +139,19 @@ function OperatorProofPanel({
               className="h-full min-h-[220px] w-full object-cover object-[50%_18%] sm:min-h-[320px]"
             />
           </div>
-          <div className="flex flex-col justify-center p-5 md:p-6">
+          <div className="flex flex-col justify-center p-4 md:p-5">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Operator context</div>
-            <h2 className="mt-3 text-2xl font-semibold leading-tight text-zinc-950 md:text-3xl">
+            <h2 className="mt-2 text-xl font-semibold leading-tight text-zinc-950 md:text-2xl">
               AI transformation with operating judgment behind it.
             </h2>
-            <p className="mt-4 text-sm leading-6 text-zinc-600 md:text-base md:leading-7">
+            <p className="mt-3 text-sm leading-6 text-zinc-600">
               The company logo leads the brand. Naveen's operator background explains why the AI work is grounded in scale, adoption, cost, governance, and delivery reality.
             </p>
-            <div className="mt-5 grid gap-2">
-              {featured.map((proof) => {
+            <div className="mt-4 grid gap-2 lg:grid-cols-2">
+              {proofItems.map((proof) => {
                 const Icon = iconMap[proof.icon];
                 return (
-                  <div key={proof.title} className="flex gap-3 rounded-md border border-zinc-200 bg-zinc-50 p-3">
+                  <div key={proof.title} className="flex min-h-[104px] gap-3 rounded-md border border-zinc-200 bg-zinc-50 p-3">
                     <span className="grid size-9 shrink-0 place-items-center rounded-md bg-zinc-950 text-white">
                       <Icon className="size-4" />
                     </span>
@@ -168,11 +165,6 @@ function OperatorProofPanel({
             </div>
           </div>
         </div>
-      </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {remaining.map((proof) => (
-          <PillarCard key={proof.title} {...proof} />
-        ))}
       </div>
     </div>
   );

@@ -8,7 +8,9 @@ const INTRO_PHASE_MS = 5200;
 
 export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
   const [phase, setPhase] = useState(0);
+  const [soundOn, setSoundOn] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const phases = siteContent.intro.sequences;
   const finalPhase = phase >= phases.length;
   const current = phases[Math.min(phase, phases.length - 1)];
@@ -36,6 +38,23 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
     };
   }, [phases]);
 
+  const toggleSound = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const nextSoundOn = !soundOn;
+    video.muted = !nextSoundOn;
+    video.volume = nextSoundOn ? 0.28 : 0;
+    setSoundOn(nextSoundOn);
+
+    if (nextSoundOn && video.paused) {
+      await video.play().catch(() => {
+        video.muted = true;
+        setSoundOn(false);
+      });
+    }
+  };
+
   return (
     <motion.div
       ref={rootRef}
@@ -44,8 +63,9 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
       transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}
     >
       <video
+        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover opacity-95"
-        src="/intro-background.mp4"
+        src="/intro-background.mov"
         autoPlay
         muted
         loop
@@ -61,6 +81,13 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
         onClick={onComplete}
       >
         {siteContent.intro.skipLabel}
+      </button>
+      <button
+        className="absolute right-4 top-16 z-30 rounded-lg border border-white/20 bg-black/25 px-3 py-2 text-xs font-semibold text-white shadow-[0_14px_40px_rgba(0,0,0,0.18)] backdrop-blur transition hover:border-white/50 hover:bg-black/40 md:right-8 md:top-[4.5rem]"
+        onClick={toggleSound}
+        aria-label={soundOn ? "Mute intro sound" : "Play intro sound"}
+      >
+        {soundOn ? "Sound On" : "Sound Off"}
       </button>
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.68)_0%,rgba(2,6,23,0.42)_42%,rgba(2,6,23,0.04)_100%)]" />
