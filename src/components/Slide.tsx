@@ -219,12 +219,12 @@ function FounderSignal() {
     <div className="rounded-lg border border-zinc-200 bg-white p-3 shadow-[0_22px_60px_rgba(0,0,0,0.12)] sm:p-4">
       <div className="flex items-center gap-3 sm:gap-4">
         <img
-          src="/ep.avif"
-          alt={`${siteContent.brand.name} logo`}
+          src={siteContent.brand.portrait}
+          alt={`${siteContent.brand.founder}, operator context`}
           className="size-16 shrink-0 rounded-lg border border-zinc-200 object-cover sm:size-24"
         />
         <div className="min-w-0">
-            <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">{siteContent.brand.name}</div>
+            <div className="text-xs uppercase tracking-[0.18em] text-zinc-500">Operator-led by {siteContent.brand.founder}</div>
           <div className="mt-2 text-base font-semibold leading-tight text-zinc-950 sm:text-lg">
             Operator-led AI transformation + India execution
           </div>
