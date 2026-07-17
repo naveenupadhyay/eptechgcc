@@ -70,7 +70,7 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
     >
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover object-[70%_50%] opacity-95"
+        className="absolute inset-0 h-full w-full object-cover object-[90%_50%] opacity-95"
         src="/intro-background.mov"
         autoPlay
         muted
@@ -125,7 +125,7 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           {!finalPhase ? (
-            <div className="min-w-0">
+            <div className="min-w-0 md:-translate-x-16 lg:-translate-x-24">
               <div className="max-w-4xl">
                 <div className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-100/90">{current.eyebrow}</div>
                 <h1 className="max-w-[20rem] break-words text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.02em] text-white drop-shadow-[0_18px_46px_rgba(0,0,0,0.42)] sm:max-w-full sm:text-6xl lg:text-7xl">
