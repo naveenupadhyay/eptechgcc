@@ -5,9 +5,11 @@ import { siteContent } from "../data/siteContent";
 import { CTAButton } from "./CTAButton";
 
 const INTRO_PHASE_MS = 5200;
+const INTRO_VIDEO_HOLD_MS = 5000;
 
 export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
   const [phase, setPhase] = useState(0);
+  const [textVisible, setTextVisible] = useState(false);
   const [soundOn, setSoundOn] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -31,8 +33,12 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
       gsap.to(".flow-light", { xPercent: 110, opacity: 0, duration: 3.8, repeat: -1, ease: "power2.inOut", stagger: 0.36 });
     }, rootRef);
 
-    const timers = phases.map((_, index) => window.setTimeout(() => setPhase(index + 1), (index + 1) * INTRO_PHASE_MS));
+    const revealTimer = window.setTimeout(() => setTextVisible(true), INTRO_VIDEO_HOLD_MS);
+    const timers = phases.map((_, index) =>
+      window.setTimeout(() => setPhase(index + 1), INTRO_VIDEO_HOLD_MS + (index + 1) * INTRO_PHASE_MS)
+    );
     return () => {
+      window.clearTimeout(revealTimer);
       timers.forEach(window.clearTimeout);
       ctx.revert();
     };
@@ -110,37 +116,39 @@ export function IntroAnimation({ onComplete }: { onComplete: () => void }) {
         ))}
       </div>
 
-      <motion.div
-        className="relative z-10 mx-auto w-full min-w-0 max-w-[calc(100vw-2rem)] md:max-w-6xl"
-        key={finalPhase ? "final" : phase}
-        initial={{ opacity: 0, y: 28, filter: "blur(12px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {!finalPhase ? (
-          <div className="min-w-0">
-            <div className="max-w-4xl">
-              <div className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-100/90">{current.eyebrow}</div>
-              <h1 className="max-w-[20rem] break-words text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.02em] text-white drop-shadow-[0_18px_46px_rgba(0,0,0,0.42)] sm:max-w-full sm:text-6xl lg:text-7xl">
-                {current.headline}
+      {textVisible && (
+        <motion.div
+          className="relative z-10 mx-auto w-full min-w-0 max-w-[calc(100vw-2rem)] md:max-w-6xl"
+          key={finalPhase ? "final" : phase}
+          initial={{ opacity: 0, y: 28, filter: "blur(12px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {!finalPhase ? (
+            <div className="min-w-0">
+              <div className="max-w-4xl">
+                <div className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-100/90">{current.eyebrow}</div>
+                <h1 className="max-w-[20rem] break-words text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.02em] text-white drop-shadow-[0_18px_46px_rgba(0,0,0,0.42)] sm:max-w-full sm:text-6xl lg:text-7xl">
+                  {current.headline}
+                </h1>
+                <p className="mt-5 max-w-[21rem] text-base leading-7 text-white/82 sm:max-w-2xl md:text-2xl md:leading-8">{current.subline}</p>
+                <IntroChips phase={phase} />
+              </div>
+            </div>
+          ) : (
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="mb-5 text-xs font-bold uppercase tracking-[0.26em] text-cyan-100/90">{siteContent.brand.name}</div>
+              <h1 className="text-4xl font-semibold leading-[0.98] tracking-[-0.02em] text-white drop-shadow-[0_18px_46px_rgba(0,0,0,0.42)] sm:text-6xl lg:text-7xl">
+                {siteContent.intro.finalHeadline}
               </h1>
-              <p className="mt-5 max-w-[21rem] text-base leading-7 text-white/82 sm:max-w-2xl md:text-2xl md:leading-8">{current.subline}</p>
-              <IntroChips phase={phase} />
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/82 md:text-2xl">{siteContent.intro.finalSubheadline}</p>
+              <div className="mt-8">
+                <CTAButton onClick={onComplete}>{siteContent.intro.enterLabel}</CTAButton>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-5 text-xs font-bold uppercase tracking-[0.26em] text-cyan-100/90">{siteContent.brand.name}</div>
-            <h1 className="text-4xl font-semibold leading-[0.98] tracking-[-0.02em] text-white drop-shadow-[0_18px_46px_rgba(0,0,0,0.42)] sm:text-6xl lg:text-7xl">
-              {siteContent.intro.finalHeadline}
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/82 md:text-2xl">{siteContent.intro.finalSubheadline}</p>
-            <div className="mt-8">
-              <CTAButton onClick={onComplete}>{siteContent.intro.enterLabel}</CTAButton>
-            </div>
-          </div>
-        )}
-      </motion.div>
+          )}
+        </motion.div>
+      )}
     </motion.div>
   );
 }
