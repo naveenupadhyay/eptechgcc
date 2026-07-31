@@ -4,3 +4,15 @@
   "framework": "vite",
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
+{
+  "rewrites": [
+    {
+      "source": "/real-estate",
+      "destination": "https://prop-flow-three.vercel.app/"
+    },
+    {
+      "source": "/real-estate/:path*",
+      "destination": "https://prop-flow-three.vercel.app/:path*"
+    }
+  ]
+}
